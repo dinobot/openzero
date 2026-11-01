@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8"/>
+<title>EV Charging - Unofficial Zero Manual</title>
+<script>document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"EV_Charging","wgTitle":"EV Charging","wgCurRevisionId":4283,"wgRevisionId":4283,"wgArticleId":230,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Travel"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"EV_Charging","wgRelevantArticleId":230,"wgRequestId":"Z8GVBSfsTrwuQjjjHG6mzgAAAlI","wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgPreferredVariant":"en","wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":false,"preview":true,"publish":true}});mw.loader.implement("user.options",function($,jQuery,require,module){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function ( $, jQuery, require, module ) {
+mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});/*@nomin*/;
+
+});mw.loader.load(["mediawiki.page.startup","skins.vector.js"]);});</script>
+<link rel="stylesheet" href="/load.php?debug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.interface%7Cskins.vector.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector"/>
+<script async="" src="/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector"></script>
+<meta name="generator" content="MediaWiki 1.27.0"/>
+<link rel="shortcut icon" href="/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="Unofficial Zero Manual (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="http://zeromanual.com/api.php?action=rsd"/>
+<link rel="copyright" href="/wiki/MediaWiki:Copyright"/>
+<link rel="alternate" type="application/atom+xml" title="Unofficial Zero Manual Atom feed" href="/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-EV_Charging rootpage-EV_Charging skin-vector action-view">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<div class="mw-indicators">
+</div>
+			<h1 id="firstHeading" class="firstHeading" lang="en">EV Charging</h1>
+									<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Unofficial Zero Manual</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-head">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Charging_Information"><span class="tocnumber">1</span> <span class="toctext">Charging Information</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#E-Touring_meta-map"><span class="tocnumber">1.1</span> <span class="toctext">E-Touring meta-map</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#PlugShare"><span class="tocnumber">1.2</span> <span class="toctext">PlugShare</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#ChargeMap"><span class="tocnumber">1.3</span> <span class="toctext">ChargeMap</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#EV-Charging"><span class="tocnumber">1.4</span> <span class="toctext">EV-Charging</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#RV_Parks_and_Campgrounds"><span class="tocnumber">1.5</span> <span class="toctext">RV Parks and Campgrounds</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="#Charging_Networks"><span class="tocnumber">2</span> <span class="toctext">Charging Networks</span></a>
+<ul>
+<li class="toclevel-2 tocsection-8"><a href="#ChargePoint_.28US.29"><span class="tocnumber">2.1</span> <span class="toctext">ChargePoint (US)</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#SemaConnect"><span class="tocnumber">2.2</span> <span class="toctext">SemaConnect</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#EVgo_.28US.29"><span class="tocnumber">2.3</span> <span class="toctext">EVgo (US)</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="#Blink_.28US.29"><span class="tocnumber">2.4</span> <span class="toctext">Blink (US)</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="#SunCountry_Highway"><span class="tocnumber">2.5</span> <span class="toctext">SunCountry Highway</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="#Greenlots"><span class="tocnumber">2.6</span> <span class="toctext">Greenlots</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="#Regional_Networks"><span class="tocnumber">2.7</span> <span class="toctext">Regional Networks</span></a>
+<ul>
+<li class="toclevel-3 tocsection-15"><a href="#coastal_Oregon_and_Washington:_West_Coast_Electric_Highway_aka_Aerovironment_aka_AV_aka_evsolutions-"><span class="tocnumber">2.7.1</span> <span class="toctext">coastal Oregon and Washington: West Coast Electric Highway aka Aerovironment aka AV aka evsolutions-</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-16"><a href="#Mobile_Apps"><span class="tocnumber">3</span> <span class="toctext">Mobile Apps</span></a></li>
+<li class="toclevel-1 tocsection-17"><a href="#Etiquette"><span class="tocnumber">4</span> <span class="toctext">Etiquette</span></a>
+<ul>
+<li class="toclevel-2 tocsection-18"><a href="#Charging_Tags"><span class="tocnumber">4.1</span> <span class="toctext">Charging Tags</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="#Equipment"><span class="tocnumber">4.2</span> <span class="toctext">Equipment</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="#Troubleshooting"><span class="tocnumber">4.3</span> <span class="toctext">Troubleshooting</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-21"><a href="#Other_EVs"><span class="tocnumber">5</span> <span class="toctext">Other EVs</span></a>
+<ul>
+<li class="toclevel-2 tocsection-22"><a href="#EV_Charging_Status_Field_Guide"><span class="tocnumber">5.1</span> <span class="toctext">EV Charging Status Field Guide</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Charging_Information">Charging Information</span></h1>
+<p>See also <a href="/wiki/Zero_Aftermarket#Chargers" title="Zero Aftermarket" class="mw-redirect">Zero Aftermarket Chargers</a>
+</p><p>Start with David Herron's article <a rel="nofollow" class="external text" href="https://greentransportation.info/ev-charging/range-confidence/chap4-charging/4-plugshare-charging-network.html">What charging networks exist? ChargePoint? Plugshare?</a> and <a rel="nofollow" class="external text" href="https://en.wikipedia.org/wiki/Electric_vehicle_network">the Wikipedia article on Charging Networks</a>
+</p>
+<dl><dt>Finding Stations</dt>
+<dd> Benswing Rich has a lot of experience with finding charging at RV parks- see <a rel="nofollow" class="external text" href="https://www.youtube.com/channel/UCaLRufGaQF5x_ElZVv7i9-A">his videos on Youtube</a> about his rides across the USA.</dd>
+<dd> With regards to finding reliable J1772 "J-Plug" stations, he says:
+<dl><dd> <a href="#ChargePoint">ChargePoint</a> is definitely my favorite. In large part because I can track charging via their app. That way I know when my charge is done or has been interrupted.</dd>
+<dd> I rely on <a href="#PlugShare">PlugShare</a> reviews to inform me which stations are unreliable and that has worked well for me.</dd>
+<dd> I also like ClipperCreek, Inc. chargers and SemaCharge because they sometimes are higher powered (7.2kW).</dd>
+<dd> Problem stations (for Elcons) were old style GE Wattstations (the new ones work fine) and Eaton. But I think both work with the Supercharger v2.</dd>
+<dd> Blink stations have a 50% success rate over 4 years of long distance journeys, so I avoid them like the plague. Also, they are underpowered even when they work.</dd></dl></dd>
+<dd> Chargepoint, Volta, and Semaconnect are networks that show you whether a station is in use or available before you get there.
+<dl><dd> Semacharge/Semaconnect: <a rel="nofollow" class="external free" href="https://network.semaconnect.com/mobile/#map">https://network.semaconnect.com/mobile/#map</a></dd>
+<dd> Volta does not show status on the web, just the app.</dd>
+<dd> Chargepoint shows its own, Blink, SemaConnect, and eVgo stations <a rel="nofollow" class="external free" href="https://na.chargepoint.com/charge_point">https://na.chargepoint.com/charge_point</a></dd></dl></dd></dl>
+<p>ChargePoint RFID tags are worth having; they let you activate free non-networked stations (many owners decline to renew with chargepoint) <a rel="nofollow" class="external free" href="https://na.chargepoint.com/register">https://na.chargepoint.com/register</a>
+</p>
+<h2><span class="mw-headline" id="E-Touring_meta-map">E-Touring meta-map</span></h2>
+<p>Togo has started a <a rel="nofollow" class="external text" href="https://drive.google.com/open?id=1XlgoFYOj6345oZotVQ7KOuC_dBM&amp;usp=sharing">Google MyMaps</a> collaborative with links to plugshare.  The goal is to include the best 2-3 locations in each area.  Unless they are the only stations in town, omit the car dealers, the onesie stations, the poorly maintained ones, the limited hour locations.  Contact via EMF for collaborator status to add the stations in the areas you know.
+</p>
+<h2><span class="mw-headline" id="PlugShare"><a rel="nofollow" class="external text" href="https://www.plugshare.com/">PlugShare</a></span></h2>
+<p>PlugShare (US/Canada) is an information-sharing service/website/app for EV owners, EV Networks, and those making their home EV chargers available to the public or on a request basis.
+</p><p>Their service is very good for cross-service discoverability and a certain amount of basic route/travel planning.
+</p><p>The filter feature is good at pulling out the good vs the bad, for example, showing just the J-plugs (if you have rapid charging) or just the Wall outlets (if you are have slow charging and are looking for a destination to be a while).
+</p><p>A particularly useful feature of PlugShare is its ability to Check-In and to see whether other EVs have had success or failure charging recently.
+</p>
+<h2><span class="mw-headline" id="ChargeMap"><a rel="nofollow" class="external text" href="https://www.chargemap.com/">ChargeMap</a></span></h2>
+<p>ChargeMap is a service similar to ChargePoint for finding stations on various charging networks, especially in Europe.
+</p><p>Their service is very good for cross-service discoverability and a certain amount of basic route/travel planning and their <a rel="nofollow" class="external text" href="https://fr.chargemap.com/pass">Pass</a> which does payment for several charging networks.
+</p>
+<h2><span class="mw-headline" id="EV-Charging"><a rel="nofollow" class="external text" href="https://ev-charging.com/">EV-Charging</a></span></h2>
+<p>EV-Charging is a site and an app focusing on Europe.  It shows very few stations in some countries, like Italy and Greece.
+</p>
+<h2><span class="mw-headline" id="RV_Parks_and_Campgrounds">RV Parks and Campgrounds</span></h2>
+<p>Various apps exist (for the US), such as <a rel="nofollow" class="external text" href="https://www.rvparky.com/">RV Parky</a>.
+</p>
+<dl><dt> Fee Rate Problems</dt>
+<dd> RV park owners are accustomed to renting their spaces to large vehicles for days at a time with high but variable power demands.
+<ul><li> Typically, they'll charge between $15 and $25 USD for an overnight stay.</li>
+<li> Most owners approach the EV charging question as a variation on this fee schedule.</li></ul></dd>
+<dd> If you walk into an RV park office and ask to charge, they'll quote a figure like $10 or higher.
+<ul><li> For an electric motorcycle, this is an absurd figure, a markup of usually 1000% over the cost of electricity.</li></ul></dd></dl>
+<dl><dt> Negotiating Problem</dt>
+<dd> The RV park community is generally not aware of some basic facts we live with:</dd></dl>
+<ol><li> Electric motorcycles <i>exist</i>.</li>
+<li> How <i>small</i> the battery is compared to any electric car.</li>
+<li> You'll be able to charge in <i>less than an hour</i>.</li></ol>
+<dl><dd> Explaining all of this wastes precious charging time and might irritate them.</dd></dl>
+<dl><dt> Suggested Approach</dt></dl>
+<ul><li> <i>Don't</i> call ahead unless absolutely necessary; this allows them to frame the discussion in terms of their by-the-book rates.</li>
+<li> When walking up to the owner or employee, the <i>only</i> phrase out of your mouth should refer only be:
+<dl><dd> <i>I'd like to plug in for less than an hour and use maybe 8-10kWh of electricity.</i></dd></dl></li>
+<li> <b>Pause</b> to let that sink in and let them look at your vehicle while they grasp how small the request is, and how they aren't risking losing a larger customer.</li>
+<li> This sidesteps a lot of negotiation and let's them feel like they're being generous by asking for a smaller fee or waiving it entirely.</li></ul>
+<h1><span class="mw-headline" id="Charging_Networks">Charging Networks</span></h1>
+<h2><span class="mw-headline" id="ChargePoint_.28US.29"><a rel="nofollow" class="external text" href="https://www.chargepoint.com/">ChargePoint</a> (US)</span></h2>
+<p>ChargePoint is a large EV charging network with good reliability, and particularly an excellent software service for knowing whether a station is working and taken before you arrive, queuing to use a station, and for monitoring a charge remotely while your EV is using a station.
+</p><p>ChargePoint stations are often found in rows at major shopping centers, which is convenient for those who have dual-J-plug rapid-charging capability.
+</p><p>Prices for ChargePoint stations are set by location, and vary widely, and may be priced per hour, per KWh, or both.
+</p>
+<h2><span class="mw-headline" id="SemaConnect"><a rel="nofollow" class="external text" href="https://www.semaconnect.com/ev-station-locations/">SemaConnect</a></span></h2>
+<p>SemaConnect seems to be common in smaller towns, such as Watsonville, Seaside, Carmel Valley.  Prices for electricity are often as much as 3X the retail price (e.g. Gilroy) but are sometimes free (downtown Watsonville).
+</p>
+<h2><span class="mw-headline" id="EVgo_.28US.29"><a rel="nofollow" class="external text" href="https://www.evgo.com/">EVgo</a> (US)</span></h2>
+<p>NRG EVgo highlights their DC fast charging which is inaccessible to Zero owners for now. Their AC charging is relatively reliable, but as a second tier service, it does not get the attention that the DC charging gets, so your experience may vary.  Usually the AC charging stations are at opposite ends of the row, making Dub-J charging difficult.
+</p>
+<h2><span class="mw-headline" id="Blink_.28US.29"><a rel="nofollow" class="external text" href="https://www.blinknetwork.com/">Blink</a> (US)</span></h2>
+<p>Blink is an early EV charging network startup company that had reliability and rollout troubles. Their chargers often work serviceably but with low power capacity in the 3kW range with a mis-calibrated J1772 signal.
+</p>
+<h2><span class="mw-headline" id="SunCountry_Highway">SunCountry Highway</span></h2>
+<p>Southern Canada coast to coast, and scattered high-amp J-plugs and T-plugs in other places.
+</p><p>Primary website does not seem to have a station locator, but mobile site does: [<a rel="nofollow" class="external autonumber" href="https://m.suncountryhighway.com/">[1]</a>]
+</p>
+<h2><span class="mw-headline" id="Greenlots">Greenlots</span></h2>
+<p>Mostly remote towns, e.g. [<a rel="nofollow" class="external text" href="https://www.plugshare.com/location/81640">Fortuna</a>].  Can activate by swiping a credit card, or get an account.  There's an app too.
+</p>
+<h2><span class="mw-headline" id="Regional_Networks">Regional Networks</span></h2>
+<h3><span class="mw-headline" id="coastal_Oregon_and_Washington:_West_Coast_Electric_Highway_aka_Aerovironment_aka_AV_aka_evsolutions-">coastal Oregon and Washington: West Coast Electric Highway aka Aerovironment aka AV aka evsolutions-</span></h3>
+<p>$19.99/month gives you unlimited charging, or you can pay $4/session, a pricing scheme that results in station-hogging by large-battery vehicles.  
+</p><p><a rel="nofollow" class="external free" href="https://www.evsolutions.com/Upload/Evnetwork/WCEH_Map.pdf">https://www.evsolutions.com/Upload/Evnetwork/WCEH_Map.pdf</a>
+</p>
+<h1><span class="mw-headline" id="Mobile_Apps">Mobile Apps</span></h1>
+<dl><dt>Cellular Access Notes</dt></dl>
+<ul><li> Cellular connections on the road can be poor, and cell batteries run down rapidly in poor-connectivity areas.</li>
+<li> It is wise to locate and mark potential charging sites before you depart, while you have a good connection, and to carry phone-charging equipment along, such as 12V SAE-to-USB or SAE-to-cigarette-lighter-to-USB adapters.</li>
+<li> Charging on the motorcycle uses very little power in comparison to riding: charging a phone will hurt your range much much less than other factors such as speed, riding position, and tire pressure</li></ul>
+<dl><dt> Offline Maps</dt></dl>
+<ul><li> <a rel="nofollow" class="external text" href="https://maps.google.com">Google Maps</a>
+<dl><dd> Allows rectangular areas of your choice to be downloaded in advance of the trip, and allows .</dd></dl></li>
+<li> <a rel="nofollow" class="external text" href="https://wego.here.com">HERE WeGo</a>
+<dl><dd> Allows pre-downloads for offline use by whole states or countries.</dd>
+<dd> Has offline routing capability if the map has been preloaded.</dd></dl></li></ul>
+<dl><dt> Planning Apps</dt>
+<dd> Apps that tell you if a station is in use before you get there:</dd></dl>
+<ul><li> <a href="#ChargePoint">ChargePoint</a></li>
+<li> Volta</li>
+<li> SemaConnect</li></ul>
+<p>Apps that find stations on various networks with some or no indication of availability:
+</p>
+<ul><li> <a href="#PlugShare">PlugShare</a> (shows availability for a very few networks) (also offers activation and payment for some networks)</li>
+<li> PlugSurfing (Europe)</li>
+<li> ChargePoint shows their own stations, but also Blink, SemaCharge, eVgo, and AV stations</li></ul>
+<p>In addition to the apps mentioned above, please see David Herron's <a rel="nofollow" class="external text" href="https://greentransportation.info/ev-charging/range-confidence/chap4-charging/known-charging-apps.html">excellent article on the subject.</a>
+</p>
+<h1><span class="mw-headline" id="Etiquette">Etiquette</span></h1>
+<dl><dt>Overview</dt>
+<dd> David Herron's <a rel="nofollow" class="external text" href="https://greentransportation.info/ev-charging/range-confidence/charging-etiquette.html">Charging Etiquette</a> covers a great deal of the issues involved with EV charging as a social problem.</dd></dl>
+<h2><span class="mw-headline" id="Charging_Tags">Charging Tags</span></h2>
+<dl><dt><a rel="nofollow" class="external text" href="http://www.takechargeandgo.com/2015/02/14/hangers/">Take Charge And Go Hangers</a></dt>
+<dd> "Take Charge and Go EV Charging Hangers are an excellent way to indicate to other Electric Vehicle drivers know how long you will be charging and to share proper etiquette. Simply plug your car in with the hanger on the charging port or dashboard of your car and let others know when you can share the spot."</dd>
+<dd> <a rel="nofollow" class="external text" href="https://www.etsy.com/shop/TakeChargeandGo#items">Take Charge And Go Etsy shop</a> with bundled packs of tags </dd></dl>
+<dl><dt><a rel="nofollow" class="external text" href="https://www.facebook.com/EV.FRISBEE/">EV Frisbee</a></dt>
+<dd> Put this on your "dash" to give contact info and basic charging estimates for others to notice.</dd>
+<dd> <a rel="nofollow" class="external text" href="http://www.electric-car-charging-etiquette.com">EV-Frisbee etiquette website</a></dd>
+<dd> <a rel="nofollow" class="external text" href="http://www.ev-etiquette-kit.com">EV Etiquette Kit</a></dd>
+<dd> <a rel="nofollow" class="external text" href="https://www.etsy.com/shop/evEtiquette#items">evEtiquette Etsy shop</a></dd></dl>
+<h2><span class="mw-headline" id="Equipment">Equipment</span></h2>
+<p>Review various EVSEs by manufacturer and model...
+</p>
+<h2><span class="mw-headline" id="Troubleshooting">Troubleshooting</span></h2>
+<p>Typical EVSE safeguards include <a rel="nofollow" class="external text" href="http://www.electricalreview.co.uk/features/10103-electric-vehicle-charge-point-rcd-safety">RCD</a> and <a href="/wiki/Common_Problems#GFCI_Faults" title="Common Problems">GFCI</a>.
+</p><p>A typical J1772 station will trigger a fault at 30mA of imbalance between L1/L2. Sometimes this applies to a <a href="#ChargePoint">ChargePoint</a>-built station with a level-1 charging outlet when connecting both the level 1 and level 2 outlets to the same EV, but this is an EVSE implementation problem with the wiring, not inherent to such designs.
+</p>
+<dl><dt>References</dt>
+<dd> <a rel="nofollow" class="external text" href="http://electricmotorcycleforum.com/boards/index.php?topic=7154.msg59469#msg59469">Re: Parallelling two J-plug for 7kW+ SINGLE charger</a></dd></dl>
+<h1><span class="mw-headline" id="Other_EVs">Other EVs</span></h1>
+<h2><span class="mw-headline" id="EV_Charging_Status_Field_Guide"><a href="/wiki/EV_Charging_Status_Field_Guide" title="EV Charging Status Field Guide">EV Charging Status Field Guide</a></span></h2>
+<table class="wikitable mw-datatable sortable">
+<caption>Charging Indicators
+</caption>
+<tr>
+<th>Manufacturer
+</th>
+<th>Model
+</th>
+<th data-sort-type="number"> L2 Charging Rate (kW)
+</th>
+<th>Location
+</th>
+<th>Appearance
+</th>
+<th class="unsortable">In Progress
+</th>
+<th class="unsortable">Not Charging
+</th>
+<th class="unsortable">Notes
+</th></tr>
+<tr id="BMW_ActiveE">
+<td rowspan="3">BMW
+</td>
+<td><a href="https://en.wikipedia.org/wiki/BMW_ActiveE" class="extiw" title="wikipedia:BMW ActiveE">ActiveE</a>
+</td>
+<td>6.6 (governed to 5.5)
+</td>
+<td>Bottom of center rear-view mirror
+</td>
+<td>Blue light
+</td>
+<td>Blinking
+</td>
+<td>Off
+</td></tr>
+<tr id="BMW_i3">
+<td><a href="https://en.wikipedia.org/wiki/BMW_i3" class="extiw" title="wikipedia:BMW i3">i3</a>
+</td>
+<td>3.3-7.7
+</td>
+<td><a rel="nofollow" class="external text" href="https://www.edmunds.com/bmw/i3/2014/long-term-road-test/2014-bmw-i3-color-coded-charging.html">Inside the charge port flap</a>
+</td>
+<td>Colored lights
+</td>
+<td>Blue flashing
+</td>
+<td>
+<dl><dt>Green on</dt>
+<dd> charging complete</dd>
+<dt>White on</dt>
+<dd> charging cable can be disconnected</dd></dl>
+</td>
+<td>
+<dl><dt> Lamp white</dt>
+<dd> charging cable can be connected or removed.</dd>
+<dt> Lamp flashes yellow</dt>
+<dd> charging process is being initialized.</dd>
+<dt> Lamp blue</dt>
+<dd> charging process is started at a set time.</dd>
+<dt> Lamp flashes blue</dt>
+<dd> charging process active.</dd>
+<dt> Lamp flashes red</dt>
+<dd> fault in the charging process.</dd>
+<dt> Lamp green</dt>
+<dd> charging process completed.</dd>
+<dt> When the vehicle is locked</dt>
+<dd> the indicator lamp goes out after some time.</dd>
+<dt> When the vehicle is unlocked</dt>
+<dd> the blue indicator lamp flashes continuously.</dd></dl>
+</td></tr>
+<tr id="BMW_i8">
+<td><a href="https://en.wikipedia.org/wiki/BMW_i8" class="extiw" title="wikipedia:BMW i8">i8</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr id="Chevy_Spark">
+<td rowspan="4">Chevy
+</td>
+<td><a href="https://en.wikipedia.org/wiki/Chevrolet_Spark" class="extiw" title="wikipedia:Chevrolet Spark">Spark</a>
+</td>
+<td>3.3
+</td>
+<td>Dashboard
+</td>
+<td>Green light
+</td>
+<td>Solid
+</td>
+<td>Blinking
+</td></tr>
+<tr id="Chevy_Volt_Gen1">
+<td><a href="https://en.wikipedia.org/wiki/Chevrolet_Volt" class="extiw" title="wikipedia:Chevrolet Volt">Volt Gen1</a>
+</td>
+<td>3.0
+</td>
+<td>Dashboard
+</td>
+<td>Green light
+</td>
+<td>
+<dl><dt>Solid</dt>
+<dd> 3kw</dd>
+<dt>Blinking</dt>
+<dd> slowing to completion</dd></dl>
+</td>
+<td>Off
+</td>
+<td>
+<dl><dt>Long flashing light</dt>
+<dd> delayed charging</dd>
+<dd> This should never be used in a public charging spot when others may be waiting.</dd></dl>
+</td></tr>
+<tr id="Chevy_Volt_Gen2">
+<td><a href="https://en.wikipedia.org/wiki/Chevrolet_Volt" class="extiw" title="wikipedia:Chevrolet Volt">Volt Gen2 and 3</a>
+</td>
+<td>3.3
+</td>
+<td>Dashboard
+</td>
+<td>Green light
+</td>
+<td>Solid
+</td>
+<td>Blinking
+<dl><dd> Number of blinks (1-5) show which 20% of charge range</dd></dl>
+</td>
+<td>
+<dl><dt>Long flashing light</dt>
+<dd> delayed charging</dd>
+<dd> This should never be used in a public charging spot when others may be waiting.</dd></dl>
+</td></tr>
+<tr id="Chevy_Bolt">
+<td><a href="https://en.wikipedia.org/wiki/Chevrolet_Bolt" class="extiw" title="wikipedia:Chevrolet Bolt">Bolt</a>
+</td>
+<td>6.6
+</td>
+<td>Dashboard
+</td>
+<td>Green light
+</td>
+<td>Flashing Green
+</td>
+<td>Solid Green
+</td>
+<td>
+<dl><dt>Long Flashing Green</dt>
+<dd> delayed charging</dd>
+<dd> This should never be used in a public charging spot when others may be waiting.</dd>
+<dt> Solid Yellow</dt>
+<dd> either starting charge or fault detected.</dd></dl>
+</td></tr>
+<tr id="Fisker_Karma">
+<td>Fisker
+</td>
+<td><a href="https://en.wikipedia.org/wiki/Fisker_Karma" class="extiw" title="wikipedia:Fisker Karma">Karma</a>
+</td>
+<td>3.4
+</td>
+<td>Instrument cluster
+</td>
+<td>
+</td>
+<td>On
+</td>
+<td>Off
+</td>
+<td>
+<dl><dd>The charge level indicator is on the instrument cluster.</dd>
+<dd>It will reach maximum and the charge indicator will turn off.</dd></dl>
+</td></tr>
+<tr id="Ford_C-Max">
+<td rowspan="3">Ford
+</td>
+<td><a href="https://en.wikipedia.org/wiki/Ford_C-Max" class="extiw" title="wikipedia:Ford C-Max">C-Max Energi</a>
+</td>
+<td>3.3
+</td>
+<td rowspan="2">Around charge port
+</td>
+<td rowspan="2">Blue ring
+</td>
+<td rowspan="2">Lights up in four blue quartered segments
+</td>
+<td rowspan="2">Off
+</td></tr>
+<tr id="Ford_Focus_Electric">
+<td><a href="https://en.wikipedia.org/wiki/Ford_Focus_Electric" class="extiw" title="wikipedia:Ford Focus Electric">Focus Electric</a>
+</td>
+<td>6.6
+</td></tr>
+<tr id="Ford_Think">
+<td><a href="https://en.wikipedia.org/wiki/Ford_TH!NK" class="extiw" title="wikipedia:Ford TH!NK">TH!NK</a>
+</td>
+<td>
+</td>
+<td>Dashboard
+</td>
+<td>Two green lights
+</td>
+<td>Both on and linked
+</td>
+<td>Only one on
+</td></tr>
+<tr id="Fiat_500e">
+<td>Fiat
+</td>
+<td><a href="https://en.wikipedia.org/wiki/Fiat_500_(2007)#Fiat_500e_.282013-.29" class="extiw" title="wikipedia:Fiat 500 (2007)">500e</a>
+</td>
+<td>6.6
+</td>
+<td>Dashboard
+</td>
+<td>Row of LEDs
+</td>
+<td>Single LED flashing
+</td>
+<td>Off
+</td>
+<td>
+<dl><dt> 2 outer LEDs flashing</dt>
+<dd> Pending</dd>
+<dt> 2 outer LEDs flashing rapidly</dt>
+<dd> Error</dd>
+<dt> Solid LEDs</dt>
+<dd> charge level (5 total)</dd></dl>
+</td></tr>
+<tr id="Honda_Fit_EV">
+<td>Honda
+</td>
+<td><a href="https://en.wikipedia.org/wiki/Honda_Fit#Fit_EV" class="extiw" title="wikipedia:Honda Fit">Fit EV</a>
+</td>
+<td>6.6
+</td>
+<td>Next to the charge port
+</td>
+<td>Green LED
+</td>
+<td>On
+</td>
+<td>Off
+</td>
+<td>
+<dl><dt> Flashing</dt>
+<dd> the charging rate has been reduced because of a problem.</dd></dl>
+</td></tr>
+<tr id="Mercedes_E-Class">
+<td rowspan="2">Mercedes
+</td>
+<td><a href="https://en.wikipedia.org/wiki/Mercedes-Benz_E-Class" class="extiw" title="wikipedia:Mercedes-Benz E-Class">E-Class</a>
+</td>
+<td rowspan="2">10
+</td>
+<td rowspan="2">None
+</td>
+<td rowspan="2">
+</td>
+<td rowspan="2">
+</td>
+<td rowspan="2">
+</td>
+<td rowspan="2">Must check station
+</td></tr>
+<tr id="Mercedes_B-Class">
+<td><a href="https://en.wikipedia.org/wiki/Mercedes-Benz_B-Class" class="extiw" title="wikipedia:Mercedes-Benz B-Class">B-Class</a>
+</td></tr>
+<tr id="Mitsubishi_i-MiEV">
+<td>Mitsubishi
+</td>
+<td><a href="https://en.wikipedia.org/wiki/Mitsubishi_i-MiEV" class="extiw" title="wikipedia:Mitsubishi i-MiEV">i-MiEV</a>
+</td>
+<td>3.3
+</td>
+<td>Dashboard
+</td>
+<td>Red electric plug symbol
+</td>
+<td>On
+</td>
+<td>Off
+</td></tr>
+<tr id="Nissan_Leaf">
+<td>Nissan
+</td>
+<td><a href="https://en.wikipedia.org/wiki/Nissan_Leaf" class="extiw" title="wikipedia:Nissan Leaf">Leaf</a>
+</td>
+<td>3.3-6.6
+</td>
+<td>Dashboard
+</td>
+<td>Three blue lights
+</td>
+<td>Any flashing
+</td>
+<td>All on or all off
+</td>
+<td>
+<dl><dt>One flashing light</dt>
+<dd> 0-33%</dd>
+<dt>One solid, one flashing</dt>
+<dd> 33% to 66%</dd>
+<dt>Two solid, one flashing</dt>
+<dd> 66% to 100%</dd>
+<dt> Three solid, or all off</dt>
+<dd> 100%</dd></dl>
+</td></tr>
+<tr id="Smart_Fortwo_ED">
+<td>Smart
+</td>
+<td><a href="https://en.wikipedia.org/wiki/Smart_electric_drive_Fortwo" class="extiw" title="wikipedia:Smart electric drive Fortwo">Fortwo ED</a>
+</td>
+<td>3.3
+</td>
+<td>None
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>The only indication is on the Tesla UMC
+</td></tr>
+<tr id="Tesla_Roadster">
+<td rowspan="4">Tesla
+</td>
+<td><a href="https://en.wikipedia.org/wiki/Tesla_Roadster" class="extiw" title="wikipedia:Tesla Roadster">Roadster</a>
+</td>
+<td>
+</td>
+<td>Inside of charge port
+</td>
+<td>Lighting around
+</td>
+<td>Flashes amber
+</td>
+<td>Solid green
+</td></tr>
+<tr id="Tesla_Model_S">
+<td><a href="https://en.wikipedia.org/wiki/Tesla_Model_S" class="extiw" title="wikipedia:Tesla Model S">Model S</a>
+</td>
+<td rowspan="3">10 (20 with dual charger)
+</td>
+<td rowspan="3">Around the charge port
+</td>
+<td rowspan="3">Multicolored light
+</td>
+<td rowspan="3">Pulses green
+</td>
+<td rowspan="3">Solid green
+</td>
+<td rowspan="3">If the vehicle is locked during charging, the charge port light does not illuminate but the vehicle continues to charge. <a rel="nofollow" class="external text" href="http://www.teslamotors.wiki/wiki/Q:_What_do_the_colors_on_the_charge_port_mean%3F">ref</a>
+</td></tr>
+<tr id="Tesla_Model_X">
+<td><a href="https://en.wikipedia.org/wiki/Tesla_Model_X" class="extiw" title="wikipedia:Tesla Model X">Model X</a>
+</td></tr>
+<tr id="Tesla_Model_3">
+<td><a href="https://en.wikipedia.org/wiki/Tesla_Model_3" class="extiw" title="wikipedia:Tesla Model 3">Model 3</a>
+</td></tr>
+<tr id="Toyota_Prius_Plugin">
+<td rowspan="2">Toyota
+</td>
+<td><a href="https://en.wikipedia.org/wiki/Toyota_Prius_Plug-in_Hybrid" class="extiw" title="wikipedia:Toyota Prius Plug-in Hybrid">Plug-in Prius</a>
+</td>
+<td>3.3
+</td>
+<td>Next to the charge port
+</td>
+<td>Amber electric plug icon
+</td>
+<td>
+</td>
+<td>Off
+</td></tr>
+<tr id="Toyota_RAV4_EV">
+<td><a href="https://en.wikipedia.org/wiki/Toyota_RAV4_EV" class="extiw" title="wikipedia:Toyota RAV4 EV">RAV4 EV</a>
+</td>
+<td>10
+</td>
+<td>At the bottom of the back side window above the charge port on the driver's side of the car
+</td>
+<td>Two amber lights
+</td>
+<td>
+</td>
+<td>Both solid or off
+</td></tr>
+<tr id="Victory_Empulse">
+<td>Victory
+</td>
+<td><a href="https://en.wikipedia.org/wiki/Brammo#Empulse_R_ride_reviews" class="extiw" title="wikipedia:Brammo">Empulse</a>
+</td>
+<td>3.6
+</td>
+<td>Instrument cluster
+</td>
+<td>LCD display
+</td>
+<td>Time, kW, amps
+</td>
+<td>Off or shows full
+</td></tr>
+<tr id="Zero_S">
+<td rowspan="3">Zero
+</td>
+<td>S,SR,DS,DSR
+</td>
+<td>1.3 (3.8 or more with a tank J plug)
+</td>
+<td rowspan="2">Bottom of instrument cluster
+</td>
+<td rowspan="2">Green light
+</td>
+<td rowspan="2">Blinking
+</td>
+<td rowspan="2">Solid or off
+</td>
+<td rowspan="2">
+<dl><dd> Usually only level 1 charging.</dd>
+<dd> LCD display shows time remaining to full.</dd>
+<dd> Sometimes found with an accessory charger of varying power level.</dd>
+<dd> There may be cables leading into the underside of the bike or a tank plug.</dd></dl>
+</td></tr>
+<tr id="Zero_X">
+<td>FX,FXS
+</td>
+<td>0.7
+</td></tr>
+<tr id="Zero_SRF">
+<td>SR/F
+</td>
+<td>3 (6 or 9 or 12 with additional modules)
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr></table>
+
+<!-- 
+NewPP limit report
+Cached time: 20250228065036
+Cache expiry: 86400
+Dynamic content: false
+CPU time usage: 0.019 seconds
+Real time usage: 0.023 seconds
+Preprocessor visited node count: 88/1000000
+Preprocessor generated node count: 106/1000000
+Post‐expand include size: 5859/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    2.590      1 - EV_Charging_Status_Field_Guide
+100.00%    2.590      1 - -total
+-->
+
+<!-- Saved in parser cache with key fastgm_mediawiki1465250065:pcache:idhash:230-0!*!0!!en!*!* and timestamp 20250228065036 and revision id 4283
+ -->
+</div>					<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="http://zeromanual.com/index.php?title=EV_Charging&amp;oldid=4283">http://zeromanual.com/index.php?title=EV_Charging&amp;oldid=4283</a>"					</div>
+				<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Category</a>: <ul><li><a href="/wiki/Category:Travel" title="Category:Travel">Travel</a></li></ul></div></div>				<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="/index.php?title=Special:UserLogin&amp;returnto=EV+Charging" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="/wiki/EV_Charging"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+															<li  id="ca-talk" class="new"><span><a href="/edit/Talk:EV_Charging?redlink=1"  title="Discussion about the content page [t]" accesskey="t" rel="discussion">Discussion</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label">
+							<span>Variants</span><a href="#"></a>
+						</h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="/wiki/EV_Charging" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="/edit/EV_Charging"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="/history/EV_Charging"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="/index.php" id="searchform">
+							<div id="simpleSearch">
+							<input type="search" name="search" placeholder="Search" title="Search Unofficial Zero Manual [f]" accesskey="f" id="searchInput"/><input type="hidden" value="Special:Search" name="title"/><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/><input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>							</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="/wiki/Main_Page"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation' aria-labelledby='p-navigation-label'>
+			<h3 id='p-navigation-label'>Navigation</h3>
+
+			<div class="body">
+									<ul>
+						<li id="n-mainpage-description"><a href="/wiki/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-recentchanges"><a href="http://zeromanual.com/wiki/Special:RecentChanges?namespace=0" rel="nofollow" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" title="The place to find out">Help</a></li>					</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+						<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/EV_Charging" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/EV_Charging" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="/index.php?title=EV_Charging&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="/index.php?title=EV_Charging&amp;oldid=4283" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="/info/EV_Charging" title="More information about this page">Page information</a></li>					</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 1 October 2018, at 18:25.</li>
+											<li id="footer-info-copyright"><span style="color:#999999">
+This site and its contents are not sponsored by, associated with, affiliated with, or endorsed by Zero Motorcycles.<br/>
+All logos and icons are owned by their respective owners. <br/>
+The Zero logo is used only under fair use for subject matter identification. Use of the logo is not an endorsement or sign of association with the Zero Motorcycle brand.
+</span></li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="/wiki/Unofficial_Zero_Manual:Privacy_policy" title="Unofficial Zero Manual:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="/wiki/Unofficial_Zero_Manual:About" title="Unofficial Zero Manual:About">About Unofficial Zero Manual</a></li>
+											<li id="footer-places-disclaimer"><a href="/wiki/Unofficial_Zero_Manual:General_disclaimer" title="Unofficial Zero Manual:General disclaimer">Disclaimers</a></li>
+											<li id="footer-places-mobileview"><a href="http://zeromanual.com/index.php?title=EV_Charging&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-poweredbyico">
+							<a href="//www.mediawiki.org/"><img src="/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31"/></a>						</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>(window.RLQ=window.RLQ||[]).push(function(){mw.loader.state({"user":"ready","user.groups":"ready"});mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","site","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest","ext.CategorySuggest"]);});</script><script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":229});});</script>
+	</body>
+</html>

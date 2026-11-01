@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8"/>
+<title>Official Mobile Application - Unofficial Zero Manual</title>
+<script>document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Official_Mobile_Application","wgTitle":"Official Mobile Application","wgCurRevisionId":7236,"wgRevisionId":7236,"wgArticleId":403,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Official_Mobile_Application","wgRelevantArticleId":403,"wgRequestId":"aKvnu0zc_tFHEYGGG6wsHwAAAZg","wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgPreferredVariant":"en","wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":false,"preview":true,"publish":true}});mw.loader.implement("user.options",function($,jQuery,require,module){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function ( $, jQuery, require, module ) {
+mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});/*@nomin*/;
+
+});mw.loader.load(["mediawiki.page.startup","skins.vector.js"]);});</script>
+<link rel="stylesheet" href="/load.php?debug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.page.gallery.styles%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.interface%7Cskins.vector.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector"/>
+<script async="" src="/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector"></script>
+<meta name="generator" content="MediaWiki 1.27.0"/>
+<link rel="shortcut icon" href="/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="Unofficial Zero Manual (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="http://zeromanual.com/api.php?action=rsd"/>
+<link rel="copyright" href="/wiki/MediaWiki:Copyright"/>
+<link rel="alternate" type="application/atom+xml" title="Unofficial Zero Manual Atom feed" href="/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Official_Mobile_Application rootpage-Official_Mobile_Application skin-vector action-view">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<div class="mw-indicators">
+</div>
+			<h1 id="firstHeading" class="firstHeading" lang="en">Official Mobile Application</h1>
+									<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Unofficial Zero Manual</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-head">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p>Zero publishes a native mobile app for their vehicles that connects to the <a href="/wiki/MBB" title="MBB" class="mw-redirect">MBB</a> via Bluetooth LE.
+</p><p>First, check <a rel="nofollow" class="external text" href="http://www.zeromotorcycles.com/app/help/ios/">Zero's official mobile app user guide</a> for an official and somewhat comprehensive overview.
+</p><p>This is an unofficial guide to their application.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Versions"><span class="tocnumber">1</span> <span class="toctext">Versions</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Capabilities"><span class="tocnumber">2</span> <span class="toctext">Capabilities</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Ride_Mode"><span class="tocnumber">2.1</span> <span class="toctext">Ride Mode</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Statistics_Mode"><span class="tocnumber">2.2</span> <span class="toctext">Statistics Mode</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Upgrading_Firmware"><span class="tocnumber">2.3</span> <span class="toctext">Upgrading Firmware</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="#Usage"><span class="tocnumber">3</span> <span class="toctext">Usage</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="#Obtaining_Logs"><span class="tocnumber">3.1</span> <span class="toctext">Obtaining Logs</span></a>
+<ul>
+<li class="toclevel-3 tocsection-8"><a href="#Decoding_Logs"><span class="tocnumber">3.1.1</span> <span class="toctext">Decoding Logs</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-9"><a href="#Firmware_Update"><span class="tocnumber">3.2</span> <span class="toctext">Firmware Update</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-10"><a href="#Common_Problems"><span class="tocnumber">4</span> <span class="toctext">Common Problems</span></a>
+<ul>
+<li class="toclevel-2 tocsection-11"><a href="#Pairing"><span class="tocnumber">4.1</span> <span class="toctext">Pairing</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="#Unable_to_Connect"><span class="tocnumber">4.2</span> <span class="toctext">Unable to Connect</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="#Unable_to_Customize_Drive_Mode"><span class="tocnumber">4.3</span> <span class="toctext">Unable to Customize Drive Mode</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="#Slow_to_Obtain_Logs"><span class="tocnumber">4.4</span> <span class="toctext">Slow to Obtain Logs</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="#Unable_to_Obtain_Logs"><span class="tocnumber">4.5</span> <span class="toctext">Unable to Obtain Logs</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="#Stuck_Screen"><span class="tocnumber">4.6</span> <span class="toctext">Stuck Screen</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="#Stuck_Orientation"><span class="tocnumber">4.7</span> <span class="toctext">Stuck Orientation</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Versions">Versions</span></h1>
+<p>Versions used internally by Zero and reported by the App may not match the versions reported by the mobile operating system.  
+</p><p>For example, as of this writing the Zero App reports itself as 1.6.50(21), but Google Play Store reports it as 1.6.50
+</p>
+<ul><li> <a rel="nofollow" class="external text" href="https://play.google.com/store/apps/details?id=com.ZeroMotorcycles&amp;hl=en_US">Zero Motorcycles on Android App Store</a></li>
+<li> <a rel="nofollow" class="external text" href="https://itunes.apple.com/us/app/zero-motorcycles/id596423381?mt=8">Zero Motorcyles app on iTunes App Store</a></li></ul>
+<p>To see the version number in the App, touch Support and then About This App.
+</p><p>Release information, as scraped from <a rel="nofollow" class="external text" href="https://apkpure.com/zero-motorcycles/com.ZeroMotorcycles">APK Pure</a> and iTunes:
+</p>
+<table class="wikitable sortable">
+<tr>
+<th>OS
+</th>
+<th>Version
+</th>
+<th>Rev
+</th>
+<th>Date
+</th>
+<th>Release Notes
+</th></tr>
+<tr>
+<td rowspan="16">iOS
+</td>
+<td>2.0.0
+</td>
+<td>
+</td>
+<td>2019-09-30
+</td>
+<td>New Look and Feel
+</td></tr>
+<tr>
+<td>1.7.5
+</td>
+<td>
+</td>
+<td>2019-08-19
+</td>
+<td>Support for new model year motorcycles.
+</td></tr>
+<tr>
+<td>1.5.0
+</td>
+<td>
+</td>
+<td>2018-10-16
+</td>
+<td>Support for model year 2019 motorcycles
+</td></tr>
+<tr>
+<td>1.4.2
+</td>
+<td>
+</td>
+<td>2018-02-05
+</td>
+<td>
+<dl><dd> Performance Tab now mirrors Trip 1 Odometer for MY15-MY18</dd>
+<dd> Updated reporting of some values on the Battery Tab</dd>
+<dd> Fixed speed offset seen between DASH and riding screen</dd>
+<dd> Bluetooth Help is now available from the Support Tab</dd>
+<dd> General Bug fixes</dd></dl>
+</td></tr>
+<tr>
+<td>1.4.0
+</td>
+<td>
+</td>
+<td>2017-09-27
+</td>
+<td>
+<ul><li> Model Year 18 Support.</li>
+<li> The application will now alert you when it detects that your motorcycle's firmware is out of date.</li>
+<li> Better in-app support of firmware update for Model Year 17 and Model Year 18 motorcycles.</li></ul>
+</td></tr>
+<tr>
+<td>1.3.0
+</td>
+<td>
+</td>
+<td>2017-05-03
+</td>
+<td>Bug Fixes
+</td></tr>
+<tr>
+<td>1.2.0
+</td>
+<td>
+</td>
+<td>2016-11-02
+</td>
+<td>
+<ul><li> Owners of 2017 models can use the Zero Motorcycles app to update their motorcycle’s firmware, saving time, money and service trips.</li>
+<li> Miscellaneous bug fixes and performance enhancements.</li>
+<li> Support for Italian language.</li></ul>
+</td></tr>
+<tr>
+<td>1.1.0
+</td>
+<td>
+</td>
+<td>2016-09-28
+</td>
+<td>
+<ul><li> Fix for bug that wouldn't allow you to connect to your motorcycle on iOS 10.</li>
+<li> String translation fixes.</li></ul>
+</td></tr>
+<tr>
+<td>1.0.9
+</td>
+<td>
+</td>
+<td>2016-04-07
+</td>
+<td>
+<ul><li> Miscellaneous bug fixes and performance enhancements</li>
+<li> Updated to include 2015 and 2016 model year Zero Motorcycles, including the 11kW models.</li>
+<li> Enhanced diagnostic reporting via ability to send battery management system (BMS) logs on 2014 model year and later Zero Motorcycles</li></ul>
+</td></tr>
+<tr>
+<td>1.0.8
+</td>
+<td>
+</td>
+<td>2016-03-04
+</td>
+<td>
+<ul><li> Miscellaneous bug fixes and performance enhancements</li>
+<li> Updated to include 2015 and 2016 model year Zero Motorcycles</li>
+<li> Enhanced diagnostic reporting via ability to send battery management system (BMS) logs on 2014 model year and later Zero Motorcycles</li></ul>
+</td></tr>
+<tr>
+<td>1.0.7
+</td>
+<td>
+</td>
+<td>2014-07-09
+</td>
+<td>
+<ul><li> Changed the company email for sending logs.</li>
+<li> Small UI fix for iOS 7.1.</li></ul>
+</td></tr>
+<tr>
+<td>1.0.6
+</td>
+<td>
+</td>
+<td>2014-07-02
+</td>
+<td>
+<ul><li> Updated the application for iOS7.0 and above.</li>
+<li> Added more specific log uploading support.</li></ul>
+</td></tr>
+<tr>
+<td>1.05
+</td>
+<td>
+</td>
+<td>2013-03-19
+</td>
+<td>Minor improvements
+</td></tr>
+<tr>
+<td>1.03
+</td>
+<td>
+</td>
+<td>2013-02-25
+</td>
+<td>Bug fixes &amp; improvements
+</td></tr>
+<tr>
+<td>1.01
+</td>
+<td>
+</td>
+<td>2013-02-19
+</td>
+<td>Minor issues resolved
+</td></tr>
+<tr>
+<td>1.00
+</td>
+<td>
+</td>
+<td>2013-01-25
+</td>
+<td>
+</td></tr>
+<tr>
+<td rowspan="12">Android
+</td>
+<td>2.0.0
+</td>
+<td>
+</td>
+<td>2019-10-01
+</td>
+<td>New Look and Feel
+</td></tr>
+<tr>
+<td>1.7.5
+</td>
+<td>
+</td>
+<td>2019-08-21
+</td>
+<td>Support for new model year motorcycles.
+</td></tr>
+<tr>
+<td>1.7.3
+</td>
+<td>
+</td>
+<td>2018-10-17
+</td>
+<td>Support for model year 2019 motorcycles
+</td></tr>
+<tr>
+<td>1.6.71
+</td>
+<td>22
+</td>
+<td>2018-02-14
+</td>
+<td>
+<dl><dd> Performance Tab now mirrors Trip 1 Odometer for MY15-MY18</dd>
+<dd> Updated reporting of some values on the Battery Tab</dd>
+<dd> Fixed speed offset seen between DASH and riding screen</dd>
+<dd> Bluetooth Help is now available from the Support Tab</dd>
+<dd> General Bug fixes</dd></dl>
+</td></tr>
+<tr>
+<td>1.6.50
+</td>
+<td>21
+</td>
+<td>2017-09-29
+</td>
+<td>
+<ul><li> Model Year 18 Support.</li>
+<li> The application will now alert you when it detects that your motorcycle's firmware is out of date.</li>
+<li> Better in-app support of firmware update for Model Year 17 and Model Year 18 motorcycles.</li>
+<li> Bug fixes.</li></ul>
+</td></tr>
+<tr>
+<td>1.5.7
+</td>
+<td>20
+</td>
+<td>2017-05-06
+</td>
+<td>
+<ul><li> Crash fix for pre-5.0 (Lollipop) devices.</li>
+<li> Battery tab should now be quicker to load.</li></ul>
+</td></tr>
+<tr>
+<td>1.4.59
+</td>
+<td>19
+</td>
+<td>2016-12-14
+</td>
+<td>
+<ul><li> Crash fix for pre-5.0 (Lollipop) devices.</li>
+<li> Battery tab should now be quicker to load.</li></ul>
+</td></tr>
+<tr>
+<td>1.4.56
+</td>
+<td>18
+</td>
+<td>2016-11-04
+</td>
+<td>
+<ul><li> Owners of 2017 models can use the Zero Motorcycles app to update their motorcycle’s firmware, saving time, money and service trips.</li>
+<li> Miscellaneous bug fixes and performance enhancements.</li>
+<li> Support for Italian language.</li></ul>
+</td></tr>
+<tr>
+<td>1.4.54
+</td>
+<td>17
+</td>
+<td>2016-11-03
+</td>
+<td>
+<ul><li> Owners of 2017 models can use the Zero Motorcycles app to update their motorcycle’s firmware, saving time, money and service trips.</li>
+<li> Miscellaneous bug fixes and performance enhancements.</li>
+<li> Support for Italian language.</li></ul>
+</td></tr>
+<tr>
+<td>1.3.17
+</td>
+<td>16
+</td>
+<td>2016-04-06
+</td>
+<td>
+<ul><li> Miscellaneous bug fixes and performance enhancements</li>
+<li> Updated to include 2015 and 2016 model year Zero Motorcycles, including the 11kW models.</li>
+<li> Enhanced diagnostic reporting via ability to send battery management system (BMS) </li></ul>
+<p>logs on 2014 model year and later Zero Motorcycles
+</p>
+</td></tr>
+<tr>
+<td>1.3.16
+</td>
+<td>15
+</td>
+<td>2016-03-03
+</td>
+<td>
+<ul><li> Miscellaneous bug fixes and performance enhancements</li>
+<li> Updated to include 2015 and 2016 model year Zero Motorcycles</li>
+<li> Enhanced diagnostic reporting via ability to send battery management system (BMS) logs on 2014 model year and later Zero Motorcycles</li></ul>
+</td></tr>
+<tr>
+<td>1.2.8
+</td>
+<td>14
+</td>
+<td>2015-12-21
+</td>
+<td>
+<p>Fixed crashes in home screen.
+</p>
+</td></tr></table>
+<h1><span class="mw-headline" id="Capabilities">Capabilities</span></h1>
+<h2><span class="mw-headline" id="Ride_Mode">Ride Mode</span></h2>
+<p>Customize in Settings, Riding Screen Setup.
+</p><p>App now supports Landscape or Portrait.
+</p><p>Preview in Settings, Riding Screen Preview
+</p><p>When underway, Ride Mode, most functions in the app are disabled, only Riding Screen is available.
+</p><p>Other functions are available when key is on and throttle is disabled (by right-thumb switch or kickstand).
+</p><p>Voltage is not available on the Riding Screen.  If you have concerns that your State Of Charge (percent full) or Distance To Empty is inaccurate and want to check the voltage, you'll have to stop riding to get out of Ride Mode and click the battery icon to see the voltage.
+</p>
+<h2><span class="mw-headline" id="Statistics_Mode">Statistics Mode</span></h2>
+<table class="wikitable">
+<caption> Indicator Guide
+</caption>
+<tr>
+<th>Page
+</th>
+<th>Indicator
+</th>
+<th>Official Description
+</th>
+<th>Unit
+</th>
+<th>Unofficial Guidance
+</th></tr>
+<tr>
+<td rowspan="1">Home
+</td>
+<td><a href="/wiki/State_of_Charge" title="State of Charge">State of Charge</a>
+</td>
+<td>
+</td>
+<td>%
+</td></tr>
+<tr>
+<td rowspan="9"><a href="/wiki/Battery" title="Battery">Battery</a>
+</td>
+<td>Time Until Charged
+</td>
+<td>An estimate of how long it will take for your Zero to fully charge.
+</td>
+<td>Hours and minutes (hh:mm)
+</td>
+<td>Seems to be a linear projection based on the current Charging Watts and estimated capacity?
+</td></tr>
+<tr>
+<td>Capacity Kilowatt Hours
+</td>
+<td>
+</td>
+<td>kWh
+</td>
+<td>
+<dl><dd> TBD</dd>
+<dd> See Capacity Amp Hours below</dd></dl>
+</td></tr>
+<tr>
+<td>Capacity Amp Hours
+</td>
+<td>
+</td>
+<td>Ah
+</td>
+<td>
+<dl><dd>TBD</dd>
+<dd>Could divide kWh capacity estimate by maximum pack voltage? Or multiply/project another figure.</dd></dl>
+</td></tr>
+<tr>
+<td>Charging Watts
+</td>
+<td>This provides an estimate of Watts running into your battery from the <a href="/wiki/Charger" title="Charger">on-board charger</a>.
+</td>
+<td>W
+</td>
+<td>
+<dl><dd> This multiplies incoming current to the battery from any source by current pack voltage.</dd>
+<dd> Any charger contributes to this.</dd>
+<dd> Power draw by the chargers will be higher as a small portion of the power is lost as heat and current to run fans and accessories.</dd></dl>
+</td></tr>
+<tr>
+<td>Total Kwatt Hours Used
+</td>
+<td>This indicates the total kWatt Hours Used on the batteries currently installed on your Zero.
+</td>
+<td>kWh
+</td>
+<td>Lifetime current*voltage discharge integrated and summed. MBB persistent value.
+</td></tr>
+<tr>
+<td>Trip Kwatt Hours Used
+</td>
+<td>This indicates the kWatt Hours Used on your Zero since your last reset. It can be reset (or tripped) in the Settings view, under reset statistics.
+</td>
+<td>kWh
+</td>
+<td>Delimited by the trip reset button.
+</td></tr>
+<tr>
+<td><a href="/wiki/Cell_Balance" title="Cell Balance">Cell Balance</a>
+</td>
+<td>This is a diagnostic indicator of the current state of balance; this is for Zero Motorcycle dealer reference.
+</td>
+<td>mV
+</td>
+<td>This represents the maximum difference in cell voltages in the series of cells that stack up to a <a href="/wiki/Brick" title="Brick" class="mw-redirect">Brick</a>.
+</td></tr>
+<tr>
+<td><a href="/wiki/Battery" title="Battery">Battery</a> Volts
+</td>
+<td>This indicates the current battery voltage; the maximum you will typically see is 116 Volts. The minimum you may see is 85 volts. The fuel gauge has a more accurate estimate of your charge state.
+</td>
+<td>V
+</td>
+<td><a href="/wiki/Battery" title="Battery">Battery</a> Voltage can be a way to compensate for the necessary projections and estimations used to build the <a href="/wiki/SoC" title="SoC" class="mw-redirect">SoC</a> figure, particularly as temperature changes.
+<dl><dd> Battery voltage does vary temporarily with the current charge state and level; incoming current raises it, outgoing current (while riding) lowers it.</dd></dl>
+</td></tr>
+<tr>
+<td>Charge Cycles
+</td>
+<td>This measures the number of times started charging. Partial charge cycles are counted as 1 cycle in this feature (at least in my 2017 Zero SR).
+</td>
+<td>#
+</td>
+<td>Logged count of times Charge Mode stopped with 95%+ SoC achieved
+<dl><dd> Need to understand this more accurately; there may be more logic in the <a href="/wiki/BMS" title="BMS" class="mw-redirect">BMS</a> to discount partial cycles.</dd></dl>
+</td></tr>
+<tr>
+<td rowspan="6">Performance
+</td>
+<td>Odometer
+</td>
+<td>This indicates the total miles traveled on your Zero. This is the total vehicle odometer as reported by the motorcycle. It may not always agree with the odometer on the dashboard.
+</td>
+<td>miles or km
+</td>
+<td>
+<dl><dd> <a href="/wiki/MBB" title="MBB" class="mw-redirect">MBB</a>-reported/calculated miles.</dd>
+<dd> The dash keeps a separate figure.</dd>
+<dd> There are legally-required mechanisms to prevent mileage tampering.</dd>
+<dd> Calculated from the <a href="/wiki/MBB_Console#Settings" title="MBB Console" class="mw-redirect">MBB drive description settings</a>.</dd></dl>
+</td></tr>
+<tr>
+<td>Trip Odometer
+</td>
+<td>This indicates the miles traveled on your Zero since the last reset. This is not the total vehicle odometer, as it can be reset (or tripped) in the settings view, under reset statistics.
+</td>
+<td>miles or km
+</td>
+<td>
+<dl><dd> Calculated from the <a href="/wiki/MBB_Console#Settings" title="MBB Console" class="mw-redirect">MBB drive description settings</a> like the main Odometer.</dd></dl>
+</td></tr>
+<tr>
+<td>Money Saved Vs Gas
+</td>
+<td>This shows how much money you have saved by riding a Zero motorcycle instead of an internal combustion engine vehicle. This is a derived statistic based on the values you provide on the settings page. In the DRIVE SETUP tab, you will be able to add:
+<ul><li> Cost per Gallon of Gas, in your local area.</li>
+<li> MPG of ICE (Internal Combustion Engine) vehicle for comparison. For example, if your Toyota Tacoma gets 22 MPG you put “22” as the value.</li>
+<li> Cost Per kWatthour. You can get this statistic from your electric company utility bill.</li></ul>
+</td>
+<td>$ or other currency
+</td>
+<td>
+</td></tr>
+<tr>
+<td>Cost Per Mile
+</td>
+<td>Cost Per Mile is calculated with the following formula: Average watt-hours per mile (since resetting your odometer) X Cost Per kWhatthour.
+</td>
+<td>$/mile or (other currency)/km
+</td>
+<td>
+</td></tr>
+<tr>
+<td>Average Watt Hours Per Mile
+</td>
+<td>This indicates the Average Watt Hours Per Mile on your Zero once you have paired it to your phone. It can be reset (or tripped) in the settings view, under reset statistics.
+</td>
+<td>Wh/mi or Wh/km
+</td>
+<td>
+</td></tr>
+<tr>
+<td>C02 Reduced Vs. Gas
+</td>
+<td>This estimates how much C02 you have reduced by riding your Zero motorcycle instead of an internal combustion engine vehicle.
+<p>This is a derived statistic based on the values you provide on the settings page. In the DRIVE SETUP tab, you will be able to add:
+</p>
+<ul><li> MPG of ICE (Internal Combustion Engine) vehicle for comparison. For example, if your Toyota Tacoma gets 22 MPG you can put “22” as the value.</li>
+<li> kWatthours and distance you have travelled.</li></ul>
+</td>
+<td>lb or kg
+</td>
+<td>
+</td></tr></table>
+<h2><span class="mw-headline" id="Upgrading_Firmware">Upgrading Firmware</span></h2>
+<dl><dd> As of 2017, Zero models are capable of performing remote firmware updates by the customer using the mobile app.</dd>
+<dd> Apparently this doesn't transfer to older models because the older boards did not have enough storage space to perform an atomic/reversible update.
+<dl><dd> This means holding both firmware versions and being able to toggle which version to use.</dd>
+<dd> So, if anything goes wrong with a firmware update, the system can roll back to the previous version without requiring a dealer visit.</dd></dl></dd></dl>
+<h1><span class="mw-headline" id="Usage">Usage</span></h1>
+<p>First, check <a rel="nofollow" class="external text" href="http://www.zeromotorcycles.com/app/help/ios/">Zero's official mobile app user guide</a> for an official and somewhat comprehensive overview.
+</p>
+<h2><span class="mw-headline" id="Obtaining_Logs">Obtaining Logs</span></h2>
+<dl><dd> The Zero companion mobile app can send logs to Zero customer service, or to an email address.</dd>
+<dd> 2014+ models can export BMS logs in addition to the primary MBB logs, but the extraction time can be very long
+<dl><dd> In an emergency, just focus on the MBB logs first and try BMS logs later.</dd></dl></dd>
+<dd> The logs are binary-encoded in a proprietary way.
+<dl><dd> Having collected many owners' logs, some have reverse-engineered most of the encoding.</dd></dl></dd></dl>
+<h3><span class="mw-headline" id="Decoding_Logs">Decoding Logs</span></h3>
+<dl><dd> You can send the logs to yourself, and use a log file parser utility to do some digging which might save time if the utility can successfully decode the relevant parts.</dd>
+<dd> <a rel="nofollow" class="external text" href="http://electricmotorcycleforum.com/boards/index.php?topic=5020.0">Forum thread introducing the tool</a>.</dd>
+<dd> <a rel="nofollow" class="external text" href="https://github.com/KimBurgess/zero-log-parser">GitHub repository for the log parser</a>.</dd>
+<dd> <a rel="nofollow" class="external text" href="https://github.com/KimBurgess/zero-log-parser/blob/master/log_structure.md">Incomplete/reverse-engineered log structure documentation</a>.</dd>
+<dd> <a rel="nofollow" class="external text" href="http://home.hasslers.net/zerologparser/">Online version of the log parser app, just upload your .bin file and view the results</a>.</dd>
+<dd> <a rel="nofollow" class="external text" href="https://zero-motorcycle-community.github.io/browser-parse/">HTML/Javascript downloadable log parser</a>, works on your Android/iOS phone to decode log files on the same device.</dd></dl>
+<h2><span class="mw-headline" id="Firmware_Update">Firmware Update</span></h2>
+<p>On 2017 and newer Zeros, it's possible for the user to upgrade the firmware via the Zero Motorcycles mobile app.
+</p>
+<dl><dd> The app will provide a notification, and when clicked it will walk the user through a step-by-step process.</dd>
+<dd> This can update both the BMS and MBB firmwares.</dd>
+<dd> The process is shown below.</dd></dl>
+<dl><dt>Screenshots</dt></dl>
+<ul class="gallery mw-gallery-traditional">
+		<li class="gallerybox" style="width: 235px"><div style="width: 235px">
+			<div class="thumb" style="width: 230px;"><div style="margin:15px auto;"><a href="/wiki/File:Firmware-update1.png" class="image"><img alt="" src="/images/thumb/4/43/Firmware-update1.png/70px-Firmware-update1.png" width="70" height="120" srcset="/images/thumb/4/43/Firmware-update1.png/105px-Firmware-update1.png 1.5x, /images/thumb/4/43/Firmware-update1.png/140px-Firmware-update1.png 2x" /></a></div></div>
+			<div class="gallerytext">
+<p>"New firmware update available" notification
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 235px"><div style="width: 235px">
+			<div class="thumb" style="width: 230px;"><div style="margin:15px auto;"><a href="/wiki/File:Firmware-update2.png" class="image"><img alt="" src="/images/thumb/c/c3/Firmware-update2.png/70px-Firmware-update2.png" width="70" height="120" srcset="/images/thumb/c/c3/Firmware-update2.png/105px-Firmware-update2.png 1.5x, /images/thumb/c/c3/Firmware-update2.png/141px-Firmware-update2.png 2x" /></a></div></div>
+			<div class="gallerytext">
+<p>Firmware Update step 1: MBB and BMS version listing
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 235px"><div style="width: 235px">
+			<div class="thumb" style="width: 230px;"><div style="margin:15px auto;"><a href="/wiki/File:Firmware-update3.png" class="image"><img alt="" src="/images/thumb/1/1d/Firmware-update3.png/70px-Firmware-update3.png" width="70" height="120" srcset="/images/thumb/1/1d/Firmware-update3.png/105px-Firmware-update3.png 1.5x, /images/thumb/1/1d/Firmware-update3.png/141px-Firmware-update3.png 2x" /></a></div></div>
+			<div class="gallerytext">
+<p>Firmware Update step 2: Prerequisites
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 235px"><div style="width: 235px">
+			<div class="thumb" style="width: 230px;"><div style="margin:15px auto;"><a href="/wiki/File:Firmware-update4.png" class="image"><img alt="" src="/images/thumb/3/3c/Firmware-update4.png/70px-Firmware-update4.png" width="70" height="120" srcset="/images/thumb/3/3c/Firmware-update4.png/105px-Firmware-update4.png 1.5x, /images/thumb/3/3c/Firmware-update4.png/140px-Firmware-update4.png 2x" /></a></div></div>
+			<div class="gallerytext">
+<p>Firmware Update step 3: Start Update
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 235px"><div style="width: 235px">
+			<div class="thumb" style="width: 230px;"><div style="margin:15px auto;"><a href="/wiki/File:Firmware-update5.png" class="image"><img alt="" src="/images/thumb/1/13/Firmware-update5.png/70px-Firmware-update5.png" width="70" height="120" srcset="/images/thumb/1/13/Firmware-update5.png/105px-Firmware-update5.png 1.5x, /images/thumb/1/13/Firmware-update5.png/140px-Firmware-update5.png 2x" /></a></div></div>
+			<div class="gallerytext">
+<p>Firmware Update step 4: Update in Progress with Stop Update button
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 235px"><div style="width: 235px">
+			<div class="thumb" style="width: 230px;"><div style="margin:15px auto;"><a href="/wiki/File:Firmware-update6.png" class="image"><img alt="" src="/images/thumb/9/9e/Firmware-update6.png/70px-Firmware-update6.png" width="70" height="120" srcset="/images/thumb/9/9e/Firmware-update6.png/106px-Firmware-update6.png 1.5x, /images/thumb/9/9e/Firmware-update6.png/141px-Firmware-update6.png 2x" /></a></div></div>
+			<div class="gallerytext">
+<p>Firmware Update step 5: Update in Progress with MBB progress bar
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 235px"><div style="width: 235px">
+			<div class="thumb" style="width: 230px;"><div style="margin:15px auto;"><a href="/wiki/File:Firmware-update7.png" class="image"><img alt="" src="/images/thumb/4/4d/Firmware-update7.png/70px-Firmware-update7.png" width="70" height="120" srcset="/images/thumb/4/4d/Firmware-update7.png/106px-Firmware-update7.png 1.5x, /images/thumb/4/4d/Firmware-update7.png/141px-Firmware-update7.png 2x" /></a></div></div>
+			<div class="gallerytext">
+<p>Firmware Update step 6: Update in Progress with BMS progress bar
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 235px"><div style="width: 235px">
+			<div class="thumb" style="width: 230px;"><div style="margin:15px auto;"><a href="/wiki/File:Firmware-update8.png" class="image"><img alt="" src="/images/thumb/a/a5/Firmware-update8.png/70px-Firmware-update8.png" width="70" height="120" srcset="/images/thumb/a/a5/Firmware-update8.png/105px-Firmware-update8.png 1.5x, /images/thumb/a/a5/Firmware-update8.png/140px-Firmware-update8.png 2x" /></a></div></div>
+			<div class="gallerytext">
+<p>Firmware Update step 7: Update Complete confirmation screen
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 235px"><div style="width: 235px">
+			<div class="thumb" style="width: 230px;"><div style="margin:15px auto;"><a href="/wiki/File:Firmware-update9.png" class="image"><img alt="" src="/images/thumb/4/4e/Firmware-update9.png/70px-Firmware-update9.png" width="70" height="120" srcset="/images/thumb/4/4e/Firmware-update9.png/105px-Firmware-update9.png 1.5x, /images/thumb/4/4e/Firmware-update9.png/140px-Firmware-update9.png 2x" /></a></div></div>
+			<div class="gallerytext">
+<p>Firmware Update step 8: Main Screen after update
+</p>
+			</div>
+		</div></li>
+</ul>
+<h1><span class="mw-headline" id="Common_Problems">Common Problems</span></h1>
+<h2><span class="mw-headline" id="Pairing">Pairing</span></h2>
+<ol><li> Ensure the following:
+<ul><li> The kickstand is down.</li>
+<li> The kill switch is in the Stop position.</li>
+<li> The key is in the Off position.</li></ul></li>
+<li> Turn the key to the On position and:
+<ul><li> For 2014+ models, hold the Mode button for five seconds</li>
+<li> For 2013 models, toggle the SPORT ECO switch 12 times.</li></ul></li>
+<li> Then select the motorcycle to pair from your device:
+<ul><li> On Android, select Setup, Available Devices, Scan.</li>
+<li> On iOS, use the Settings app, select Bluetooth, and scan for new devices.</li></ul></li>
+<li> When Zero Motorcycle appears, pair to it and verify the six digit code.</li></ol>
+<h2><span class="mw-headline" id="Unable_to_Connect">Unable to Connect</span></h2>
+<p>Sometimes the MBB will simply no longer activate a session with the mobile device.
+</p>
+<dl><dt>Official Guidance</dt>
+<dd> <a rel="nofollow" class="external text" href="http://www.zeromotorcycles.com/app/help/ios/connectivity.php">Zero's Bluetooth Connectivity Guide</a> covers:
+<ul><li> Turning on Bluetooth Discoverability on the bike.</li>
+<li> Connecting on iOS</li>
+<li> Connecting on Android</li></ul></dd>
+<dd> <a rel="nofollow" class="external text" href="http://www.zeromotorcycles.com/app/help/ios/faq.php">Zero's Mobile FAQ</a> covers:
+<ul><li> More Bluetooth connection questions</li>
+<li> Some insight into the statistics shown in the app</li>
+<li> How to kill the app (which helps reset a software connection management problem)</li></ul></dd></dl>
+<dl><dt>Potential Workarounds</dt></dl>
+<ul><li> Kill the app, then re-connect to the bike in the Bluetooth settings, then start the app.</li>
+<li> Put phone in airplane mode for at least 10 seconds then put it back to normal (i.e. reboot the wireless chipset).</li>
+<li> Turning wifi off until the bluetooth has connected sometimes helps.</li></ul>
+<dl><dt>Reconnection</dt>
+<dd> The app's UI is identical for iOS and Android which has some annoying results, because each platform handles Bluetooth connectivity differently.</dd>
+<dd> When the app is disconnected from the device, a dialog will appear offering to use the app in offline mode or visit the settings screen.
+<ul><li> On Android, the settings screen can reconnect to the device, whereas on iOS, this feature is not possible.</li>
+<li> On iOS, to reconnect, visit the Settings app itself, navigate under bluetooth, and reconnect to the device in the list presented.</li></ul></dd></dl>
+<h2><span class="mw-headline" id="Unable_to_Customize_Drive_Mode">Unable to Customize <a href="/wiki/Drive_Modes" title="Drive Modes">Drive Mode</a></span></h2>
+<p>This seems to be a bug with specific revisions of the mobile application.
+</p><p>In particular, multiple reports that newer versions of the app are unable to make changes to the Custom Mode max torque and and regen parameters on 2014 Zero motorcycles, on both Android and iPhone. It's unclear what other years may be affected. <a rel="nofollow" class="external free" href="http://electricmotorcycleforum.com/boards/index.php?topic=7106.0">http://electricmotorcycleforum.com/boards/index.php?topic=7106.0</a>
+</p><p>togo reports no version since 1.3.17 works on his 2014 Zero SR.
+</p>
+<h2><span class="mw-headline" id="Slow_to_Obtain_Logs">Slow to Obtain Logs</span></h2>
+<p>If you have several ride through faults then the large quantity of data can make downloading logs very slow. Occasionally blip the throttle to keep the bike from timing out.
+</p>
+<h2><span class="mw-headline" id="Unable_to_Obtain_Logs">Unable to Obtain Logs</span></h2>
+<dl><dt>Newer Android versions</dt></dl>
+<p>The e-mail log files functionality on Android phones/tablets with newer Android versions does not work, the application crashes after downloading the log files but before offering to e-mail the files.
+</p>
+<ul><li> Workaround 1: The logs are saved on the internal memory on this path: "internal_memory\android\data\com.zeromotorcycles\files\".</li></ul>
+<p><a rel="nofollow" class="external text" href="http://electricmotorcycleforum.com/boards/index.php?topic=8736.0">See dalamarios forum entry here</a>
+</p>
+<ul><li> Workaround 2: If you have access to an Android device with an older Android OS version, you may have more luck downloading and mailing using that device. I had success using an old tablet with Android version 4.4</li></ul>
+<dl><dt>BMS logs</dt></dl>
+<p>BMS logs are not obtainable on 2013 models, and even on newer models, the BMS logs take a dangerously long amount of time to access considering the typical mobile application e access session length.
+</p><p>Zero reports that versions released in late September address this issue.
+</p>
+<dl><dt>Workarounds</dt></dl>
+<ul><li> Definitely send/obtain MBB logs alone before trying to extract and send MBB with BMS logs.</li>
+<li> Connect to the <a href="/wiki/MBB_Console" title="MBB Console" class="mw-redirect">MBB Console</a> directly via OBD-II connection.</li></ul>
+<h2><span class="mw-headline" id="Stuck_Screen">Stuck Screen</span></h2>
+<h2><span class="mw-headline" id="Stuck_Orientation">Stuck Orientation</span></h2>
+
+<!-- 
+NewPP limit report
+Cached time: 20250825043404
+Cache expiry: 0
+Dynamic content: true
+CPU time usage: 0.053 seconds
+Real time usage: 0.275 seconds
+Preprocessor visited node count: 85/1000000
+Preprocessor generated node count: 128/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 - -total
+-->
+</div>					<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="http://zeromanual.com/index.php?title=Official_Mobile_Application&amp;oldid=7236">http://zeromanual.com/index.php?title=Official_Mobile_Application&amp;oldid=7236</a>"					</div>
+				<div id="catlinks" class="catlinks catlinks-allhidden" data-mw="interface"></div>				<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="/index.php?title=Special:UserLogin&amp;returnto=Official+Mobile+Application" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="/wiki/Official_Mobile_Application"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+															<li  id="ca-talk" class="new"><span><a href="/edit/Talk:Official_Mobile_Application?redlink=1"  title="Discussion about the content page [t]" accesskey="t" rel="discussion">Discussion</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label">
+							<span>Variants</span><a href="#"></a>
+						</h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="/wiki/Official_Mobile_Application" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="/edit/Official_Mobile_Application"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="/history/Official_Mobile_Application"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="/index.php" id="searchform">
+							<div id="simpleSearch">
+							<input type="search" name="search" placeholder="Search" title="Search Unofficial Zero Manual [f]" accesskey="f" id="searchInput"/><input type="hidden" value="Special:Search" name="title"/><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/><input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>							</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="/wiki/Main_Page"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation' aria-labelledby='p-navigation-label'>
+			<h3 id='p-navigation-label'>Navigation</h3>
+
+			<div class="body">
+									<ul>
+						<li id="n-mainpage-description"><a href="/wiki/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-recentchanges"><a href="http://zeromanual.com/wiki/Special:RecentChanges?namespace=0" rel="nofollow" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" title="The place to find out">Help</a></li>					</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+						<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/Official_Mobile_Application" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/Official_Mobile_Application" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="/index.php?title=Official_Mobile_Application&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="/index.php?title=Official_Mobile_Application&amp;oldid=7236" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="/info/Official_Mobile_Application" title="More information about this page">Page information</a></li>					</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 8 October 2020, at 20:56.</li>
+											<li id="footer-info-copyright"><span style="color:#999999">
+This site and its contents are not sponsored by, associated with, affiliated with, or endorsed by Zero Motorcycles.<br/>
+All logos and icons are owned by their respective owners. <br/>
+The Zero logo is used only under fair use for subject matter identification. Use of the logo is not an endorsement or sign of association with the Zero Motorcycle brand.
+</span></li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="/wiki/Unofficial_Zero_Manual:Privacy_policy" title="Unofficial Zero Manual:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="/wiki/Unofficial_Zero_Manual:About" title="Unofficial Zero Manual:About">About Unofficial Zero Manual</a></li>
+											<li id="footer-places-disclaimer"><a href="/wiki/Unofficial_Zero_Manual:General_disclaimer" title="Unofficial Zero Manual:General disclaimer">Disclaimers</a></li>
+											<li id="footer-places-mobileview"><a href="http://zeromanual.com/index.php?title=Official_Mobile_Application&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-poweredbyico">
+							<a href="//www.mediawiki.org/"><img src="/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31"/></a>						</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>(window.RLQ=window.RLQ||[]).push(function(){mw.loader.state({"user":"ready","user.groups":"ready"});mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","site","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest","ext.CategorySuggest"]);});</script><script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":1080});});</script>
+	</body>
+</html>

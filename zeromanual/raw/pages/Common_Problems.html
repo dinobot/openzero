@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8"/>
+<title>Common Problems - Unofficial Zero Manual</title>
+<script>document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Common_Problems","wgTitle":"Common Problems","wgCurRevisionId":6144,"wgRevisionId":6144,"wgArticleId":12,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Charging Symptom","Wheel Sound"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Common_Problems","wgRelevantArticleId":12,"wgRequestId":"Z8G6vpoHNl4tRjZCYW4C3wAAAE4","wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgPreferredVariant":"en","wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":false,"preview":true,"publish":true}});mw.loader.implement("user.options",function($,jQuery,require,module){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function ( $, jQuery, require, module ) {
+mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});/*@nomin*/;
+
+});mw.loader.load(["mediawiki.page.startup","skins.vector.js"]);});</script>
+<link rel="stylesheet" href="/load.php?debug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.page.gallery.styles%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.interface%7Cskins.vector.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector"/>
+<script async="" src="/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector"></script>
+<meta name="generator" content="MediaWiki 1.27.0"/>
+<link rel="shortcut icon" href="/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="Unofficial Zero Manual (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="http://zeromanual.com/api.php?action=rsd"/>
+<link rel="copyright" href="/wiki/MediaWiki:Copyright"/>
+<link rel="alternate" type="application/atom+xml" title="Unofficial Zero Manual Atom feed" href="/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Common_Problems rootpage-Common_Problems skin-vector action-view">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<div class="mw-indicators">
+</div>
+			<h1 id="firstHeading" class="firstHeading" lang="en">Common Problems</h1>
+									<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Unofficial Zero Manual</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-head">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><h1><span class="mw-headline" id="Overview">Overview</span></h1>
+<p>This is a basic troubleshooting guide, and also an indication that the symptom you're seeing is relatively common and has been thought about, often with some basic solutions.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Overview"><span class="tocnumber">1</span> <span class="toctext">Overview</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Behavior_in_wet_weather"><span class="tocnumber">2</span> <span class="toctext">Behavior in wet weather</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Display_Flicker"><span class="tocnumber">2.1</span> <span class="toctext">Display Flicker</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Groan_Sound"><span class="tocnumber">2.2</span> <span class="toctext">Groan Sound</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Loss_of_Traction"><span class="tocnumber">2.3</span> <span class="toctext">Loss of Traction</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Splash_Protection"><span class="tocnumber">2.4</span> <span class="toctext">Splash Protection</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Loss_of_Power"><span class="tocnumber">2.5</span> <span class="toctext">Loss of Power</span></a>
+<ul>
+<li class="toclevel-3 tocsection-8"><a href="#Loss_of_12V_Power"><span class="tocnumber">2.5.1</span> <span class="toctext">Loss of 12V Power</span></a></li>
+<li class="toclevel-3 tocsection-9"><a href="#Loss_of_Power_to_Motor"><span class="tocnumber">2.5.2</span> <span class="toctext">Loss of Power to Motor</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-10"><a href="#Power_Cutout_Failure"><span class="tocnumber">2.6</span> <span class="toctext">Power Cutout Failure</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-11"><a href="#Loss_of_Range"><span class="tocnumber">3</span> <span class="toctext">Loss of Range</span></a></li>
+<li class="toclevel-1 tocsection-12"><a href="#Weak_power_in_cold_temperatures"><span class="tocnumber">4</span> <span class="toctext">Weak power in cold temperatures</span></a></li>
+<li class="toclevel-1 tocsection-13"><a href="#Charging"><span class="tocnumber">5</span> <span class="toctext">Charging</span></a>
+<ul>
+<li class="toclevel-2 tocsection-14"><a href="#GFCI_Faults"><span class="tocnumber">5.1</span> <span class="toctext">GFCI Faults</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="#Blinks_4_or_5_times_and_fails_to_charge"><span class="tocnumber">5.2</span> <span class="toctext">Blinks 4 or 5 times and fails to charge</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="#Stuck.2FWarm_Charging_Cord"><span class="tocnumber">5.3</span> <span class="toctext">Stuck/Warm Charging Cord</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="#Charging_Errata"><span class="tocnumber">5.4</span> <span class="toctext">Charging Errata</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="#Faulty_Calex_onboard_charger"><span class="tocnumber">5.5</span> <span class="toctext">Faulty Calex onboard charger</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-19"><a href="#Frame.2FBody_Panels"><span class="tocnumber">6</span> <span class="toctext">Frame/Body Panels</span></a></li>
+<li class="toclevel-1 tocsection-20"><a href="#Front_Wheel.2FSuspension.2FSteering"><span class="tocnumber">7</span> <span class="toctext">Front Wheel/Suspension/Steering</span></a>
+<ul>
+<li class="toclevel-2 tocsection-21"><a href="#Fork_Oil_Leak"><span class="tocnumber">7.1</span> <span class="toctext">Fork Oil Leak</span></a></li>
+<li class="toclevel-2 tocsection-22"><a href="#DS.2FFX_Front_Brake_Line_Obscures_Dash"><span class="tocnumber">7.2</span> <span class="toctext">DS/FX Front Brake Line Obscures Dash</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-23"><a href="#Rear_Wheel.2FSuspension.2FBelt"><span class="tocnumber">8</span> <span class="toctext">Rear Wheel/Suspension/Belt</span></a>
+<ul>
+<li class="toclevel-2 tocsection-24"><a href="#Defective_Wheel_Bearings"><span class="tocnumber">8.1</span> <span class="toctext">Defective Wheel Bearings</span></a></li>
+<li class="toclevel-2 tocsection-25"><a href="#Noisy_Belt"><span class="tocnumber">8.2</span> <span class="toctext">Noisy Belt</span></a></li>
+<li class="toclevel-2 tocsection-26"><a href="#Rear_Vibration"><span class="tocnumber">8.3</span> <span class="toctext">Rear Vibration</span></a></li>
+<li class="toclevel-2 tocsection-27"><a href="#Belt_Damage"><span class="tocnumber">8.4</span> <span class="toctext">Belt Damage</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-28"><a href="#Brake_System"><span class="tocnumber">9</span> <span class="toctext">Brake System</span></a>
+<ul>
+<li class="toclevel-2 tocsection-29"><a href="#Brake_Squeal"><span class="tocnumber">9.1</span> <span class="toctext">Brake Squeal</span></a></li>
+<li class="toclevel-2 tocsection-30"><a href="#Regenerative_Braking"><span class="tocnumber">9.2</span> <span class="toctext">Regenerative Braking</span></a></li>
+<li class="toclevel-2 tocsection-31"><a href="#Parking_on_Hills"><span class="tocnumber">9.3</span> <span class="toctext">Parking on Hills</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-32"><a href="#Motor.2FController"><span class="tocnumber">10</span> <span class="toctext">Motor/Controller</span></a>
+<ul>
+<li class="toclevel-2 tocsection-33"><a href="#Low_SoC"><span class="tocnumber">10.1</span> <span class="toctext">Low SoC</span></a></li>
+<li class="toclevel-2 tocsection-34"><a href="#Overheating"><span class="tocnumber">10.2</span> <span class="toctext">Overheating</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-35"><a href="#Battery.2FChargers"><span class="tocnumber">11</span> <span class="toctext">Battery/Chargers</span></a>
+<ul>
+<li class="toclevel-2 tocsection-36"><a href="#Hot_Weather_Charging"><span class="tocnumber">11.1</span> <span class="toctext">Hot Weather Charging</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-37"><a href="#Electrical_System"><span class="tocnumber">12</span> <span class="toctext">Electrical System</span></a>
+<ul>
+<li class="toclevel-2 tocsection-38"><a href="#Hazard_Lights_Interfere_With_Turn_Signals"><span class="tocnumber">12.1</span> <span class="toctext">Hazard Lights Interfere With Turn Signals</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-39"><a href="#App_and_Bluetooth"><span class="tocnumber">13</span> <span class="toctext">App and Bluetooth</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Behavior_in_wet_weather">Behavior in wet weather</span></h1>
+<p>Avoid pressure-washing.  Weatherproofing is much less effective against high pressure.
+</p><p>There are a few particularities of Zeros when they're exposed to excess moisture, particularly in heavy rain or after washing the bike.
+</p>
+<h2><span class="mw-headline" id="Display_Flicker"><a href="/wiki/Dash_Flicker" title="Dash Flicker">Display Flicker</a></span></h2>
+<p>The <a href="/wiki/Gen2/Instrument_Cluster" title="Gen2/Instrument Cluster">dashboard</a> can often be sensitive in wet conditions.
+</p>
+<dl><dd> Occasionally it will display flickering or incorrect light indicators.</dd>
+<dd> This will not affect normal operation of the bike and functionality should return to normal after drying out.</dd></dl>
+<p>Applying electrical insulating grease to connections, or around the seal between the front face and back of the enclosure, might alleviate this.
+</p><p><br />
+</p>
+<h2><span class="mw-headline" id="Groan_Sound"><a href="/wiki/Belt_Groan_Sound" title="Belt Groan Sound">Groan Sound</a></span></h2>
+<p>The <a href="/wiki/Drive_Belt" title="Drive Belt">belt</a> in wet conditions will often make a pronounced new noise from when it's in dry conditions.
+</p>
+<dl><dt>Variations</dt>
+<dd> This thread describing a <a rel="nofollow" class="external text" href="http://electricmotorcycleforum.com/boards/index.php?topic=5785">loud buzzing sound on acceleration</a> has audio samples and discussion about how it occurs.</dd></dl>
+<dl><dt>Description</dt>
+<dd> This groaning noise has been called many things from a <i>Tie fighter</i> or a <i>Wookie</i> to a <i>water buffalo</i>.</dd></dl>
+<dl><dt>Effects</dt>
+<dd> It is completely normal and causes no ill effect on the bike, and will go away again when dry.</dd></dl>
+<dl><dt>Potential Causes</dt>
+<dd> The belt being dirty while wet may exacerbate this.
+<dl><dt> Encoder Accuracy Hypothesis</dt></dl>
+<ul><li> There is a strong perception that the sound comes from the belt, but also an impression that the encoder sensors inside the motor lose accuracy in high humidity.</li>
+<li> This would make the controller think the motor is in a slightly different position, then send the wrong/displaced field to the motor, which would result in an oscillation.</li>
+<li> The motor might be driving the belt to resonate in this case.</li></ul></dd></dl>
+<dl><dt>Potential Solutions</dt></dl>
+<ul><li> Wait for the bike to dry out.</li>
+<li> Silicone Spray
+<dl><dd> Light application of a silicone spray to the motor shaft to the front sprocket should make it go away for months.</dd>
+<dd> <table cellspacing="0" cellpadding="0" border="0" style="background: transparent; margin-top:0.5em;border:1px #b32424 solid;padding:0.5em;background-color: #fee7e6"><tr><td nowrap="nowrap" valign="top"><span style="position: relative; top: -2px;"><img alt="Warning" src="/images/thumb/3/3c/Attention_Warning_Icon.png/18px-Attention_Warning_Icon.png" title="Warning" width="18" height="18" /></span> <b> Warning:</b> </td><td valign="top" style="padding-left:0.5em;">Ensure the spray doesn't have any petroleum distillates that will eat the belt materials.</td></tr></table></dd>
+<dd> The Encoder Accuracy Hypothesis above implies that one should apply it <i>near</i> the front sprocket to protect moisture from entering the motor housing.</dd></dl></li></ul>
+<dl><dt>References</dt>
+<dd> <a rel="nofollow" class="external text" href="http://electricmotorcycleforum.com/boards/index.php?topic=8705.0">Groan sound&#160;: anybody having specific references for a pure silicone lubricant</a></dd></dl>
+<p><br />
+</p>
+<h2><span class="mw-headline" id="Loss_of_Traction"><a href="/wiki/Loss_of_Traction" title="Loss of Traction">Loss of Traction</a></span></h2>
+<p>The high torque of the electric powertrain can be an issue if you are not careful, especially on surfaces right after rain starts for the first times after a dry spell, as accumulated oil from vehicles has floated out of the pavement but not been washed away.
+</p>
+<dl><dt>Electric Powertrain Risks</dt></dl>
+<ul><li> The powertrain, once it breaks free of engaging with the ground, will spin up very quickly without quick operator reduction in throttle input.</li>
+<li> Re-engagement with a high difference in wheel speed to groundspeed can result in a jerky take-off or highside.</li></ul>
+<dl><dt>Aggravating Conditions</dt></dl>
+<ol><li> During takeoff
+<dl><dd> When starting from a stop <i>especially into a turn</i>, the rear tire may slip above a certain torque.</dd></dl></li>
+<li> While accelerating
+<dl><dd> <i>Torque reduction</i> features in the bike programmed to make low speed take-off manageable may disengage in the 20-30mph range (32-48kph) and result in a loss of traction with no change in throttle input.</dd></dl></li>
+<li> At speed
+<dl><dd> The rear tire may slip when leaning into a turn or going over a bumpy and oily surface, initiating a fishtail.</dd></dl></li>
+<li> On loose ground
+<dl><dd> The rear tire may slip when engaged on loose gravel or sand, digging up the ground into a hole.</dd></dl></li></ol>
+<dl><dt>Recovery</dt></dl>
+<ul><li> Ease off the throttle <i>very slowly</i>.</li>
+<li> Transfer your weight to the footpegs from the seat.</li>
+<li> Damp the oscillation through the handlebars, <i>loosely</i> to prevent initiating oversteer.</li></ul>
+<dl><dt>Mitigation</dt></dl>
+<ul><li> If it rains after a long dry spell, Eco mode is worth trying because the torque roll-on rate is really low which means the onset of a slip can be recovered from without overreacting.</li></ul>
+<p><br />
+</p>
+<h2><span class="mw-headline" id="Splash_Protection">Splash Protection</span></h2>
+<p>Zero motorcycle models have a rear wheel splash guard that protects the motor and the lower electrical areas under the seat, but the wheel can fling plenty of rain and mud onto the tail and on the back of the rider.
+</p>
+<dl><dt>Solutions</dt>
+<dd> <a href="/wiki/Zero_Top_Rack" title="Zero Top Rack">OEM Top Rack</a></dd>
+<dd> <a href="/wiki/Aftermarket#OEM_Rain_Guard" title="Aftermarket">OEM Rain Guard</a> applies to the tail extension; inexpensive but limited.</dd>
+<dd> <a href="/wiki/Aftermarket#Mudguard" title="Aftermarket">Another mudguard?</a></dd></dl>
+<h2><span class="mw-headline" id="Loss_of_Power">Loss of Power</span></h2>
+<p>Power cutouts can happen at many levels.
+</p>
+<h3><span class="mw-headline" id="Loss_of_12V_Power"><a href="/wiki/Loss_of_12V_Power" title="Loss of 12V Power">Loss of 12V Power</a></span></h3>
+<p>Losing the entire 12V circuit can happen because the circuit is powered by a <a href="/wiki/DC-DC_12V_Converter" title="DC-DC 12V Converter">DC-DC 12V Converter</a>.
+</p>
+<dl><dt> Related Confirming Symptoms</dt></dl>
+<ul><li> Headlamp, turn signals, and running/brake lights are <i>all</i> <b>off</b>.</li>
+<li> <a href="/wiki/Gen2/Instrument_Cluster" title="Gen2/Instrument Cluster">Dash/instrument cluster</a> is <b>on</b> and the bike <b>can operate</b>.</li></ul>
+<dl><dt> Potential Causes</dt></dl>
+<ul><li> DC-DC converter-related:
+<ul><li> High voltage input fuse to the <a href="/wiki/DC-DC_12V_Converter" title="DC-DC 12V Converter">DC-DC 12V Converter</a> is blown or disconnected.</li>
+<li> Loose connector to the <a href="/wiki/DC-DC_12V_Converter" title="DC-DC 12V Converter">DC-DC 12V Converter</a>.</li>
+<li> Enable signal failure between the <a href="/wiki/MBB" title="MBB" class="mw-redirect">MBB</a> and DC-DC converter.</li>
+<li> General equipment failure of the <a href="/wiki/DC-DC_12V_Converter" title="DC-DC 12V Converter">DC-DC 12V Converter</a>.</li></ul></li>
+<li> Broken ground/negative/return line in the 12V wiring bundle on the left side of the tank area.</li>
+<li> An <a href="/wiki/MBB" title="MBB" class="mw-redirect">MBB</a> internal fault or error that results in no enable signal to the <a href="/wiki/DC-DC_12V_Converter" title="DC-DC 12V Converter">DC-DC 12V Converter</a>.</li></ul>
+<p><br />
+</p>
+<h3><span class="mw-headline" id="Loss_of_Power_to_Motor"><a href="/wiki/Loss_of_Power_to_Motor" title="Loss of Power to Motor">Loss of Power to Motor</a></span></h3>
+<p>The onboard systems may cut off power to the motor and/or controller as a protective function if a fault is detected (whether real or misguided).
+</p>
+<dl><dt> Related Confirming Symptoms</dt></dl>
+<ul><li> On the dash, the green Driving Enabled light is <b>off</b>.
+<dl><dd> If it is blinking or off, the contactor is open.</dd></dl></li>
+<li> Check the dash for <a href="/wiki/Error_Codes" title="Error Codes">Error Codes</a>:
+<dl><dd> <b>20, 28, and 29</b>: <a href="/wiki/Gen2/Isolation_Faults" title="Gen2/Isolation Faults">Isolation Faults</a>.</dd>
+<dd> <b>44</b>: Engine cutout switch.</dd>
+<dd> <b>45</b>: <a href="/wiki/Kickstand_Sensor" title="Kickstand Sensor" class="mw-redirect">Kickstand Sensor</a>.</dd>
+<dd> <b>39</b>: <a href="/wiki/Throttle" title="Throttle">Throttle</a> reading high or low.</dd>
+<dd> <b>42</b>: Battery high temperature.</dd>
+<dd> <b>43</b>: Battery low temperature.</dd></dl></li></ul>
+<dl><dt> Potential Causes</dt></dl>
+<ul><li> Moisture on the <a href="/wiki/Gen2/Accessory_Charging_Port" title="Gen2/Accessory Charging Port">Accessory Charging Port</a> signal pins.</li>
+<li> A problem with the <a href="/wiki/Gen2/Motor_Controller" title="Gen2/Motor Controller">controller</a> per the <a href="/wiki/Gen2/Isolation_Faults" title="Gen2/Isolation Faults">isolation fault</a> guide.</li></ul>
+<dl><dt> Troubleshooting</dt>
+<dd> Mostly, check the <a href="/wiki/Gen2/Accessory_Charging_Port" title="Gen2/Accessory Charging Port">Accessory Charging Port</a> while on the road.</dd></dl>
+<ul><li> Confirm that the rubber boot/cover on the accessory charging port is in-place.
+<dl><dd> The accessory charging port comes with a rubber boot/cover.</dd>
+<dd> This circuit is low voltage so not dangerous, but loss of power while riding can be dangerous.</dd></dl></li>
+<li> If the motorcycle cuts out in the rain or shortly after, check whether the connector is covered properly and try to dry it out.
+<dl><dd> Pull off the boot and shake it free of moisture while the bike is keyed off.</dd></dl></li></ul>
+<dl><dt> Recommendations</dt></dl>
+<ul><li> Leave the Accessory Charging Port boot cover in place <i>when not in use</i>.</li>
+<li> <i>If the motorcycle exhibits cutouts in the rain</i>, apply dielectric grease to vulnerable connections.
+<dl><dd> This hopefully reduces the chance of shorting or the appearance of a short.</dd></dl></li></ul>
+<p><br />
+</p>
+<h2><span class="mw-headline" id="Power_Cutout_Failure"><a href="/wiki/12V_Power_Always_On" title="12V Power Always On">Power Cutout Failure</a></span></h2>
+<p>When the entire 12V circuit stays, <i>despite</i> keying the bike off and disconnecting charging sources.
+</p>
+<dl><dd> This may be continuous or intermittent.</dd></dl>
+<dl><dt> Related Confirming Symptoms</dt>
+<dd> With the ignition is keyed <b>off</b>, the key removed, and the bike unplugged from charging sources:</dd></dl>
+<ul><li> Headlamp and running/brake light are <i>both</i> <b>on</b>.</li>
+<li> <a href="/wiki/Gen2/Instrument_Cluster" title="Gen2/Instrument Cluster">Dash/instrument cluster</a> backlight is <b>on</b> but the bike <b>does not operate</b>.</li></ul>
+<dl><dt> Potential Causes</dt></dl>
+<ul><li> <a href="/wiki/Ignition_Switch" title="Ignition Switch">Ignition Switch</a> is faulty.</li>
+<li> <a href="/wiki/DC-DC_12V_Converter" title="DC-DC 12V Converter">DC-DC 12V Converter</a> is faulty.</li>
+<li> <a href="/wiki/MBB" title="MBB" class="mw-redirect">MBB</a> is faulty, sending an enable signal to the DC-DC converter.</li></ul>
+<dl><dt>Risks</dt>
+<dd> This will slowly drain the battery.
+<dl><dd> A continuous use of the headlamp might drain the battery in a week's time or less.</dd>
+<dd> Time to discharge (hours) = SoC (%) / 100 &#215; capacity (kWh) &#215; 1000 / 55W.</dd></dl></dd>
+<dd> If the condition is a result of a short circuit around the <a href="/wiki/DC-DC_12V_Converter" title="DC-DC 12V Converter">DC-DC 12V Converter</a>, it may over-discharge the <a href="/wiki/MBB" title="MBB" class="mw-redirect">MBB</a>, causing failure of that critical component.
+<dl><dd> So try to diagnose and solve this problem as soon as possible!</dd></dl></dd></dl>
+<dl><dt>Troubleshooting</dt></dl>
+<ol><li> With the bike keyed off, check the voltage across the <a href="/wiki/Ignition_Switch" title="Ignition Switch">Ignition Switch</a>, <i>or</i> check if the <a href="/wiki/MBB" title="MBB" class="mw-redirect">MBB</a> is on and whether it reports in the <a href="/wiki/MBB_Console" title="MBB Console" class="mw-redirect">console</a> that the ignition switch is shut.</li>
+<li> With the bike keyed off and unplugged, access the <a href="/wiki/DC-DC_12V_Converter" title="DC-DC 12V Converter">DC-DC 12V Converter</a> connector with a voltmeter that has needle probes.
+<dl><dd> On the <a href="/wiki/SDS_Platform" title="SDS Platform">SDS Platform</a>, you'll need to <a href="/wiki/SDS_Platform/Board_Mounting_Plate_Removal" title="SDS Platform/Board Mounting Plate Removal">remove the board mounting plate</a>.</dd></dl></li>
+<li> Verify the battery <a href="/wiki/State_of_Charge" title="State of Charge">State of Charge</a> via input/bus voltage:
+<dl><dd> Check voltage present between (+) pin 2 and (-) pin 3.</dd>
+<dd> This should be between 95V and 116.2V, and roughly indicates <a href="/wiki/State_of_Charge" title="State of Charge">State of Charge</a>.</dd></dl></li>
+<li> Test whether the <a href="/wiki/MBB" title="MBB" class="mw-redirect">MBB</a> is sending the enable signal:
+<dl><dd> Check voltage between (+) pin 1 and (-) pin 3.</dd>
+<dd> If this is <i>zero</i>, then the <a href="/wiki/DC-DC_12V_Converter" title="DC-DC 12V Converter">DC-DC 12V Converter</a> is <b>faulty</b> independent of the <a href="/wiki/MBB" title="MBB" class="mw-redirect">MBB</a>.</dd>
+<dd> If this is <i>not zero</i>, then the <a href="/wiki/MBB" title="MBB" class="mw-redirect">MBB</a> is enabling the <a href="/wiki/DC-DC_12V_Converter" title="DC-DC 12V Converter">DC-DC 12V Converter</a>, and is <b>faulty</b>.</dd></dl></li>
+<li> Confirm output from the <a href="/wiki/DC-DC_12V_Converter" title="DC-DC 12V Converter">DC-DC 12V Converter</a>:
+<dl><dd> Check 12-14V present between (+) pin 4 and (-) pin 5.</dd></dl></li>
+<li> Test whether the <a href="/wiki/DC-DC_12V_Converter" title="DC-DC 12V Converter">DC-DC 12V Converter</a> responds to the enable signal:
+<dl><dd> Connect pin 1 directly to pin 2 using a piece of cable.</dd>
+<dd> Connect power to (+) pin 2 and (-) pin 3.</dd>
+<dd> This should transmit high voltage to the enable input at pin 1, and should make the <a href="/wiki/DC-DC_12V_Converter" title="DC-DC 12V Converter">DC-DC 12V Converter</a> work if it is functional.</dd></dl></li></ol>
+<p>If the <a href="/wiki/DC-DC_12V_Converter" title="DC-DC 12V Converter">DC-DC 12V Converter</a> is faulty with the <a href="/wiki/MBB" title="MBB" class="mw-redirect">MBB</a> okay, then the bike should run normally, but with a <a href="/wiki/Loss_of_12V_Power" title="Loss of 12V Power">Loss of 12V Power</a>.
+</p><p><br />
+</p>
+<h1><span class="mw-headline" id="Loss_of_Range"><a href="/wiki/Loss_of_Range" title="Loss of Range">Loss of Range</a></span></h1>
+<p>Zero <a rel="nofollow" class="external text" href="https://www.zeromotorcycles.com/range/">range</a> can vary remarkably more than a gasoline-powered vehicle, which takes time to understand.
+</p>
+<dl><dd> Zero range estimates are accurate <i>for the conditions stated</i>.</dd>
+<dd> First, consult Zero's <a rel="nofollow" class="external text" href="https://www.zeromotorcycles.com/range/">Range page</a> for factors that change real-world range.</dd></dl>
+<dl><dt> Related Confirming Symptoms</dt></dl>
+<ul><li> <a href="/wiki/Power_Reduction" title="Power Reduction">Power Reduction</a> at higher SoC levels.</li>
+<li> Lower range estimates for a given SoC reading, especially near 100%.</li></ul>
+<dl><dt> Potential Causes</dt></dl>
+<ul><li> The majority of range loss is due to the effects of cold weather on the battery.</li>
+<li> Internal resistance increases in batteries at low temperatures.</li>
+<li> Rain will exacerbate the problem since thermal transfer will be higher with water contacting the battery case.</li>
+<li> The <a href="/wiki/Official_Owners_Manual" title="Official Owners Manual">official manual</a> has a section for Cold Weather specifically calling out that up to 30% of range might be reduced at 30F ambient temperature.</li>
+<li> The effect is roughly linear below (say) 45F ambient temperature.</li>
+<li> The <a rel="nofollow" class="external text" href="http://batteryuniversity.com/learn/article/discharging_at_high_and_low_temperatures">internal resistance</a> of the battery is the primary mechanism for reduced performance.</li></ul>
+<dl><dt>Recommendation</dt>
+<dd> If full range is required at low temperatures, wrap the battery in a suitable insulating material in cold seasons.</dd>
+<dd> Neoprene at 1/16" thickness has been tested at highway speeds to make a marked difference in battery temperature (but not to an unsafe degree).
+<dl><dd> Cover the front of the battery primarily and the forward halves of the sides.</dd>
+<dd> Make sure to securely fasten the neoprene so it will not get caught in the front wheel.</dd>
+<dd> Grommeted holes can be used to secure the wrap through the central frame tube and the tank plastics.</dd>
+<dd> A thin (3mm or 1/8") sheet above the battery would also help in cold precipitation.</dd></dl></dd>
+<dd> Masking tape across the front face has also been used effectively.</dd>
+<dd> <table cellspacing="0" cellpadding="0" border="0" style="background: transparent; margin-top:0.5em;border:1px #b32424 solid;padding:0.5em;background-color: #fee7e6"><tr><td nowrap="nowrap" valign="top"><span style="position: relative; top: -2px;"><img alt="Warning" src="/images/thumb/3/3c/Attention_Warning_Icon.png/18px-Attention_Warning_Icon.png" title="Warning" width="18" height="18" /></span> <b> Warning:</b> </td><td valign="top" style="padding-left:0.5em;">Any wrap used to insulate the battery at low temperatures will prevent sufficient cooling for it to operate at normal temperatures. Remove any wrap when operating above 45F.</td></tr></table></dd></dl>
+<dl><dt>Advice/Experience via <a rel="nofollow" class="external text" href="http://electricmotorcycleforum.com/boards/index.php?topic=7431.msg62019#msg62019">Zee in Northern Ontario</a></dt>
+<dd></dd></dl>
+<blockquote>
+<p>Well this Canuk is a heavy sled (snowmobile) head and lives in northern ontario and owns 2 Zero's 2010MX &amp; 2015FX and rides all year long as long as the roads are clear.
+</p>
+<ul><li> The bikes are stored in a non heated garage and it takes full battery awareness and charging smarts to keep everything going all winter.</li>
+<li> The temperature inside the garage is usually 10C warmer then outside.</li>
+<li> I automatically plug every bike in after every discharge when the batteries are still warm so the FX is usually fully charged when I start a ride.</li>
+<li> When I decide to go for a ride and it is -20C outside
+<ol><li> I will first go for a 20% discharge were the bike will run like a lame duck.</li>
+<li> Then I will put the bike back on charge with extra charger while the batteries are warmed up</li>
+<li> When the bike is back at full charge then the bike wakes up a bit but still not at full summer power but enough power to tickle my fancy.</li></ol></li></ul>
+<p> I can't wait for battery technology to advance so I can covert my sled (snowmobile).
+</p>
+<ul><li> Also be aware that the battery will shut down with up to 20% power left if you are pulling steady on it in the cold weather&#160;:) cheers</li></ul>
+</blockquote>
+<p><br />
+</p>
+<h1><span class="mw-headline" id="Weak_power_in_cold_temperatures">Weak power in cold temperatures</span></h1>
+<p>From EMF:
+</p>
+<blockquote>
+<dl><dd> ... higher internal resistance of the battery at colder temperatures causing current limiting, ... It can be a little disconcerting when this happens right as I am trying to overtake slower vehicles.</dd>
+<dd> You can even see that in the logs.
+<dl><dd> You'll see entries "discharge current limited (XX%)".</dd>
+<dd> That tells you the percentage the power (=battery current) has been limited to, because of the high voltage sag due to higher internal resistance because of the cold.</dd></dl></dd>
+<dd> Right behind that you will read a "MinCell" entry
+<dl><dd> this one tells you which cell was the weakest and caused the limitation and with what voltage.</dd></dl></dd>
+<dd> The limitation of power is directly related to topspeed, as you need more power the faster you ride.</dd></dl>
+</blockquote>
+<h1><span class="mw-headline" id="Charging">Charging</span></h1>
+<h2><span class="mw-headline" id="GFCI_Faults"><a rel="nofollow" class="external text" href="https://simple.wikipedia.org/wiki/GFCI">GFCI</a> Faults</span></h2>
+<p>Ground fault circuit isolation outlets detect unequal currents across the hot to neutral prongs.
+</p><p>The <a href="/wiki/Onboard_Charger" title="Onboard Charger">Onboard Charger</a> tends to aggravate these detectors, particularly if paired with another load on the same circuit phase in a household or building.
+</p>
+<dl><dt>Recommendation</dt>
+<dd> If GFCI faults occur regularly, charge the bike without a ground connection:</dd></dl>
+<ul><li> Use a <a href="https://en.wikipedia.org/wiki/Cheater_plug" class="extiw" title="wikipedia:Cheater plug">cheater plug</a> to mask the Zero's three-prong plug as a two-prong ungrounded plug, or</li>
+<li> Just break off the grounding prong in the cable plug with a pair of pliers.</li></ul>
+<h2><span class="mw-headline" id="Blinks_4_or_5_times_and_fails_to_charge"><a href="/wiki/Charge_Failure_After_Blink_Sequence" title="Charge Failure After Blink Sequence">Blinks 4 or 5 times and fails to charge</a></span></h2>
+<p>When the charge indicator blinks 4 or 5 times, and charging fails to start.
+</p>
+<dl><dt>Cause</dt>
+<dd> The charging fuse could be blown.</dd></dl>
+<dl><dt>Recommendation</dt>
+<dd> Find the charging fuse in the wiring harness, remove it from the heat shrink, and replace it.</dd>
+<dd> It is unclear whether a resistance check can be easily performed to save time troubleshooting, but a voltage check should work.</dd></dl>
+<ul class="gallery mw-gallery-traditional">
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:30px auto;"><a href="/wiki/File:Harness_with_charging_fuse_1.jpeg" class="image"><img alt="" src="/images/thumb/b/ba/Harness_with_charging_fuse_1.jpeg/120px-Harness_with_charging_fuse_1.jpeg" width="120" height="90" /></a></div></div>
+			<div class="gallerytext">
+<p>Harness with charging fuse inside heatshrink
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:30px auto;"><a href="/wiki/File:Harness_with_charging_fuse_2_cut_open.jpeg" class="image"><img alt="" src="/images/thumb/f/fe/Harness_with_charging_fuse_2_cut_open.jpeg/120px-Harness_with_charging_fuse_2_cut_open.jpeg" width="120" height="90" /></a></div></div>
+			<div class="gallerytext">
+<p>Harness with charging fuse, cut open
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:30px auto;"><a href="/wiki/File:Harness_with_charging_fuse_3_cut_open.jpeg" class="image"><img alt="" src="/images/thumb/b/ba/Harness_with_charging_fuse_3_cut_open.jpeg/120px-Harness_with_charging_fuse_3_cut_open.jpeg" width="120" height="90" /></a></div></div>
+			<div class="gallerytext">
+<p>Harness with charging fuse, cut open, back
+</p>
+			</div>
+		</div></li>
+</ul>
+<dl><dt>Owner Comment</dt></dl>
+<blockquote>
+<p>SF Moto took 1.5 hours troubleshooting and then replaced the entire harness. Total cost about $650.  The fuse is inside the thick heat shrink.
+</p>
+</blockquote>
+<h2><span class="mw-headline" id="Stuck.2FWarm_Charging_Cord">Stuck/Warm Charging Cord</span></h2>
+<p>From <a rel="nofollow" class="external text" href="http://electricmotorcycleforum.com/boards/index.php?topic=5778.msg45518#msg45518">this thread</a>, there's a <a rel="nofollow" class="external text" href="http://electricmotorcycleforum.com/boards/index.php?topic=5778.msg45529#msg45529">good explanation</a> of what can cause a power cord to get stuck/fuse.
+</p><p>Most charge cord recommendations focus rightly on wire gauge and length to avoid heating. A stuck cord/plug on the other hand will be due to the connectors fusing together, possibly after years of use, so it's a connection that has deteriorated to the point where it generates its own heat.
+</p>
+<dl><dt>Note</dt>
+<dd> If you are using a cord that does not meet Zero's requirements, the cord or particularly the plug may not be rated for the current (12A continuous at least), and will overheat for that reason.</dd></dl>
+<dl><dt>Recommendations</dt></dl>
+<ul><li> Clean the contact prongs on the motorcycle's receptacle. Use something specialized for the purpose.
+<dl><dd> Road debris or just dirt on the prongs can increase electrical resistance and produce heat that weakens the cable plug.</dd></dl></li>
+<li> Try to avoid bending the blades of the male connector whenever possible.
+<dl><dd> They should be fairly well annealed brass but they will eventually fatigue.</dd></dl></li>
+<li> One preference is to have them bent inward slightly.
+<dl><dd> That gives a little bit of pressure between the blade and the socket which helps provide a low-resistance connection.</dd></dl></li>
+<li> Keep an eye on the strain relief on the backside of the connector.
+<dl><dd> If you see cracks starting to appear, you might want to replace the cord or at least get a backup so you won't be left without one when it fails.</dd></dl></li>
+<li> Be sure to always grab the molded part of the connector when disconnecting, rather than yanking on the cord.
+<dl><dd> Especially when the cable is warm and soft, that's a great way of pulling it apart.</dd></dl></li></ul>
+<h2><span class="mw-headline" id="Charging_Errata">Charging Errata</span></h2>
+<dl><dt>Charging light stays on after completion (2017 model year)</dt>
+<dd> "...prior to 2017 models, the green charge indicator did go out once the bike was unplugged. For 2017 though, a component was deleted, so the light stays on until voltage in the circuit bleeds off, or the contactor is closed."</dd>
+<dd> Source: <a rel="nofollow" class="external text" href="http://electricmotorcycleforum.com/boards/index.php?topic=6824.msg63673#msg63673">Re: Zero SR 2017. New model startup issues or just my bike?</a> Electric Motorcycle Forum user <b>droidish</b> reports on the charging indicator staying on after completion)</dd></dl>
+<h2><span class="mw-headline" id="Faulty_Calex_onboard_charger"><a href="/wiki/Gen2/Calex_Charger/Faulty_Operation" title="Gen2/Calex Charger/Faulty Operation">Faulty Calex onboard charger</a></span></h2>
+<dl><dt>Charging stops below 100%</dt></dl>
+<ul><li> A defect in the onboard charger (due to spikes on the canbus?) cause charging process to stop prior to reaching 100%.</li>
+<li> Even when left plugged in the SOC will no longer reach 100% and will keep decreasing over time (next charges).</li></ul>
+<dl><dt>Collateral Damage Risk</dt>
+<dd> If a bikes has damaged the charger it is likely to damage the replacement charger over time as well.</dd></dl>
+<dl><dt>Actions</dt>
+<dd> The onboard charger is not repairable beyond checking the inlet</dd>
+<dd> A replacement guide for the onboard charger can be found here <a href="/wiki/Calex_Charger_Replacement" title="Calex Charger Replacement">Calex Charger Replacement</a>.</dd></dl>
+<p><br />
+</p>
+<h1><span class="mw-headline" id="Frame.2FBody_Panels">Frame/Body Panels</span></h1>
+<p>Prior to 2017, <a href="/wiki/Gen2/Bodywork_Material" title="Gen2/Bodywork Material">Zero's plastic panels</a>' color is molded-in and will fade with exposure to the sun over a year or two.
+</p><p>The battery casing will also acquire a mild kind of patina over time if left sun-exposed over a very long time.
+</p><p><br />
+</p>
+<h1><span class="mw-headline" id="Front_Wheel.2FSuspension.2FSteering">Front Wheel/Suspension/Steering</span></h1>
+<h2><span class="mw-headline" id="Fork_Oil_Leak">Fork Oil Leak</span></h2>
+<p>Sometimes the front fork seal can leak because it gets dirty. <a rel="nofollow" class="external text" href="http://electricmotorcycleforum.com/boards/index.php?topic=5748.msg42549#msg42549">One recommendation</a> is to keep a handy tool for cleaning it out quickly. <a rel="nofollow" class="external text" href="http://sealmate.net/">SealMate</a> has been recommended but other solutions can be equivalent.
+</p>
+<dl><dt> FastAce Left Fork Leak</dt>
+<dd> The FastAce front forks for the 2013 (and possibly 2014) are known to sometimes develop a weep/leak on the bottom of the left tube.</dd>
+<dd> The vaguely-communicated cause is the asymmetric strain of the single brake disc on that side, combined with a lack of compensating setup when installing the tubes.</dd>
+<dd> Zero tends to include this issue under normal warranty coverage, to replace the tubes, if the forks themselves develop the problem less than a year after having installed them.</dd></dl>
+<h2><span class="mw-headline" id="DS.2FFX_Front_Brake_Line_Obscures_Dash"><a href="/wiki/Gen2/Armored_Front_Brake_Line_Rerouting" title="Gen2/Armored Front Brake Line Rerouting">DS/FX Front Brake Line Obscures Dash</a></span></h2>
+<dl><dt>Goal</dt></dl>
+<ul><li> The DS and FX have an armored front brake line with ABS wire clipped onto it that runs in front of the handlebars.</li>
+<li> It usually obscures the ignition but sometimes the lower part of the dash display.</li>
+<li> 2017 models' design resolves this.</li></ul>
+<dl><dt>Motivation</dt>
+<dd> It's okay to re-route the cable or use some strap (zip tie or hook-and-loop) to pull it towards the handlebar to clear up the cockpit.</dd></dl>
+<dl><dt>Steps</dt></dl>
+<ol><li> Remove the 4 dashboard bolts.</li>
+<li> Remove the 2 headlight bolts.</li>
+<li> Push dashboard through loop in brake line.</li>
+<li> Unplug the 2 headlight wires.
+<dl><dd> The main connector is tight; it's easier remove the bulb, but don't touch it.</dd></dl></li>
+<li> Put the brake line on other side of headlight wires.</li>
+<li> Replace the headlight wires.</li>
+<li> Wire-tie the ABS wire plug to the larger plug behind the dashboard, so it doesn't dangle.</li>
+<li> Replace the dashboard with 4 bolts.
+<dl><dd> <a href="/wiki/File:Brake1.jpg" class="image"><img alt="Brake1.jpg" src="/images/thumb/6/67/Brake1.jpg/400px-Brake1.jpg" width="400" height="225" /></a></dd></dl></li>
+<li> Observe the arc of the brake line.
+<dl><dd> Is it forming too tight an arc? Move it if so.</dd></dl></li>
+<li> Turn the handlebar to its extremes, and observe the brake line.
+<dl><dd> Is it being pinched, or rubbing against anything sharp? Use zip-ties to hold it away, if so.</dd>
+<dd> <a href="/wiki/File:Brake2.jpg" class="image"><img alt="Brake2.jpg" src="/images/thumb/c/cd/Brake2.jpg/400px-Brake2.jpg" width="400" height="727" /></a></dd></dl></li>
+<li> Compress the front forks (lean on bike), while moving handlebar to extremes, and observe brake line.
+<dl><dd> Is it rubbing against anything sharp?</dd></dl></li>
+<li> Repeat until you're satisfied there is no way the brake line is endangered.  </li>
+<li> Bolt on the headlight.</li>
+<li> Perform a final check (turning the handlebars and compressing the forks) for abrasion.</li>
+<li> Test drive: go up/down curbs, or otherwise compress / test range of motion.</li></ol>
+<p><br />
+</p>
+<h1><span class="mw-headline" id="Rear_Wheel.2FSuspension.2FBelt">Rear Wheel/Suspension/Belt</span></h1>
+<p>If the rear wheel leaves the surface under acceleration, it can accelerate rapidly, overstressing the belt when landing.  Belts have been reported broken, leading some to switch to noisy chains instead.  Take care with potholes and speed bumps, it you leave the surface, lay off the throttle to avoid damaging the belt.
+</p>
+<h2><span class="mw-headline" id="Defective_Wheel_Bearings"><a href="/wiki/Defective_Wheel_Bearings" title="Defective Wheel Bearings">Defective Wheel Bearings</a></span></h2>
+<p>Some models suffered from defective wheel bearings.
+</p>
+<dl><dd> Usually these bearings should last 80,000+ miles, but some owners have reported much lower lifetimes (10,000 miles).</dd></dl>
+<dl><dt>Symptoms</dt></dl>
+<ul><li> Snapping / clicking / popping sounds. This noise is typically heard when cornering or making sharp turns.</li>
+<li> Grinding when the vehicle is in motion. The noise is normally heard when turning or when there is a shift in load.</li>
+<li> Sharp strike (as if someone struck the wheel with a hammer) accompanied by a grinding sound.</li></ul>
+<dl><dt>Related Symptoms</dt>
+<dd> The noise / vibration will vary depending on the load / resistance applied to the weel.</dd>
+<dd> It might disappear when the motorbike is on a lift (in this case, using the brake of the damaged wheel could help applying enough resistance for the noise to appear).</dd></dl>
+<p><br />
+</p>
+<h2><span class="mw-headline" id="Noisy_Belt"><a href="/wiki/Belt_Noise" title="Belt Noise">Noisy Belt</a></span></h2>
+<p>The belt often makes various noises while riding that sound vaguely concerning.
+</p>
+<dl><dd> These noises should be investigated.</dd></dl>
+<dl><dt>Potential Causes</dt></dl>
+<ul><li> Belt misalignment.</li>
+<li> Debris between the belt and sprocket.</li></ul>
+<dl><dt>Effects</dt>
+<dd> If the belt is misaligned, it may be under asymmetric loading, and fail early and badly.</dd>
+<dd> If the belt is encountering debris, it may fail early and badly.</dd></dl>
+<dl><dt>Potential Solutions</dt></dl>
+<ul><li> Check the belt and sprockets for debris and clean them with a non-abrasive brush.</li>
+<li> See the <a href="/wiki/Belt_Adjustment" title="Belt Adjustment" class="mw-redirect">Belt Adjustment</a> procedure.</li>
+<li> Fine tune where the belt rides on the rear sprocket.
+<dl><dd> <a rel="nofollow" class="external text" href="https://www.facebook.com/photo.php?fbid=10210641031081262&amp;set=p.10210641031081262&amp;type=1&amp;theater">this FB post by Paul Murray</a> suggests this method for dealing with belt noises.</dd></dl></li></ul>
+<dl><dd><ol><li> Adjust the belt tension screws on the back axle so the belt tracks just barely off the side lip.
+<dl><dd> The side lip was rubbing the side of the belt and making noise.</dd></dl></li>
+<li> Loosen the axle nut so the tensioners can move the axle freely.</li>
+<li> Adjust the belt tension with the sprocket side tensioner and keep the brake disc side even, using the brake side tensioner screw.</li>
+<li> Use the alignment notches on each side as a reference.</li>
+<li> Then, with the rear wheel off the ground, spin the back wheel by hand.
+<dl><dd> Using the accelerator is sketchy and spinning by hand will probably do the job.</dd>
+<dd> Observe where the belt is riding.</dd></dl></li>
+<li> Adjust the brake side tensioner a 1/4 turn (or less), in or out, and spin the wheel again.
+<dl><dd> Observe where the belt is tracking.</dd>
+<dd> As you do this a few times you will see the belt move from side to side.</dd>
+<dd> When you find the spot where the belt tracks just off off the side lip, and the tension is correct, that is the happy spot!</dd>
+<dd> That should eliminate some belt noises.</dd></dl></li>
+<li> Tighten up the locking screws on the tensioner bolts, and tighten the axle nut when finished.</li></ol></dd>
+<dd><table cellspacing="0" cellpadding="0" border="0" style="background: transparent; margin-top:0.5em;border:1px #b32424 solid;padding:0.5em;background-color: #fee7e6"><tr><td nowrap="nowrap" valign="top"><span style="position: relative; top: -2px;"><img alt="Disclaimer" src="/images/thumb/3/3c/Attention_Warning_Icon.png/18px-Attention_Warning_Icon.png" title="Disclaimer" width="18" height="18" /></span> <b> Disclaimer:</b> </td><td valign="top" style="padding-left:0.5em;">I am not a motorcycle mechanic, but using the notches for axle location is just not accurate enough for belt tracking.</td></tr></table></dd></dl>
+<ul><li> Replace the belt with a loose chain drive, where such alignment is not an issue.</li></ul>
+<p><br />
+</p>
+<h2><span class="mw-headline" id="Rear_Vibration"><a href="/wiki/Rear_Wheel_Vibration" title="Rear Wheel Vibration">Rear Vibration</a></span></h2>
+<p>Rear wheel vibration may occur after tire replacement.
+</p>
+<dl><dt>References</dt></dl>
+<p><a rel="nofollow" class="external text" href="http://electricmotorcycleforum.com/boards/index.php?topic=6041">Vibration after rear tire replacement</a>
+</p>
+<dl><dt>Troubleshooting</dt></dl>
+<ul><li> Check for any play in the wheel relative to the swingarm, which would suggest a <a href="/wiki/Rear_Bearings_Replacement" title="Rear Bearings Replacement" class="mw-redirect">bearing issue</a>.</li>
+<li> Check for any play in the swingarm relative to the frame, which would suggest a <a href="/wiki/Swingarm" title="Swingarm" class="mw-redirect">swingarm</a> mount issue.</li>
+<li> Check for and fix any <a href="/wiki/Belt_Alignment" title="Belt Alignment" class="mw-redirect">belt alignment</a> issues.</li>
+<li> Check for <a href="/wiki/Motor" title="Motor">motor</a> mount play, front sprocket play, or check MBB logs for motor-controller encoder alignment issues.</li></ul>
+<dl><dt>Preventative Measures</dt></dl>
+<ul><li> Check for wheel balance after a tire replacement.
+<dl><dd> Balancer stands and compensating weights are commonly available; whoever changed the tire should have done this.</dd></dl></li></ul>
+<p><br />
+</p>
+<h2><span class="mw-headline" id="Belt_Damage"><a href="/wiki/Drive_Belt/Damage" title="Drive Belt/Damage">Belt Damage</a></span></h2>
+<dl><dt>Bumps</dt>
+<dd> Belts are most commonly damaged by using the throttle in the moment that a wheel becomes airborne, over a bump at speed, say.</dd>
+<dd> If the wheel spins up momentum in the air, regaining traction on landing will jerk the belt, causing a loss of belt teeth or the belt may snap entirely.</dd></dl>
+<dl><dt>Debris</dt>
+<dd> Gravel, road debris, or sand can damage or snap the belt if caught between the belt and the sprocket.</dd>
+<dd> Sand seems to be the most sure to destroy a belt; gravel has a lower probability given some basic design protections that should scatter gravel out of or away from the sprocket.</dd></dl>
+<dl><dt>Teeth loss tolerance</dt>
+<dd> Missing belt teeth can be tolerated briefly until a replacement can be made by riding at low torques (easy acceleration, not too high sustained speeds).</dd>
+<dd> The front sprocket has up to 28 total teeth, and only half of those can be in contact with the belt at any given moment, so a continuous sequence of stripped belt teeth might continue up to perhaps 12 but any length of missing teeth is riskier as it gets longer.</dd>
+<dd> The teeth and inner surface of the belt can melt into the front sprocket if the sprocket slides where there are not teeth</dd>
+<dd> If the front sprocket slides, the front sprocket will go fast and it will take out additional teeth as the wheel catches up</dd>
+<dd> Eventually you will have to remove material from the front sprocket or replace it.  And eventually the belt will break and you will be unable to climb a San Francisco hill (does this sound oddly specific?)</dd>
+<dd> Scraping out the material with metal can damage the sprocket.  Avoid it.  A hardwood dowel or a polycarbonate rod, sharpened, is better. Acrylic is too weak.</dd></dl>
+<p><br />
+</p>
+<h1><span class="mw-headline" id="Brake_System">Brake System</span></h1>
+<h2><span class="mw-headline" id="Brake_Squeal"><a href="/wiki/Brake_Squeal" title="Brake Squeal">Brake Squeal</a></span></h2>
+<p>This is a common sound on Zero motorcycles, for reasons which have never been decisively explained.
+</p>
+<dl><dt>Related Confirming Symptoms</dt></dl>
+<ul><li> Usually occurs only when pressing on the brake lever or pedal.  Rarely occurs at specific speeds when brakes are not pressed (the pad(s) are resting on the caliper).</li>
+<li> Vibration felt through the brake lever or pedal when squealing.</li></ul>
+<dl><dt>Effects</dt></dl>
+<ul><li> Brake performance seems <i>technically</i> unaffected.</li>
+<li> As the loudest sound from the vehicle, this can be unnerving for rider, passenger, or onlookers.</li></ul>
+<dl><dt>Potential Causes</dt>
+<dd> This was more common on 2013-2014 models which had cheaper / lower spec <a href="/wiki/Brake_Systems" title="Brake Systems">Brake Systems</a>.</dd>
+<dd> This suggests a design issue between the disc and calipers that tends to produce resonance the way the pad is mounted.</dd></dl>
+<dl><dt>Potentional Solutions</dt></dl>
+<ul><li> <a rel="nofollow" class="external text" href="http://www.loctite.ph/php/content_data/LT4246_disc_brake_quiet_stick11.pdf">LocTite Disc Brake Quiet stick applicator</a> or silicone grease for the backs of the pads.</li>
+<li> <a rel="nofollow" class="external text" href="http://electricmotorcycleforum.com/boards/index.php?topic=8128">Apply water to the calipers after a ride</a> seems to eliminate squeal for about a week or so.</li>
+<li> Camfering pad edges.</li>
+<li> If <i>the bike is new and brake squeal is constant</i>:
+<dl><dd> Bed the brakes per the <a href="/wiki/Official_Owners_Manual" title="Official Owners Manual">Official Owners Manual</a> and then give the bike a gentle wash.</dd></dl></li></ul>
+<h2><span class="mw-headline" id="Regenerative_Braking">Regenerative Braking</span></h2>
+<p>When starting with a full charge, downhill, with a mode that does regenerative braking, you may feel a pulsing, as the regenerative braking repeatedly engages and then disengages so as to not overcharge. 2015 and newer versions of the firmware appear to soften or eliminate this effect. Using sport mode intentionally for the length of a block appears to be enough to start using regenerative braking.
+</p><p>Regenerative braking is only enabled in the speed range of about 8 mph to 70 mph (could vary slightly depending on model).  If you go faster or slower, even in a mode with regeneration enabled, it will not turn on until your speed falls within that range.
+</p><p>When braking, it can be effective to apply the brake lightly, just enough to activate the taillight, well ahead of time.  This minimizes brake pad wear while improving range (in Eco mode or Custom mode, depending on regenerative braking settings).
+</p>
+<h2><span class="mw-headline" id="Parking_on_Hills">Parking on Hills</span></h2>
+<p>Lacking a clutch and transmission, a Zero offers no built-in support for preventing a parked motorcycle from rolling downhill.
+</p><p>Solutions:
+</p>
+<ul><li> <a rel="nofollow" class="external text" href="http://www.zeromotorcycles.com/shop/index.php?main_page=product_info&amp;cPath=15_4&amp;products_id=205">OEM brake lever lock</a></li>
+<li> Double-sided velcro loop.</li>
+<li> <a rel="nofollow" class="external text" href="http://www.webbikeworld.com/r2/motorcycle-lock/grip-lock/">Grip Lock</a> is a security device for locking the throttle and front brake.</li>
+<li> <a rel="nofollow" class="external text" href="http://www.zeromotorcycles.com/shop/index.php?main_page=product_info&amp;cPath=15_4&amp;products_id=243">Zero Parking Brake Kit</a>
+<dl><dd> The 2017 Owner's Manual explicitly describes a Parking Brake accessory and shows how to operate it (paddle on the right handlebar side that operates a rear brake caliper).</dd>
+<dd> It became available in mid-2017 but seems to fit 2014+ S platform models and 2015+ X platform models.</dd></dl></li></ul>
+<h1><span class="mw-headline" id="Motor.2FController">Motor/Controller</span></h1>
+<h2><span class="mw-headline" id="Low_SoC">Low SoC</span></h2>
+<p>For 2014 and earlier S/DS/SR models, power is reduced below 15% battery charge, and may cut out at or below 10%.
+</p><p>The controller is definitely reducing power to protect the battery when its voltage is reduced.
+</p><p>One point of confusion is why power cuts back before 0%. It may to be due to individual cels being fully discharged too soon. Turning the bike off for a minute and then turning it on may allow using the bike for a few more miles at very slow speeds and power in order to limp home, because the lowest cel should temporarily rebound in voltage enough to satisfy the battery protection logic even though the cell will not produce power and will strongly limit what can be done with the battery until recharged.
+</p><p>Models with fewer battery bricks like the FX will cut back power much sooner near 50% battery charge because each cell has a greater impact on the entire power pack.
+</p><p>2015 models experience this trouble less acutely, and 2016 models seem willing to continue travel at 0% for up to several miles. The implication is that the cells are much more robust in these battery generations, and an abnormally low individual cell is very unlikely.
+</p><p>If there is an emergency need to operate to motorcycle this way, use the battery voltage display in the mobile app to understand how far away you are from the battery being completely unusable.
+</p><p>In any case, running the battery charge this low should be followed immediately by charging to prevent damaging the battery, and it may reduce overall battery lifetime if performed regularly.
+</p>
+<h2><span class="mw-headline" id="Overheating"><a href="/wiki/Overheating" title="Overheating">Overheating</a></span></h2>
+<p>After "spirited" riding especially on an SR or a DSR a temperature icon may flash, indicating high temperature. If temperature continues to build it will go solid (p. 4-14 <a rel="nofollow" class="external text" href="http://media.zeromotorcycles.com/resources/owners-manuals/2014/2014-Zero-Owners-Manual-S-SR-DS.pdf">2014 Zero SR owners manual</a>)
+</p>
+<dl><dt> Pre-2012 Recommendations</dt>
+<dd> On pre-2012 models, it is important to slow down and let the motor and electronics cool as there are no inbuilt protections.</dd></dl>
+<dl><dt> 2012+ Recommendations</dt>
+<dd> On 2012 and newer Zeros, the controller will automatically reduce phase current as the motor heats up which reduces performance and motor heat.</dd>
+<dd> This gets more aggressive as motor heat increases until power is reduced to a point where the motor is shedding heat as fast as it can generate it.</dd>
+<dd> The 2014 and newer SR and DSR motors have higher temperature magnets, and it is normal to see 120+C under spirited riding.</dd></dl>
+<dl><dt> IPM Design Factors</dt>
+<dd> The 2016 SR/DSR/FXS motors (and S/DS motors for 4-brick variants) have an interior permanent magnet (IPM) design that reduces the heat produced and reduces the stress from heating by distributing the heat generated, so they appear to operate cooler in the same conditions for longer periods of time.</dd>
+<dd> It has been said that with an IPM motor, the controller becomes the limiting performance factor.</dd></dl>
+<dl><dt> Battery Overheating</dt>
+<dd> Repeated iterations of highway riding and rapid charging can cause battery overheating.</dd>
+<dd> The contactor opens up above 50C, preventing charging or operating the bike.</dd>
+<dd> Once you are stopped, without airflow on a hot day, it may be difficult to proceed for some time.
+<dl><dt> Recommendations</dt></dl>
+<ul><li> Slow to 55-60 mph for the last miles before charging is reportedly enough to cool the battery enough to allow rapid charging.</li>
+<li> Reduce charging rate to at or near 4kW (or 0.4C) to minimize the heating produced while charging.</li>
+<li> Disengage the onboard charger while charging, since the heat it produces conducts directly into the bottom of the battery case.</li></ul></dd>
+<dd> Year over year, newer battery designs have lower internal resistance and tend to produce less heating internally so will perform better.</dd></dl>
+<p><br />
+</p>
+<h1><span class="mw-headline" id="Battery.2FChargers">Battery/Chargers</span></h1>
+<h2><span class="mw-headline" id="Hot_Weather_Charging">Hot Weather Charging</span></h2>
+<p>On a hot day, or with rapid chargers, the battery may get hot when charging.
+</p>
+<dl><dt>Recommendations</dt></dl>
+<ul><li> You can use the app to detect this condition.</li>
+<li> Charge in the shade, when possible, with good ventilation.</li>
+<li> A half cover or stretch-cover can help make shade.</li></ul>
+<h1><span class="mw-headline" id="Electrical_System">Electrical System</span></h1>
+<h2><span class="mw-headline" id="Hazard_Lights_Interfere_With_Turn_Signals"><a href="/wiki/Hazard_Lights_Interfere_With_Turn_Signals" title="Hazard Lights Interfere With Turn Signals">Hazard Lights Interfere With Turn Signals</a></span></h2>
+<p>On 2016 models, the turn signals can stop working when the hazard lights are engaged.
+</p>
+<dl><dt>Conditions</dt>
+<dd> While either left or right turn signal are engaged:
+<ul><li> If you hit the hazard switch while the <i>dash turn signal indicator</i> is <b>off</b>, the circuit will lock out.
+<dl><dd> It can only be reset by canceling the turn signal.</dd></dl></li></ul></dd>
+<dd> If you time it so you engage the hazard indicators while the <i>dash turn signal indicator</i> is <b>on</b>, the circuit will work normally. </dd></dl>
+<dl><dt>Avoiding</dt>
+<dd> Hopefully rarely will you need to use the hazard indicators while a turn indicator is engaged.</dd>
+<dd> If you do need this, cancel the turn signal before you hit the flasher button (or you stand a 50% chance of locking up the circuit).</dd></dl>
+<dl><dt>Fix</dt></dl>
+<ol><li> Turn off the hazard lights.</li>
+<li> Reset the turn signal.</li></ol>
+<dl><dt>Reference</dt>
+<dd> <a rel="nofollow" class="external text" href="http://electricmotorcycleforum.com/boards/index.php?topic=6983">Blinking switch malfunction</a></dd></dl>
+<p><br />
+</p>
+<h1><span class="mw-headline" id="App_and_Bluetooth">App and Bluetooth</span></h1>
+<p>See the <a href="/wiki/Official_Mobile_Application" title="Official Mobile Application">Official Mobile Application</a> page under <a href="/wiki/Official_Mobile_Application#Common_Problems" title="Official Mobile Application">Common Problems</a>.
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20250227202011
+Cache expiry: 86400
+Dynamic content: false
+CPU time usage: 0.098 seconds
+Real time usage: 0.258 seconds
+Preprocessor visited node count: 288/1000000
+Preprocessor generated node count: 705/1000000
+Post‐expand include size: 29927/2097152 bytes
+Template argument size: 1140/2097152 bytes
+Highest expansion depth: 5/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  186.253      1 - -total
+ 64.06%  119.311      1 - Charge_Failure_After_Blink_Sequence
+  5.57%   10.365      1 - Belt_Groan_Sound
+  4.30%    8.005      1 - Belt_Noise
+  3.11%    5.796      1 - Hazard_Lights_Interfere_With_Turn_Signals
+  2.75%    5.130      1 - Template:Disclaimer
+  2.70%    5.025      1 - Rear_Wheel_Vibration
+  2.67%    4.969      2 - Template:Warning
+  2.10%    3.904      1 - Gen2/Armored_Front_Brake_Line_Rerouting
+  2.05%    3.822      1 - Drive_Belt/Damage
+-->
+
+<!-- Saved in parser cache with key fastgm_mediawiki1465250065:pcache:idhash:12-0!*!0!!en!5!* and timestamp 20250227202010 and revision id 6144
+ -->
+</div>					<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="http://zeromanual.com/index.php?title=Common_Problems&amp;oldid=6144">http://zeromanual.com/index.php?title=Common_Problems&amp;oldid=6144</a>"					</div>
+				<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="/wiki/Category:Charging_Symptom" title="Category:Charging Symptom">Charging Symptom</a></li><li><a href="/wiki/Category:Wheel_Sound" title="Category:Wheel Sound">Wheel Sound</a></li></ul></div></div>				<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="/index.php?title=Special:UserLogin&amp;returnto=Common+Problems" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="/wiki/Common_Problems"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+															<li  id="ca-talk" class="new"><span><a href="/edit/Talk:Common_Problems?redlink=1"  title="Discussion about the content page [t]" accesskey="t" rel="discussion">Discussion</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label">
+							<span>Variants</span><a href="#"></a>
+						</h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="/wiki/Common_Problems" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="/edit/Common_Problems"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="/history/Common_Problems"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="/index.php" id="searchform">
+							<div id="simpleSearch">
+							<input type="search" name="search" placeholder="Search" title="Search Unofficial Zero Manual [f]" accesskey="f" id="searchInput"/><input type="hidden" value="Special:Search" name="title"/><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/><input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>							</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="/wiki/Main_Page"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation' aria-labelledby='p-navigation-label'>
+			<h3 id='p-navigation-label'>Navigation</h3>
+
+			<div class="body">
+									<ul>
+						<li id="n-mainpage-description"><a href="/wiki/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-recentchanges"><a href="http://zeromanual.com/wiki/Special:RecentChanges?namespace=0" rel="nofollow" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" title="The place to find out">Help</a></li>					</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+						<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/Common_Problems" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/Common_Problems" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="/index.php?title=Common_Problems&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="/index.php?title=Common_Problems&amp;oldid=6144" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="/info/Common_Problems" title="More information about this page">Page information</a></li>					</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 31 March 2020, at 03:35.</li>
+											<li id="footer-info-copyright"><span style="color:#999999">
+This site and its contents are not sponsored by, associated with, affiliated with, or endorsed by Zero Motorcycles.<br/>
+All logos and icons are owned by their respective owners. <br/>
+The Zero logo is used only under fair use for subject matter identification. Use of the logo is not an endorsement or sign of association with the Zero Motorcycle brand.
+</span></li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="/wiki/Unofficial_Zero_Manual:Privacy_policy" title="Unofficial Zero Manual:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="/wiki/Unofficial_Zero_Manual:About" title="Unofficial Zero Manual:About">About Unofficial Zero Manual</a></li>
+											<li id="footer-places-disclaimer"><a href="/wiki/Unofficial_Zero_Manual:General_disclaimer" title="Unofficial Zero Manual:General disclaimer">Disclaimers</a></li>
+											<li id="footer-places-mobileview"><a href="http://zeromanual.com/index.php?title=Common_Problems&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-poweredbyico">
+							<a href="//www.mediawiki.org/"><img src="/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31"/></a>						</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>(window.RLQ=window.RLQ||[]).push(function(){mw.loader.state({"user":"ready","user.groups":"ready"});mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","site","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest","ext.CategorySuggest"]);});</script><script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":258});});</script>
+	</body>
+</html>

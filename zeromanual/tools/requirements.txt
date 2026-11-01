@@ -1,0 +1,4 @@
+# zeromanual/tools/build_markdown.py (fetch_wayback.py is stdlib only)
+beautifulsoup4
+markdownify
+lxml

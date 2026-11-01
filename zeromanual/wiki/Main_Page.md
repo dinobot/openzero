@@ -1,0 +1,34 @@
+---
+title: "Main Page"
+source: https://zeromanual.com/wiki/Main_Page
+archived: https://web.archive.org/web/20260329225522/https://zeromanual.com/wiki/Main_Page
+captured: 2026-03-29
+last_modified: "13 October 2021 13:56"
+---
+
+# Main Page
+
+| ### Welcome to the Unofficial Zero Manual! | ### How Can I Help? |
+| --- | --- |
+| This is your one-stop source for information on your Zero Motorcycle. <br> This wiki is wholly maintained by riders just like you; it is not affiliated with [Zero Motorcycles](Zero_Motorcycles.md "Zero Motorcycles") at all. <br> ### Getting started <br> [Why an unofficial wiki?](Unofficial_Zero_Manual/About.md "Why an unofficial wiki?") <br> [Potential Buyers Guide](Potential_Buyers_Guide.md "Potential Buyers Guide") | Register to contribute to the site directly. <br> Registration is unrestricted, but keeps vandalism to a minimum. <br> We do not keep your information for any reason; feel free to use an anonymous alias. <br> ### [Contribution Guide](Contribution_Guide.md "Contribution Guide") <br> Do you know your Zero's stuff? <br> See something missing? **Add it!** |
+
+| | | |
+| --- | --- | --- |
+| ### General <br> [Usage](Usage.md "Usage") <br> [Official Mobile Application](Official_Mobile_Application.md "Official Mobile Application") <br> [Ergonomics](Ergonomics.md "Ergonomics") <br> [Quick references](Category/Quick_Reference.md "Category:Quick Reference") <br> [Tool Kits](Tool_Kits.md "Tool Kits"), [Error Codes](Error_Codes.md "Error Codes") <br> [Recalls](Recalls.md "Recalls") <br> ### Aftermarket & Customizations <br> [Aftermarket](Aftermarket.md "Aftermarket") <br> [Chargers](Chargers.md "Chargers") <br> [Mobile Applications](Mobile_Applications.md "Mobile Applications") <br> [Common Modifications](Common_Modifications.md "Common Modifications") <br> [Install pages](Category/Install.md "Category:Install") <br> [Zero Customizers](Zero_Customizers.md "Zero Customizers") <br> [Color Guide](Color_Guide.md "Color Guide") <br> ### Advanced Usage <br> [Racing](Racing.md "Racing") <br> [Travel](Travel.md "Travel") <br> [EV Charging](EV_Charging.md "EV Charging") <br> [Range and Efficiency](Efficiency.md "Efficiency") <br> [Great Routes](Great_Routes.md "Great Routes") | ### Technical <br> [Unofficial Service Manual](Unofficial_Service_Manual.md "Unofficial Service Manual") <br> [S+DS Unofficial Service Manual](SDS_Platform/Unofficial_Service_Manual.md "SDS Platform/Unofficial Service Manual") <br> [FX(S) Unofficial Service Manual](XMX_Platform/Unofficial_Service_Manual.md "XMX Platform/Unofficial Service Manual") <br> **Under Construction:** [SR/F+SR/S Unofficial Service Manual](FST_Platform/Unofficial_Service_Manual.md "FST Platform/Unofficial Service Manual") <br> [Exploded Views](Exploded_Views.md "Exploded Views") <br> [Skills](Skills.md "Skills") <br> [Interfacing](Interfacing.md "Interfacing") <br> [Advanced Modifications](Advanced_Modifications.md "Advanced Modifications") <br> ### [Troubleshooting](Troubleshooting.md "Troubleshooting") <br> [Common Problems](Common_Problems.md "Common Problems") <br> [Common Sounds](Common_Sounds.md "Common Sounds") <br> [Towing and Trailering](Towing_and_Trailering.md "Towing and Trailering") <br> [Working with Zero](Working_with_Zero.md "Working with Zero") <br> ### [All Procedures](Category/Procedure.md "Category:Procedure") <br> [Maintenance pages](Category/Maintenance.md "Category:Maintenance") <br> [Teardown Procedures](Category/Teardown.md "Category:Teardown") <br> [Repair Procedures](Category/Repair.md "Category:Repair") | ### [Official Resources](http://www.zeromotorcycles.com/owner-resources/) <br> [Official Owners Manual](Official_Owners_Manual.md "Official Owners Manual") <br> - [Fastener Specifications](Fastener_Specifications.md "Fastener Specifications") <br> - [New Charging Recommendations](http://www.zeromotorcycles.com/owner-resources/charging-recommendations/) <br> - [Cold and Hot Weather Operations Guide](http://www.zeromotorcycles.com/owner-resources/Cold-and-Hot-Weather-Operation.pdf) <br> - [Mobile App User Guide](http://www.zeromotorcycles.com/app/help/ios/) <br> - [2012 S/DS EIG Battery Recall](http://www.zeromotorcycles.com/owner-resources/recall-information/2012-sds-battery-pack-recall/) <br> [Warranty Information](http://www.zeromotorcycles.com/warranty/) <br> [Warranty / Ownership Transfer Form](http://www.zeromotorcycles.com/owner-resources/warranty-transfer-form.php) <br> [Current Firmware Version Information](https://www.zeromotorcycles.com/owner-resources/firmware/) <br> ### [Press Kit](http://www.zeromotorcycles.com/press-kit/) <br> ### Public Relations <br> - [Official Livestream videos](https://livestream.com/accounts/14139273) <br> ### ~~[Media Center](http://www.zeromotorcycles.com/media-center/)~~ <br> - ~~[Current Model Listing](http://www.zeromotorcycles.com/media-center/motorcycles/)~~ <br> - ~~[Highlights (changes for the latest model year)](http://www.zeromotorcycles.com/media-center/highlights/)~~ <br> - ~~[Press Releases](http://www.zeromotorcycles.com/media-center/press-releases/)~~ <br> - ~~[Contact with social media accounts](http://www.zeromotorcycles.com/media-center/contact/)~~ <br> ### Past model information <br> ~~[2018](http://www.zeromotorcycles.com/2018/) [2017](http://www.zeromotorcycles.com/2017/) [2016](https://web.archive.org/web/20181019115226/https://www.zeromotorcycles.com/2016/) [2015](https://web.archive.org/web/20180425074947/http://www.zeromotorcycles.com/2015/) [2014](https://web.archive.org/web/20151206045445/http://www.zeromotorcycles.com/2014/) [2013](https://web.archive.org/web/20190526124320/https://www.zeromotorcycles.com/2013/)~~ <br> ~~[2012](https://web.archive.org/web/20180808114438/http://www.zeromotorcycles.com/2012/) [2011 S](https://web.archive.org/web/20160803152112/http://www.zeromotorcycles.com/zero-s/2011/) [2011 DS](https://web.archive.org/web/20160329145547/http://www.zeromotorcycles.com/zero-ds/2011/) [2010 S](https://web.archive.org/web/20121205102502/http://www.zeromotorcycles.com/zero-s/2010/) [2010 DS](https://web.archive.org/web/20110227010310/http://www.zeromotorcycles.com/zero-ds/2010/)~~ <br> [Zero Rebate VISA Gift Card](Zero_Rebate_VISA_Gift_Card.md "Zero Rebate VISA Gift Card") |
+
+### Community Websites
+
+[Electric Motorcycle Forum](http://electricmotorcycleforum.com/) (sometimes this goes [offline](http://downforeveryoneorjustme.com/electricmotorcycleforum.com))
+
+[Facebook: Zero Motorcycles Owners Group](https://www.facebook.com/groups/zmcowners/)
+
+[ElMoto Forum](http://elmoto.net/)
+
+[Electric Motorcycle Owners Map](https://www.zeemaps.com/electric_motorcycle_owners_map)
+
+[Endless Sphere Forums](https://endless-sphere.com/forums/)
+
+### General Wiki information
+
+- Consult the User's Guide for information on using the wiki software.
+

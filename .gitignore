@@ -1,0 +1,24 @@
+# Python environments (recreate with requirements.txt)
+.venv/
+.venv-*/
+zeromanual/tools/.venv/
+__pycache__/
+*.pyc
+
+# Editor / OS / assistant state
+.DS_Store
+.claude/
+*/.claude/
+**/.claude/
+
+# Manufacturer documents: copyrighted, not redistributed. See README "Documents you need".
+manuals/
+
+# Working scratch: screenshots, photos, charging logs
+tmp/
+
+# Site build output
+site/_site/
+site/manual/docs/
+site/manual/.cache/
+site/manual/mkdocs.yml

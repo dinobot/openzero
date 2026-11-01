@@ -1,0 +1,59 @@
+# Base MkDocs configuration. build_manual.py copies it to mkdocs.yml and adds `nav`.
+site_name: Unofficial Zero Manual
+site_description: Offline mirror of the community Zero Motorcycles wiki (zeromanual.com), published by the OpenZero project.
+site_url: https://openzero.u65.info/manual/
+docs_dir: docs
+site_dir: ../_site/manual
+use_directory_urls: true
+strict: false
+
+theme:
+  name: material
+  language: en
+  features:
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: black
+      accent: amber
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: amber
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+
+extra:
+  generator: false
+  homepage: https://openzero.u65.info/
+
+copyright: >
+  Mirror of zeromanual.com, a community wiki not affiliated with Zero Motorcycles.
+  Published for preservation by <a href="https://openzero.u65.info/">OpenZero</a>.
+
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - tables
+  - admonition
+  - toc:
+      permalink: true
+  - pymdownx.superfences
+
+plugins:
+  - search

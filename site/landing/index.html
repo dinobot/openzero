@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OpenZero</title>
+<meta name="description" content="A 2014 Zero FX electric motorcycle rebuilt to run without the manufacturer: proprietary vehicle controller, BMS and cloud app removed, Sevcon controller rewired, home-built LiFePO4 pack.">
+<meta property="og:title" content="OpenZero">
+<meta property="og:description" content="A 2014 Zero FX, rebuilt to run without the manufacturer. The machine is not dead. The support contract is.">
+<meta property="og:url" content="https://openzero.u65.info/">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='none' stroke='%23e0a526' stroke-width='4'/%3E%3C/svg%3E">
+<style>
+  :root {
+    --bg: #faf8f4;
+    --fg: #1a1a1a;
+    --muted: #5e5a52;
+    --line: #dcd7cc;
+    --accent: #b87a0a;
+    --accent-soft: #fff3d6;
+    --card: #ffffff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #141311;
+      --fg: #ece8df;
+      --muted: #a39d90;
+      --line: #2f2c27;
+      --accent: #e0a526;
+      --accent-soft: #2a2213;
+      --card: #1c1a17;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { color-scheme: light dark; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font: 17px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    padding-inline: 20px;
+  }
+  main { max-width: 720px; margin: 0 auto; padding-block: 56px 48px; }
+  h1 { font-size: 2.6rem; letter-spacing: -0.02em; margin: 0 0 8px; line-height: 1.1; }
+  h1 span { color: var(--accent); }
+  h2 { font-size: 1.25rem; margin: 48px 0 12px; letter-spacing: -0.01em; }
+  p { margin: 0 0 14px; }
+  .lede { font-size: 1.25rem; color: var(--muted); margin-bottom: 20px; }
+  blockquote {
+    margin: 0 0 28px; padding: 2px 0 2px 16px;
+    border-left: 3px solid var(--accent); font-size: 1.15rem; font-style: italic;
+  }
+  .odo {
+    display: grid; grid-template-columns: 1fr auto; gap: 8px 24px; align-items: end;
+    background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+    padding: 22px 24px; margin: 8px 0 8px;
+  }
+  .odo .num {
+    font-size: clamp(2.8rem, 10vw, 4.2rem); font-weight: 700; line-height: 1;
+    font-variant-numeric: tabular-nums; letter-spacing: -0.03em;
+  }
+  .odo .unit { font-size: 1rem; color: var(--muted); margin-left: 4px; font-weight: 500; }
+  .odo .label { grid-column: 1 / -1; color: var(--muted); font-size: 0.95rem; }
+  .odo .meta { color: var(--muted); font-size: 0.85rem; text-align: right; }
+  .odo .km { color: var(--muted); font-size: 0.95rem; white-space: nowrap; }
+  @media (max-width: 480px) { .odo { grid-template-columns: 1fr; } .odo .meta { text-align: left; } }
+  ol.principles { padding-left: 1.3em; margin: 0 0 14px; }
+  ol.principles li { margin-bottom: 10px; }
+  ol.principles b { font-weight: 600; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.95rem; margin: 6px 0 14px; }
+  th, td { text-align: left; padding: 7px 10px 7px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-weight: 600; color: var(--muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.04em; }
+  .links { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-top: 6px; }
+  .links a {
+    display: block; padding: 16px 18px; border: 1px solid var(--line); border-radius: 12px;
+    background: var(--card); color: inherit; text-decoration: none;
+  }
+  .links a:hover { border-color: var(--accent); }
+  .links a b { display: block; margin-bottom: 4px; }
+  .links a small { color: var(--muted); }
+  a { color: var(--accent); }
+  .yt {
+    display: inline-flex; align-items: center; gap: 10px; padding: 12px 18px; border-radius: 10px;
+    background: var(--accent-soft); color: inherit; text-decoration: none; font-weight: 600; margin: 4px 0 8px;
+  }
+  .yt svg { width: 22px; height: 22px; fill: #e02828; }
+  .note { color: var(--muted); font-size: 0.95rem; }
+  footer { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.85rem; }
+  footer p { margin-bottom: 6px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Open<span>Zero</span></h1>
+  <p class="lede">A 2014 Zero FX electric motorcycle, rebuilt to run without the manufacturer.</p>
+  <blockquote>The machine is not dead. The support contract is.</blockquote>
+
+  <div class="odo" id="odo">
+    <div><span class="num" id="miles">—</span><span class="unit">mi</span></div>
+    <div class="km" id="km"></div>
+    <div class="label">ridden on the open pack <span id="since"></span></div>
+    <div class="meta" id="updated"></div>
+  </div>
+  <p class="note">The counter is the project's own benchmark: a bike that moves and keeps moving is the only
+    argument that matters. It is updated by hand after rides from a file in the repository.</p>
+
+  <h2>What was done</h2>
+  <p>Zero's bikes from 2013 to 2016 die one way: the battery ages, the BMS inside it stops cooperating with
+    the vehicle controller, and a mechanically perfect motorcycle becomes scrap because two proprietary boxes
+    no longer talk. The motor, the controller and the chassis are fine.</p>
+  <p>OpenZero removes the dependency instead of replacing one black box with another. The vehicle
+    controller, Zero's BMS, the encrypted CAN between them, the dash and the cloud app are gone. What remains
+    is the industrial hardware Zero built the bike around: a Sevcon Gen4 motor controller, a PMAC motor, a
+    contactor, a frame. On top of that sits a home-built 96 V LiFePO4 pack with an off-the-shelf smart BMS.
+    Everything in the power path can now be inspected, measured, repaired and replaced with a multimeter, a
+    wrench and a CAN adapter.</p>
+
+  <h2>Principles</h2>
+  <ol class="principles">
+    <li><b>No proprietary dependency in the power path.</b> Anything between battery and motor must have a
+      public manual or be a passive part.</li>
+    <li><b>Manufacturer documents only.</b> Cells, controller, BMS and gauge are specified from datasheets.
+      Marketplace listings were wrong on cell dimensions, C-rate and cycle life, and are not sources.</li>
+    <li><b>Static, conservative limits over clever software.</b> The controller enforces a fixed battery
+      current limit and voltage cutbacks; the BMS protects the cells outside that envelope. No bridge
+      firmware between them.</li>
+    <li><b>Everything written down.</b> Decisions with dates and reasons, measurements, wiring tables,
+      controller objects, BMS settings, so the next owner of a dead Zero can repeat it.</li>
+  </ol>
+
+  <h2>What it costs</h2>
+  <table>
+    <tr><th></th><th>Stock 2014 FX</th><th>OpenZero</th></tr>
+    <tr><td>Pack</td><td>28s NMC, ~102 V, 5.7 kWh</td><td>30s1p LiFePO4, 96 V, 5.0 kWh</td></tr>
+    <tr><td>Battery current, continuous</td><td>~125 A</td><td>52 A, 78 A ceiling after hot-weather validation</td></tr>
+    <tr><td>Continuous power</td><td>~12.7 kW</td><td>~5 kW (7.5 kW at 78 A)</td></tr>
+    <tr><td>Launch torque</td><td>phase-current limited</td><td>same, unaffected</td></tr>
+    <tr><td>Realistic cruise</td><td>highway</td><td>~80 km/h at 52 A, ~95 km/h at 78 A</td></tr>
+  </table>
+  <p class="note">The power ceiling is a cell choice, not a platform limit. For a commuter on a chassis that is not
+    pleasant above ~95 km/h anyway, 1C LiFePO4 was the right trade: cheaper per kWh, thousands of cycles,
+    and far more forgiving of a self-built pack than NMC.</p>
+
+  <h2>Proof</h2>
+  <p>The build is documented on video: battery build, fitting the pack, first ride, and whatever breaks next.</p>
+  <a class="yt" href="https://www.youtube.com/@ElectricSavage" rel="noopener">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>
+    Electric Savage on YouTube
+  </a>
+
+  <h2>Read</h2>
+  <div class="links">
+    <a href="manual/"><b>Unofficial Zero Manual</b><small>Mirror of the community wiki: service manual, error codes, torque values. Preserved after the site went offline.</small></a>
+    <a href="https://github.com/dinobot/openzero" id="repo"><b>Engineering notebook</b><small>The repository: wiring, controller configuration, BMS settings, battery analysis, enclosure model, every decision with its reason.</small></a>
+  </div>
+
+  <h2>Does this apply to your Zero?</h2>
+  <p>To every Zero built around a Sevcon Gen4 controller: FX, FXS, FXE, S, DS, SR and DSR from 2013 on,
+    including the FX line still sold new. The 35-pin connector, the CANopen object dictionary and the DVT
+    workflow are the same across controller sizes. It does not apply to the SR/F, SR/S and DSR/X, whose
+    inverter is Zero's own design without public documentation.</p>
+
+  <h2>Safety</h2>
+  <p class="note">This is a 96 to 110 V DC system with a 52 Ah pack behind it. The notebook records what was done and why,
+    not what is safe for you. A fully assembled pack delivers thousands of amps into a dropped tool. If that
+    sentence is new to you, read the controller manual and the cell datasheet before the wiring tables.</p>
+
+  <footer>
+    <p>OpenZero is a private project, not affiliated with or endorsed by Zero Motorcycles.
+      Text and documentation: <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.
+      Code: <a href="https://www.gnu.org/licenses/gpl-3.0.html">GPL-3.0-or-later</a>.
+      The mirrored wiki is community content reproduced with attribution.</p>
+  </footer>
+</main>
+<script>
+(async () => {
+  try {
+    const r = await fetch('odometer.json', { cache: 'no-store' });
+    const d = await r.json();
+    const mi = Number(d.miles) || 0;
+    document.getElementById('miles').textContent = mi.toLocaleString('en-US');
+    document.getElementById('km').textContent = '≈ ' + Math.round(mi * 1.609344).toLocaleString('en-US') + ' km';
+    if (d.since) document.getElementById('since').textContent = 'since ' + d.since;
+    if (d.updated) document.getElementById('updated').textContent = 'updated ' + d.updated;
+  } catch (e) {
+    document.getElementById('miles').textContent = '?';
+  }
+})();
+</script>
+</body>
+</html>
