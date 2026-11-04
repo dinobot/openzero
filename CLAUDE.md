@@ -22,6 +22,14 @@ and cycle life.
 - Forward direction input (pin 18, DI1) working — wired to B−, always asserted
 - FS1 killswitch (pin 19) working — motor enables after FS1 closes post power-on
 - Motor spins and responds to throttle input
+- **12 V system is stock and fully working** (owner 2026-11-03): the OEM DC-DC converter Sevcon 622-11202
+  (Zero 60-04015) is on the bike and feeds lights and instruments. The 12 V rail for the speed converter,
+  CT-22 (if it accepts 12 V) and any 12 V accessory already exists — no new DC-DC to buy or wire
+- **Bike rides on the 30S LFP pack** (first spontaneous test rides, by 2026-11-02): ~20 km solo and two-up
+  (one ~10 km ride with a passenger), ANT SOC 100 → 78 %. ≈ 1.1 kWh / 20 km ≈ 55 Wh/km, matching the stock
+  "mixed" figure (57 Wh/km) — the ANT coulomb counter looks honest and the ~75 km mixed-range estimate holds.
+  Pack left on the bike at 78 % for a week (2026-11-02 → 11-09): fine for LFP; note SOC/pack V before and
+  after to get the first BMS standby-drain figure.
 
 ### Blocking / In Progress
 - **Throttle**: Magura 0–5K resistive pot confirmed bad (floating wiper, erratic readings)
@@ -65,7 +73,9 @@ and cycle life.
     - While in DVT: note node ID and units of 4623h; set under/over-voltage cutback start points ~91 V / ~107 V so
       Sevcon tapers before the ANT hard-cuts. (Testing whether 4623h accepts writes while Operational is optional
       now that the BMS bridge is dropped.)
-7b. **Test with 96V LiFePO4 battery pack**
+7b. **Test with 96V LiFePO4 battery pack** — DONE by 2026-11-02 (see "Working": ~20 km incl. passenger,
+    22 % used, ~55 Wh/km). Still to pull from the ANT log: max current, cell spread and temperatures under
+    two-up load, any warnings; distance was estimated, not measured — next rides use the odometer
 7c. **Battery box enclosure** — model done (`battery_box/enclosure.py`, README there). Print test
     coupons, measure fuse block + frame mounts, fill MEASURE_ME values, then print the full set
 8. **Disable MBB/CCU RPDOs** (objects 1400h–1403h, set bit 31 in COB-ID subindex)
@@ -168,6 +178,9 @@ All digital inputs are **active-low (to B−)**. Confirmed via DVT raw input sta
 - Pull-in time: 50ms
 - **Precharge**: external 100Ω resistor in parallel with main contactor required
 - Precharge threshold in DVT: 5820h = 90 % of battery voltage (object is a percentage, 50–90 %); 5821h = minimum capacitor voltage for the contactor to close
+- Stock part (`manuals/14fx.pdf` ZEV0010 #16): Gigavac "contactor 12/40 VDC modular", Zero 45-08091 (superseded by
+  45-08135) — a low-voltage coil driven by the Zero BMS. The Sevcon pin 3/4 output switches bus voltage, hence the
+  120 V-coil GX11-013 instead
 
 ---
 
@@ -175,15 +188,27 @@ All digital inputs are **active-low (to B−)**. Confirmed via DVT raw input sta
 
 Reads motor RPM from Sevcon CAN TPDO → outputs Hall-sensor-style pulse signal to the CT-22 gauge.
 
-**Hardware:** ESP32 + CAN transceiver (SN65HVD230) preferred over Arduino Uno + MCP2515: built-in CAN
-controller, spare hardware UARTs (Uno's only UART is taken by USB), LEDC timer for the pulse output, BLE/Wi-Fi
-for logging. Leave a 4-pin UART header free for the optional BMS bridge below. If staying on Uno + MCP2515,
-the module must use a 16 MHz crystal for 1 Mbps.
+**Hardware (ordered 2026-11-01, Adafruit):** ESP32 Feather V2 with headers (PID 5900), CAN Pal TJA1051T/3
+transceiver (PID 5708, 3.3 V logic, on-board 120 Ω termination switch), MPM3610 buck 6–21 V → 5 V (PID 4739,
+feeds the Feather's USB/VBUS pin from the existing 12 V rail), PN2222 + 1 kΩ as open-collector output to the
+CT-22 speed input, breadboard + jumpers for the first build. Rationale over Uno + MCP2515: built-in CAN
+controller (TWAI), spare hardware UARTs, LEDC timer for the pulse output, Wi-Fi/BLE for logging/OTA. Leave a
+4-pin UART header free for the optional BMS bridge below.
+**Power rules:** Sevcon pins cannot feed the board — pin 34/35 are 10 V / 15 mA (pot supply, monitored → throttle
+fault if loaded), pin 10 is 5 V / 100 mA only on 634A44103 Size 4. Use the stock 12 V rail (Sevcon 622-11202 DC-DC, working,
+feeds lights and instruments) → buck → 5 V, switched by key, fused; ESP32 GND = Sevcon B−. CT-22 speed input only via optocoupler until the bench test shows its
+ground is B−. CAN mode must be normal (not listen-only): with DVT unplugged the ESP32 is the only node that ACKs.
+**Firmware plan:** stage 1 blink + 420 Hz LEDC; stage 2 TWAI receive + SDO poll of 606Ch at 10 Hz printed to
+serial (TPDO mapping in 1800h/1A00h later); stage 3 RPM → Hz → output with 500 ms timeout, |RPM| only, off
+below ~2 km/h; then 12 V power, log 5100h/temps/EMCY, regen brake light, odometer in NVS, OTA, NMT start.
 
 **Key parameters:**
 - Sevcon TPDO1 ID: 0x180 + node ID (check node ID in DVT)
 - Velocity object: 606Ch (actual velocity, 4 bytes, signed int32, RPM)
-- Gear ratio: ~8.9:1 motor-to-wheel (verify in OM-FX-MY14.pdf on Desktop)
+- Gear ratio: **5.28:1** (132T/25T belt, OM-FX-MY14 p. 1.7 and parts catalogue `manuals/14fx.pdf` ZEV0009; the
+  earlier ~8.9 figure was wrong). Rear tyre 110/90-18 (catalogue: IRC GP-110 4.10-18 59S, the inch equivalent,
+  Ø ≈ 665 mm, +1.5 %) → Ø ≈ 655 mm, circumference ≈ 2.06 m → **km/h ≈ motor RPM × 0.0234**; with the CT-22 default
+  7.0 Hz per km/h: **f_out ≈ RPM × 0.164 Hz** (60 km/h = 2560 RPM = 420 Hz). Calibrate against GPS
 - CAN baud: match Sevcon setting (configure 5900h first)
 - Output pin: D9 (timer-driven square wave, NPN open-collector to speedometer)
 
@@ -195,7 +220,7 @@ the module must use a 16 MHz crystal for 1 Mbps.
 - Supply/pinout not documented. Factory battery thresholds are 125–152 V, so the board is built for ~144 V
   scooters and most likely sits directly on the traction bus and measures its own supply (= HV wire to the
   handlebar). Bench-test before wiring: current-limited PSU, ramp from 10 V, note turn-on voltage and draw;
-  check for a separate sense wire. A 96→12 V DC-DC is needed anyway (lights).
+  check for a separate sense wire. The bike's stock 12 V rail (Sevcon 622-11202 DC-DC) is working and available.
 - Battery gauge is voltage-only: 6 thresholds per set (0/20/40/60/80/100 %, 0.1 V steps), two sets —
   charging 2–6 + D, discharging 7–B + E (the manual's labels are garbled, map by index). Extra logic:
   `C` = seconds to hold "full" after charging, `F` = "charging memory", `J` = judge time (a big voltage step
@@ -624,12 +649,92 @@ one 500 W / 120 V halogen T3 work light ≈ 3.5 A at 100 V DC, switched only via
 
 ---
 
+## Charging (researched 2026-11-02; details and BOM in `charging/road_kit.md`)
+
+**Daily regime (owner 2026-11-02):** ride the pack through the day, charge at home overnight with the AFU
+AF1200 at 8 A. This is the intended use, not a compromise: 20 → 100 % in ~5 h; below the ANT 10 A balance
+gate so every night is a full top-balance; 0.15C is the kindest rate for the cells; the daily full charge
+resyncs the ANT coulomb counter. Only charge above 10 °C. Do not leave the bike at 100 % for weeks (storage
+30–50 %). Fast / public charging matters only on days > ~75 km mixed or for a second ride the same day —
+the odometer will show after a season whether such days exist.
+
+**What a charger must do for 30S LFP** (all of "smart" that the pack needs): CC ≤ 26 A (0.5C, Gotion
+table A.1.2) → CV 109.5 V (3.65 V/cell) → **stop** at ≈ 2.6 A (0.05C). No float, no lead-acid stages, no
+temperature compensation; balancing and the cold cut-off are ANT's job. ANT (110.0 V pack / 3.65 V cell) is
+the backstop, never the normal terminator. Useful knobs beyond that: current 8 ↔ 12 ↔ 26 A (balance nights /
+120 V outlets / fast) and a CV "storage" endpoint ~3.5 V/cell. The AF1200 "30S LiFePO4" is a fixed CC/CV/stop
+unit with the right numbers out of the box — verify CV and cut-off with a DMM once (first charge showed
+charger 97.44 V / 8.00 A vs ANT 97.83 V / 8.90 A; one of them is off).
+
+**Public charging formats (US):**
+- **Level 1** = 120 V outlet (NEMA 5-15/5-20, ≤ 1.4–1.9 kW): what the AF1200 (100–120 V input only) uses.
+- **Level 2 = SAE J1772**, 208–240 V single-phase (US split-phase L1/L2, no neutral), 6–7 kW typical: nearly
+  every public post, Tesla Destination via a NACS → J1772 adapter, home wall EVSE. The post is a contactor plus
+  a 1 kHz pilot; the vehicle answers with a diode + 2.74 kΩ (state B, 9 V) and 1.3 kΩ in parallel (state C,
+  6 V). The charger is on the vehicle side and must accept 208–240 V. Pilot duty cycle encodes current only,
+  never voltage: an adapter cannot tell 120 from 240 V. Zero sold exactly this for the stock FX (onboard charger: 2 × Meanwell HLG-320H-54A in series, ~650 W,
+  CC/CV, terminated by the CCU; S/DS had four for 1.3 kW)
+  (J1772 → C14 adapter, `zeromanual/wiki/Chargers.md`). Ready-made "J1772 to NEMA 6-20 / 14-50 / IEC" adapters
+  exist (EVSE Adapters, TucsonEV, unbranded, $60–250); never a J1772 → 5-15 "120 V" adapter (returns current
+  through PE). Map: PlugShare (J-1772 = Level 2 group; 120 V = "Wall Outlet"), ChargePoint app/RFID, AFDC.
+- **DC fast (CCS1 / NACS-J3400 / CHAdeMO): rejected**, three independent reasons: a 96 V pack is below the
+  ~150–200 V floor of DC stations (would need a custom 400 → 100 V isolated DC-DC); needs an ISO 15118 /
+  DIN 70121 vehicle controller; and the cells take 26 A = 2.7 kW at most, so no station beats a brick.
+
+**Chosen road / fast charger (owner 2026-11-03): YILEIDE E22**, built to order for 30S LFP after a direct
+conversation with the seller (their listings are useless; get the sheet or a nameplate photo into
+`manuals/YILEIDE-E22.pdf` before paying). Universal input, **11 A on 120 V, 18 A on 240 V** (~2 kW, 0.35C),
+fixed CC/CV/stop, no CAN. **26 A is not pursued**: 18 A is half an hour slower on a 20 → 100 % charge
+(~2.5 h vs ~2 h) and ~15 km less per hour at a post, while the Elcon tier costs 3–5×, 6 kg, an EVCC and
+12 V for it. ~9 A AC at 240 V works on any J1772 post, 6-15/6-20 or dryer outlet; the passive adapter box
+is enough. No CAN is no loss (the pack needs CC → CV 109.5 V → stop only). **AF1200 stays for the 8 A
+nights** (0.15C is the kindest daily rate, margin on a 15 A circuit, already owned). Balancing is not the
+reason: ANT balances only while cells are > 3.4 V (= under CV) *and* the instantaneous current is < 10 A,
+so any charger balances only in its CV tail. AF1200 gets the whole tail (~30–60 min ≈ 50–100 mAh/cell),
+the E22 the part below 10 A (~15–30 min) — half the minutes, not zero (corrected 2026-11-03). Do not
+raise the gate above 10 A (IR drop at 11 A ≈ 20 mV/cell = Start Diff). Ask YILEIDE for a current selector; 120 V side draws ~11 A AC,
+so use a 20 A outlet. Verify in writing: 100–240 V nameplate and no derating at 208 V, CV 109.5 V, cut-off
+≈ 2.6 A with no float and no auto-restart, isolation, load-dump tolerance, PFC/fan/IP/weight/connector.
+Checklist and reasoning in `charging/road_kit.md` ("YILEIDE E22").
+
+**Options on record:**
+- **Road kit, 8 A (simplest PoC):** AFU AF1200 in its 220–240 V version + a J1772 adapter, output to the
+  pack's SB50 with the bike side unplugged (that is the Gen4 isolation). Covers posts and Tesla Destination,
+  not 120 V outlets; check the AFU datasheet tolerates 200–208 V (commercial sites). 1 h at a post = ~15 km,
+  so only worth it for multi-hour stops. A universal 100–240 V charger covers posts *and* outlets in one box.
+- **26 A home/fast:** needs ~3.1 kW from the mains → a 240 V circuit (NEMA 6-20, or a dryer 14-30 / range
+  14-50 pigtail — same single-phase supply as the posts); no 120 V outlet can do it (80 % rule: 1.4 / 1.9 kW).
+  Candidate: **Elcon HK-J-H132-32** (`manuals/Elcon-HK-J-H132-32-verA.pdf`, 2015 verA — request a current
+  sheet): 85–265 V in, 33–132 V / 32 A out, 3300 W @220 V / 1600 W @110 V, IP67, 3.9 kg bare, Anderson 50 A
+  out, 12.5 V / 5 A aux, CAN-controlled (output stops on CAN loss) or factory-fixed curve with enable pin.
+  Order with 26 A limit, not 32; on 120 V outlets command ≤ 12 A (1600 W is ~14 A AC). CAN version + the
+  speed-converter ESP32 = one charger for 8 A nights, 26 A fast, 12 A outlets, temperature taper from ANT.
+  Fixed-curve version keeps the AF1200 for nights. 0 → 100 % at 26 A ≈ 2–2.5 h.
+- **Market survey 2026-11-02** (table in `charging/road_kit.md`): universal-input chargers that reach 109.5 V are
+  Elcon HK-J-H132-32 (26 A, $459–899), Thunderstruck TSM2500 96 V (15 A, $555 / $855 with EVCC), Delta-Q
+  XV3300 120 V (40 A, J1772 interface built in, OEM channel), Danl VL9610L-class 10 A bricks ($140–180, sheet
+  mandatory). Not qualifying: Zivan NG1/NG3 (115 *or* 230 V variants), Grin Satiator (103 V max), QuiQ.
+  **Thunderstruck/Dilithium EVCC v3 ($270)** is the J1772 vehicle side plus CAN charger controller in one box:
+  pilot diode, proximity drive-away protection, duty-cycle-limited current, profiles (240 V / 26 A vs 120 V /
+  12 A), `maxv / maxc / termc`. Inlet + EVCC + CAN charger makes both the DIY adapter box and the ESP32
+  charging firmware unnecessary; 12 V for it can come from the Elcon's 12.5 V aux output.
+- **Delta-Q QuiQ 1000 96 V (912-9600, the Zero "Quick Charger"): not worth it.** Right form (945 W / 8.5 A,
+  85–265 V, IP66, fanless) but the curve is fixed at purchase (lead-acid ~115–118 V or Zero's 28S NMC
+  ~116 V), algorithms load only from Delta-Q's library via the QuiQ Programming Kit, no public 30S LFP file,
+  no open reverse engineering of the format or the QuiQ-dci CAN, and Delta-Q warns reprogramming OEM units
+  may brick them. One e-mail to a distributor can check for a 109.5 V LFP profile; do not plan on it.
+
+---
+
 ## Drivetrain / Gearing
 
 ### Stock Configuration
 - Drive type: belt drive
-- Overall gear ratio: ~8.9:1 (verify exact figures in OM-FX-MY14.pdf on Desktop)
-- Stock front (drive) pulley: verify tooth count in service manual
+- Overall gear ratio: **5.28:1** — 132T rear / 25T front pulley, Poly Chain GT Carbon belt (OM-FX-MY14 p. 1.7)
+- Part numbers (`manuals/14fx.pdf` ZEV0009): front pulley 25T 8 mm pitch 15 mm wide 30-03656 on tophat 20-05453,
+  rear 132T 8 mm pitch 17 mm wide 30-04051, belt 220T × 8 mm × 14 mm wide 30-08084 (≈ 1760 mm), motor "75-5"
+  replacement kit 12-08033. The same catalogue lists a 520-chain option (12T 30-04890 / 65T 30-05090 on the 132 mm
+  bolt circle) — the chain route if a re-gear is ever wanted
 
 ### Gearing Decision — keep stock (2026-10-20)
 
@@ -744,9 +849,39 @@ cd battery_box && ../.venv/bin/python enclosure.py
   several joints are tongue-and-groove without screws (see README)
 - Still open: fuse block height (placeholder 50 mm does not fit, FUSE_POCKET option exists),
   MOUNT_POINTS (frame mounts not modelled, do not invent), VENTS, TERMINAL_CUTOUTS
+- Frame interfaces for MOUNT_POINTS = the stock module hardware (`manuals/14fx.pdf` ZEV0008 "Frame (Right)"):
+  module support platform 20-06863, module sliders 20-05773 (general) and 20-05774 (front horizontals),
+  separator block 20-05153, battery retaining rail 20-06404 with two C9101-2112 panel latches 20-05296, bike-side
+  module connector holder 20-05912. Measure these on the bike and reuse them; the exploded view shows how they sit
 - Renders for a quick look: `battery_box/renders/spec/` and `renders/thick/`
 
 ---
+
+## Stock 2014 FX parts (`manuals/14fx.pdf`, added 2026-11-03)
+
+AF1 Racing's Zero parts diagram for the 2014 FX (the `14FX.pdf` linked from `zeromanual/wiki/Exploded_Views.md`),
+37 pages, 10 exploded views: ZEV0001 Lighting, 0002 Brakes, 0003 Wheels, 0004 Steering, 0005 Body trim, 0006 Rear
+suspension, 0007/0008 Frame (left/right), 0009 Motor and drive, 0010 Electronics. Each view = drawing + callout
+table (Zero part number, name, qty); "PA-xxx" = not sold separately. Use it to name stock parts, order
+replacements and locate frame mounting points. It carries no harness, connector or electrical data.
+
+Electrical part numbers worth knowing (ZEV0010 unless noted):
+- Sevcon Gen4 Size 4 controller 60-07007 ("include VIN for programming"), heatsink XMX MY14 20-06553 on mount
+  20-05036 with bash guard 20-03863 (ZEV0007), Formex insulating top 24-05783, controller covers 24-06190/-06191
+- 12 V supply: **DC-DC converter Sevcon 622-11202 non-EMC, Zero 60-04015** — on the bike and working on the 96 V
+  pack (lights + instruments, owner 2026-11-03); the source for the speed converter's 12 V
+- Contactor Gigavac 12/40 VDC 45-08091 → 45-08135 (see Contactor section); power-pack fuse PA-112 with cover
+  20-05629; power pack ZF3.3 46-08032 (2014–2016 FX/FXS/MMX); BMS module 41-06419-08; MBB 40-06462; CCU 40-06495;
+  on-board charger "XMXFX charger 2S configuration" 40-05326 on Meanwell brackets 20-05289/-05290 and
+  Meanwell + aux-charge-port bracket 20-06910, aux charge mount 20-06862-1 (ZEV0008) — all VIN-locked modules
+  that OpenZero removed; the catalogue entries explain why they were never reusable
+- Controls: throttle 40-04069 "0-5K 4-way" (the failed Magura pot), kill/mode/start switch 40-06054, left
+  handlebar switch 45-02693, Zadi key switch 45-02692, kickstand switch PA-115, brake switches in the master
+  cylinders (not sold separately), dash LCD 40-08030 (14–16MY)
+- Lighting/horn for the 12 V budget (ZEV0001): headlight low beam 65-06401, high beam 65-06400, tail light
+  65-00600, turn signals 65-03462/-03463, horn K70/H12 45-06774
+- Wheels (ZEV0003): front 1.60×21 (IRC GP-110 3.00-21), rear 18 in (IRC GP-110 4.10-18) with the 14MY upgrade
+  wheel kit 12-08076; bearings 6904 2RS, seals 25×37×7
 
 ## Unofficial Zero Manual (zeromanual.com) — offline mirror
 
@@ -791,6 +926,17 @@ The repo is public on GitHub; the site openzero.u65.info is built from `site/` b
   - `Ant BMS Smart Bluetooth Relay ... User Manual.pdf` — manuals.plus compilation for the ANT relay line;
     wiring/figures only partly apply to the MOSFET 30ZHB7
   - `CT-22-MANUAL.pdf` — CT-22 gauge button/parameter instructions (no pinout)
+  - `Elcon-HK-J-H132-32-verA.pdf` — Elcon HK-J 3.3 kW sealed CAN charger datasheet (2015-04-11 verA), the
+    26 A fast-charge candidate; from elconchargers.com
+  - `Thunderstruck-EVCC-v3.1.3.pdf` — Dilithium Design / Thunderstruck EV Charge Controller v3 manual (J1772 pilot
+    + proximity handling, duty-cycle current limit, CAN control of Elcon/TC and TSM2500 chargers, profiles)
+  - `Delta-Q-XV3300-presentation.pdf` — Delta-Q XV3300 3-in-1 charger (60–120 V model, 40 A, built-in J1772
+    interface, 500 W DC-DC); OEM-channel reference only
+  - `14fx.pdf` — Zero FX 2014 parts catalogue (exploded views ZEV0001–ZEV0010 with Zero part numbers; AF1 Racing
+    `14FX.pdf`, added 2026-11-03). Stock part numbers, frame/module mounting hardware, drivetrain. No wiring,
+    connectors or electrical specs. Summary in "Stock 2014 FX parts"
+- `charging/road_kit.md` — public-charging design: J1772 adapter box (BOM, pilot circuit, procedure), charger
+  selection (AF1200-EU, universal, Elcon HK-J, QuiQ verdict), buy-vs-build
 - `battery_box/SPEC.md` — battery box enclosure build spec (build123d, Bambu P2S)
 - `battery_box/enclosure.py` — parametric build123d model; `battery_box/README.md` — parts, deviations,
   print/assembly instructions, MEASURE_ME list; `battery_box/output/` — STLs in print orientation

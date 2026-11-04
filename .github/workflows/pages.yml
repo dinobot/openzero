@@ -9,6 +9,8 @@ on:
       - "zeromanual/images/**"
       - ".github/workflows/pages.yml"
   workflow_dispatch:
+  schedule:
+    - cron: "17 6 * * *"   # daily: refresh the latest-video card on the landing page
 
 permissions:
   contents: read
@@ -34,6 +36,9 @@ jobs:
         run: python site/manual/build_manual.py
       - name: Build manual
         run: mkdocs build -f site/manual/mkdocs.yml
+      - name: Fetch the latest YouTube video for the landing page
+        run: python site/video/fetch_latest.py
+        continue-on-error: true
       - name: Assemble site root (landing + manual)
         run: cp site/landing/* site/_site/
       - uses: actions/upload-pages-artifact@v3

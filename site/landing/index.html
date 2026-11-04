@@ -6,185 +6,505 @@
 <title>OpenZero</title>
 <meta name="description" content="A 2014 Zero FX electric motorcycle rebuilt to run without the manufacturer: proprietary vehicle controller, BMS and cloud app removed, Sevcon controller rewired, home-built LiFePO4 pack.">
 <meta property="og:title" content="OpenZero">
-<meta property="og:description" content="A 2014 Zero FX, rebuilt to run without the manufacturer. The machine is not dead. The support contract is.">
+<meta property="og:description" content="The machine is not dead. The support contract is. A 2014 Zero FX, rebuilt to run without the manufacturer.">
 <meta property="og:url" content="https://openzero.u65.info/">
 <meta property="og:type" content="website">
+<meta name="theme-color" content="#0b0b0a">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='none' stroke='%23e0a526' stroke-width='4'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #faf8f4;
-    --fg: #1a1a1a;
-    --muted: #5e5a52;
-    --line: #dcd7cc;
-    --accent: #b87a0a;
-    --accent-soft: #fff3d6;
-    --card: #ffffff;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #141311;
-      --fg: #ece8df;
-      --muted: #a39d90;
-      --line: #2f2c27;
-      --accent: #e0a526;
-      --accent-soft: #2a2213;
-      --card: #1c1a17;
-    }
+    --bg: #0b0b0a;
+    --bg-2: #121210;
+    --fg: #f1ede4;
+    --muted: #8d877a;
+    --faint: #4a463f;
+    --line: #26241f;
+    --accent: #e0a526;
+    --accent-dim: #7a5a14;
+    --sans: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    --gutter: clamp(20px, 5vw, 72px);
   }
   * { box-sizing: border-box; }
-  html { color-scheme: light dark; }
+  html { color-scheme: dark; scroll-behavior: smooth; }
   body {
     margin: 0;
     background: var(--bg);
     color: var(--fg);
-    font: 17px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    padding-inline: 20px;
+    font: 400 17px/1.5 var(--sans);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
-  main { max-width: 720px; margin: 0 auto; padding-block: 56px 48px; }
-  h1 { font-size: 2.6rem; letter-spacing: -0.02em; margin: 0 0 8px; line-height: 1.1; }
-  h1 span { color: var(--accent); }
-  h2 { font-size: 1.25rem; margin: 48px 0 12px; letter-spacing: -0.01em; }
-  p { margin: 0 0 14px; }
-  .lede { font-size: 1.25rem; color: var(--muted); margin-bottom: 20px; }
-  blockquote {
-    margin: 0 0 28px; padding: 2px 0 2px 16px;
-    border-left: 3px solid var(--accent); font-size: 1.15rem; font-style: italic;
+  a { color: inherit; }
+  ::selection { background: var(--accent); color: #0b0b0a; }
+
+  .wrap { max-width: 1180px; margin: 0 auto; padding-inline: var(--gutter); }
+
+  /* ---------- top bar ---------- */
+  .bar {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-block: 22px;
+    font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--muted);
   }
+  .bar .mark { display: inline-flex; align-items: center; gap: 10px; color: var(--fg); text-decoration: none; }
+  .bar .mark i { width: 12px; height: 12px; border: 2.5px solid var(--accent); border-radius: 50%; display: inline-block; }
+  .bar nav { display: flex; gap: 26px; }
+  .bar nav a { text-decoration: none; }
+  .bar nav a:hover { color: var(--accent); }
+  @media (max-width: 560px) { .bar nav { gap: 16px; } .bar nav .hide-sm { display: none; } }
+
+  /* ---------- hero ---------- */
+  .hero {
+    min-height: calc(100svh - 72px);
+    display: grid;
+    grid-template-rows: 1fr auto;
+    padding-block: 6vh 48px;
+  }
+  .hero h1 {
+    margin: 0;
+    font-weight: 700;
+    font-size: clamp(66px, 15.5vw, 212px);
+    line-height: 0.86;
+    letter-spacing: -0.055em;
+    text-transform: uppercase;
+  }
+  .hero h1 .o { display: block; }
+  .hero h1 .z {
+    display: block;
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--fg);
+    text-stroke: 1.5px var(--fg);
+  }
+  @media (min-width: 900px) { .hero h1 .z { -webkit-text-stroke-width: 2px; } }
+  .hero .lede {
+    margin: 40px 0 0;
+    max-width: 30ch;
+    font-size: clamp(22px, 2.8vw, 34px);
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    font-weight: 500;
+  }
+  .hero .lede em { font-style: normal; color: var(--accent); }
+  .hero .sub {
+    margin: 18px 0 0;
+    max-width: 46ch;
+    color: var(--muted);
+    font-size: 17px;
+  }
+
+  /* pack graphic: 2 x 15 cells */
+  .pack { margin-top: 56px; }
+  .pack .cells {
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    gap: 5px;
+    max-width: 640px;
+  }
+  .pack .cells i {
+    display: block; height: 22px;
+    border: 1px solid var(--faint);
+    border-radius: 2px;
+    background: transparent;
+    transition: background .35s ease, border-color .35s ease;
+  }
+  .pack .cells i.on { background: var(--accent); border-color: var(--accent); }
+  .pack .cap {
+    margin-top: 12px;
+    font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--muted);
+    display: flex; flex-wrap: wrap; gap: 6px 22px;
+  }
+  .pack .cap b { color: var(--fg); font-weight: 500; }
+  @media (max-width: 480px) { .pack .cells { gap: 3px; } .pack .cells i { height: 14px; } }
+
+  /* ---------- odometer ---------- */
   .odo {
-    display: grid; grid-template-columns: 1fr auto; gap: 8px 24px; align-items: end;
-    background: var(--card); border: 1px solid var(--line); border-radius: 12px;
-    padding: 22px 24px; margin: 8px 0 8px;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding-block: 40px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 16px 40px;
+    align-items: baseline;
   }
   .odo .num {
-    font-size: clamp(2.8rem, 10vw, 4.2rem); font-weight: 700; line-height: 1;
-    font-variant-numeric: tabular-nums; letter-spacing: -0.03em;
+    font-family: var(--mono); font-weight: 500;
+    font-size: clamp(64px, 12vw, 160px);
+    line-height: 0.95; letter-spacing: -0.04em;
+    font-variant-numeric: tabular-nums;
   }
-  .odo .unit { font-size: 1rem; color: var(--muted); margin-left: 4px; font-weight: 500; }
-  .odo .label { grid-column: 1 / -1; color: var(--muted); font-size: 0.95rem; }
-  .odo .meta { color: var(--muted); font-size: 0.85rem; text-align: right; }
-  .odo .km { color: var(--muted); font-size: 0.95rem; white-space: nowrap; }
-  @media (max-width: 480px) { .odo { grid-template-columns: 1fr; } .odo .meta { text-align: left; } }
-  ol.principles { padding-left: 1.3em; margin: 0 0 14px; }
-  ol.principles li { margin-bottom: 10px; }
-  ol.principles b { font-weight: 600; }
-  table { border-collapse: collapse; width: 100%; font-size: 0.95rem; margin: 6px 0 14px; }
-  th, td { text-align: left; padding: 7px 10px 7px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
-  th { font-weight: 600; color: var(--muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.04em; }
-  .links { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-top: 6px; }
+  .odo .num small { font-size: 0.26em; letter-spacing: 0; color: var(--muted); margin-left: 0.3em; font-weight: 400; }
+  .odo .side { font-family: var(--mono); font-size: 13px; line-height: 1.7; color: var(--muted); text-align: right; letter-spacing: 0.02em; }
+  .odo .side b { color: var(--fg); font-weight: 500; display: block; font-size: 15px; letter-spacing: 0; }
+  .odo .side span { display: block; }
+  @media (max-width: 640px) { .odo { grid-template-columns: 1fr; } .odo .side { text-align: left; } }
+
+  /* ---------- sections ---------- */
+  section { padding-block: clamp(72px, 10vw, 140px); }
+  .kicker {
+    font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--accent); margin: 0 0 22px;
+  }
+  .kicker::before { content: ""; display: inline-block; width: 22px; height: 1px; background: var(--accent); vertical-align: middle; margin-right: 12px; }
+  h2 {
+    margin: 0 0 32px;
+    font-size: clamp(34px, 5vw, 64px);
+    line-height: 1.0; letter-spacing: -0.035em; font-weight: 700;
+    max-width: 18ch;
+  }
+
+  /* manifesto table */
+  .vs { border-top: 1px solid var(--line); }
+  .vs .row {
+    display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 24px;
+    border-bottom: 1px solid var(--line);
+    padding-block: 22px;
+    align-items: baseline;
+  }
+  .vs .head {
+    font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--muted); padding-block: 16px;
+  }
+  .vs .head .r { color: var(--accent); }
+  .vs .l {
+    font-size: clamp(18px, 2.4vw, 30px); letter-spacing: -0.015em;
+    color: var(--muted);
+    position: relative;
+    display: inline-block;
+  }
+  .vs .l::after {
+    content: ""; position: absolute; left: 0; right: 0; top: 55%; height: 1.5px;
+    background: var(--muted);
+    transform: scaleX(0); transform-origin: left center;
+    transition: transform .55s cubic-bezier(.2,.7,.2,1) .25s;
+  }
+  .vs .r {
+    font-size: clamp(20px, 3vw, 40px); letter-spacing: -0.03em; font-weight: 700;
+    line-height: 1.05; overflow-wrap: anywhere;
+  }
+  .vs .row.last .r { color: var(--accent); }
+  .vs .row.in .l::after { transform: scaleX(1); }
+
+  /* reveal */
+  .rv { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); }
+  .rv.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .rv { opacity: 1; transform: none; transition: none; }
+    .vs .l::after { transition: none; }
+    .pack .cells i { transition: none; }
+    html { scroll-behavior: auto; }
+  }
+
+  /* what */
+  .what { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 48px; align-items: start; }
+  .what p { margin: 0 0 18px; font-size: clamp(17px, 1.6vw, 21px); line-height: 1.5; color: #cfc9bd; max-width: 60ch; }
+  .what p b { color: var(--fg); font-weight: 500; }
+  .what > div { min-width: 0; }
+  .what p:last-child { margin-bottom: 0; }
+  @media (max-width: 820px) { .what { grid-template-columns: 1fr; gap: 20px; } }
+
+  .chain {
+    margin-top: 44px;
+    display: flex; flex-wrap: wrap; align-items: center; gap: 10px 0;
+    font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase;
+  }
+  .chain span { border: 1px solid var(--faint); padding: 9px 13px; border-radius: 3px; color: var(--fg); white-space: nowrap; }
+  .chain i { width: 22px; height: 1px; background: var(--faint); display: inline-block; }
+  .chain.gone { margin-top: 14px; gap: 10px; }
+  .chain.gone em { font-style: normal; color: var(--faint); margin-right: 6px; }
+  .chain.gone span { border-style: dashed; color: var(--faint); text-decoration: line-through; }
+
+  /* scope + principles */
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; border-top: 1px solid var(--line); padding-top: 36px; }
+  .grid3 h3 { margin: 0 0 10px; font-size: 19px; letter-spacing: -0.015em; font-weight: 700; }
+  .grid3 p { margin: 0; color: var(--muted); font-size: 15.5px; line-height: 1.55; }
+  .grid3 .n { font-family: var(--mono); font-size: 12px; color: var(--accent); display: block; margin-bottom: 18px; }
+  @media (max-width: 820px) { .grid3 { grid-template-columns: 1fr; gap: 32px; } }
+
+
+  /* latest video */
+  .video { margin-bottom: 40px; position: relative; }
+  .video[hidden] { display: none; }
+  .video .frame {
+    position: relative; display: block; width: 100%; aspect-ratio: 16 / 9; max-width: 100%;
+    background: var(--bg-2); border: 1px solid var(--line); overflow: hidden;
+    text-decoration: none; color: var(--fg); cursor: pointer;
+  }
+  .video .frame img {
+    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+    filter: saturate(.85) contrast(1.05); transition: transform .6s cubic-bezier(.2,.7,.2,1), filter .4s ease;
+  }
+  .video .frame:hover img { transform: scale(1.025); filter: saturate(1) contrast(1); }
+  .video .frame::after {
+    content: ""; position: absolute; inset: 0;
+    background: rgba(11,11,10,.18); transition: background .3s ease;
+  }
+  .video .frame:hover::after { background: rgba(11,11,10,0); }
+  .video .play {
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 2;
+    width: 76px; height: 76px; border-radius: 50%;
+    background: var(--accent); color: #0b0b0a;
+    display: grid; place-items: center;
+    transition: transform .3s ease, background .3s ease;
+  }
+  .video .play svg { width: 26px; height: 26px; margin-left: 4px; fill: currentColor; }
+  .video .frame:hover .play { transform: translate(-50%, -50%) scale(1.08); }
+  .video .meta {
+    padding: 16px 0 0;
+    display: flex; justify-content: space-between; align-items: baseline; gap: 24px; flex-wrap: wrap;
+  }
+  .video .meta b { font-size: clamp(18px, 2.2vw, 28px); letter-spacing: -0.025em; line-height: 1.15; font-weight: 700; max-width: 40ch; }
+  .video .meta span {
+    font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--muted); white-space: nowrap; flex-shrink: 0;
+  }
+  .video .meta span i { color: var(--accent); font-style: normal; }
+  .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; z-index: 3; }
+  .video .frame.playing { cursor: default; }
+  .video .frame.playing::after { display: none; }
+  @media (max-width: 640px) {
+    .video .meta { flex-direction: column; align-items: flex-start; gap: 6px; padding-top: 14px; }
+    .video .play { width: 56px; height: 56px; }
+    .video .play svg { width: 20px; height: 20px; }
+  }
+
+  /* links */
+  .links { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
   .links a {
-    display: block; padding: 16px 18px; border: 1px solid var(--line); border-radius: 12px;
-    background: var(--card); color: inherit; text-decoration: none;
+    background: var(--bg); text-decoration: none; padding: 30px 26px 34px;
+    display: flex; flex-direction: column; gap: 10px; min-height: 190px;
+    transition: background .25s ease;
   }
-  .links a:hover { border-color: var(--accent); }
-  .links a b { display: block; margin-bottom: 4px; }
-  .links a small { color: var(--muted); }
-  a { color: var(--accent); }
-  .yt {
-    display: inline-flex; align-items: center; gap: 10px; padding: 12px 18px; border-radius: 10px;
-    background: var(--accent-soft); color: inherit; text-decoration: none; font-weight: 600; margin: 4px 0 8px;
+  .links a:hover { background: var(--bg-2); }
+  .links a:hover .arr { color: var(--accent); transform: translateX(6px); }
+  .links .arr { font-family: var(--mono); font-size: 14px; color: var(--muted); transition: transform .25s ease, color .25s ease; }
+  .links b { font-size: 22px; letter-spacing: -0.02em; font-weight: 700; margin-top: auto; }
+  .links small { color: var(--muted); font-size: 14.5px; line-height: 1.5; }
+  @media (max-width: 820px) { .links { grid-template-columns: 1fr; } .links a { min-height: 0; } }
+
+  /* footer */
+  footer {
+    border-top: 1px solid var(--line);
+    padding-block: 36px 48px;
+    display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+    font-family: var(--mono); font-size: 12px; line-height: 1.8; letter-spacing: 0.02em; color: var(--muted);
   }
-  .yt svg { width: 22px; height: 22px; fill: #e02828; }
-  .note { color: var(--muted); font-size: 0.95rem; }
-  footer { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.85rem; }
-  footer p { margin-bottom: 6px; }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--accent); }
+  footer p { margin: 0; max-width: 64ch; }
+  .safety { color: var(--faint); font-family: var(--mono); font-size: 12px; line-height: 1.7; margin: 56px 0 0; max-width: 78ch; }
 </style>
 </head>
 <body>
+
+<header class="wrap bar">
+  <a class="mark" href="#"><i></i>OpenZero</a>
+  <nav>
+    <a href="#manifesto">Manifesto</a>
+    <a href="#what" class="hide-sm">What</a>
+    <a href="manual/">Manual</a>
+    <a href="https://github.com/dinobot/openzero">GitHub</a>
+  </nav>
+</header>
+
 <main>
-  <h1>Open<span>Zero</span></h1>
-  <p class="lede">A 2014 Zero FX electric motorcycle, rebuilt to run without the manufacturer.</p>
-  <blockquote>The machine is not dead. The support contract is.</blockquote>
+  <section class="wrap hero" style="padding-top:4vh">
+    <div>
+      <h1><span class="o">Open</span><span class="z">Zero</span></h1>
+      <p class="lede">The machine is not dead.<br><em>The support contract is.</em></p>
+      <p class="sub">A 2014 Zero FX electric motorcycle, rebuilt to run without the manufacturer.
+        No proprietary box left between the battery and the motor.</p>
+    </div>
+    <div class="pack" aria-hidden="true">
+      <div class="cells" id="cells"></div>
+      <div class="cap"><span><b>30s1p</b> LiFePO4</span><span><b>96</b> V</span><span><b>52</b> Ah</span><span><b>5.0</b> kWh</span><span>home-built</span></div>
+    </div>
+  </section>
 
-  <div class="odo" id="odo">
-    <div><span class="num" id="miles">—</span><span class="unit">mi</span></div>
-    <div class="km" id="km"></div>
-    <div class="label">ridden on the open pack <span id="since"></span></div>
-    <div class="meta" id="updated"></div>
-  </div>
-  <p class="note">The counter is the project's own benchmark: a bike that moves and keeps moving is the only
-    argument that matters. It is updated by hand after rides from a file in the repository.</p>
-
-  <h2>What was done</h2>
-  <p>Zero's bikes from 2013 to 2016 die one way: the battery ages, the BMS inside it stops cooperating with
-    the vehicle controller, and a mechanically perfect motorcycle becomes scrap because two proprietary boxes
-    no longer talk. The motor, the controller and the chassis are fine.</p>
-  <p>OpenZero removes the dependency instead of replacing one black box with another. The vehicle
-    controller, Zero's BMS, the encrypted CAN between them, the dash and the cloud app are gone. What remains
-    is the industrial hardware Zero built the bike around: a Sevcon Gen4 motor controller, a PMAC motor, a
-    contactor, a frame. On top of that sits a home-built 96 V LiFePO4 pack with an off-the-shelf smart BMS.
-    Everything in the power path can now be inspected, measured, repaired and replaced with a multimeter, a
-    wrench and a CAN adapter.</p>
-
-  <h2>Principles</h2>
-  <ol class="principles">
-    <li><b>No proprietary dependency in the power path.</b> Anything between battery and motor must have a
-      public manual or be a passive part.</li>
-    <li><b>Manufacturer documents only.</b> Cells, controller, BMS and gauge are specified from datasheets.
-      Marketplace listings were wrong on cell dimensions, C-rate and cycle life, and are not sources.</li>
-    <li><b>Static, conservative limits over clever software.</b> The controller enforces a fixed battery
-      current limit and voltage cutbacks; the BMS protects the cells outside that envelope. No bridge
-      firmware between them.</li>
-    <li><b>Everything written down.</b> Decisions with dates and reasons, measurements, wiring tables,
-      controller objects, BMS settings, so the next owner of a dead Zero can repeat it.</li>
-  </ol>
-
-  <h2>What it costs</h2>
-  <table>
-    <tr><th></th><th>Stock 2014 FX</th><th>OpenZero</th></tr>
-    <tr><td>Pack</td><td>28s NMC, ~102 V, 5.7 kWh</td><td>30s1p LiFePO4, 96 V, 5.0 kWh</td></tr>
-    <tr><td>Battery current, continuous</td><td>~125 A</td><td>52 A, 78 A ceiling after hot-weather validation</td></tr>
-    <tr><td>Continuous power</td><td>~12.7 kW</td><td>~5 kW (7.5 kW at 78 A)</td></tr>
-    <tr><td>Launch torque</td><td>phase-current limited</td><td>same, unaffected</td></tr>
-    <tr><td>Realistic cruise</td><td>highway</td><td>~80 km/h at 52 A, ~95 km/h at 78 A</td></tr>
-  </table>
-  <p class="note">The power ceiling is a cell choice, not a platform limit. For a commuter on a chassis that is not
-    pleasant above ~95 km/h anyway, 1C LiFePO4 was the right trade: cheaper per kWh, thousands of cycles,
-    and far more forgiving of a self-built pack than NMC.</p>
-
-  <h2>Proof</h2>
-  <p>The build is documented on video: battery build, fitting the pack, first ride, and whatever breaks next.</p>
-  <a class="yt" href="https://www.youtube.com/@ElectricSavage" rel="noopener">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>
-    Electric Savage on YouTube
-  </a>
-
-  <h2>Read</h2>
-  <div class="links">
-    <a href="manual/"><b>Unofficial Zero Manual</b><small>Mirror of the community wiki: service manual, error codes, torque values. Preserved after the site went offline.</small></a>
-    <a href="https://github.com/dinobot/openzero" id="repo"><b>Engineering notebook</b><small>The repository: wiring, controller configuration, BMS settings, battery analysis, enclosure model, every decision with its reason.</small></a>
+  <div class="wrap">
+    <div class="odo" id="odo">
+      <div class="num"><span id="miles">—</span><small>mi</small></div>
+      <div class="side">
+        <b>ridden on the open pack</b>
+        <span id="km"></span>
+        <span id="since"></span>
+        <span id="updated"></span>
+      </div>
+    </div>
   </div>
 
-  <h2>Does this apply to your Zero?</h2>
-  <p>To every Zero built around a Sevcon Gen4 controller: FX, FXS, FXE, S, DS, SR and DSR from 2013 on,
-    including the FX line still sold new. The 35-pin connector, the CANopen object dictionary and the DVT
-    workflow are the same across controller sizes. It does not apply to the SR/F, SR/S and DSR/X, whose
-    inverter is Zero's own design without public documentation.</p>
+  <section class="wrap" id="manifesto">
+    <p class="kicker rv">Manifesto</p>
+    <h2 class="rv">Same motor. Different owner.</h2>
+    <div class="vs">
+      <div class="row head"><span>A typical modern EV</span><span class="r">OpenZero</span></div>
+      <div class="row rv"><span class="l">OEM battery</span><span class="r">Standard cells</span></div>
+      <div class="row rv"><span class="l">Proprietary BMS</span><span class="r">Replaceable BMS</span></div>
+      <div class="row rv"><span class="l">Proprietary charger</span><span class="r">Standard charger</span></div>
+      <div class="row rv"><span class="l">Dealer diagnostics</span><span class="r">Accessible diagnostics</span></div>
+      <div class="row rv"><span class="l">Manufacturer support</span><span class="r">Owner independence</span></div>
+      <div class="row rv last"><span class="l">Replace the vehicle</span><span class="r">Repair the vehicle</span></div>
+    </div>
+  </section>
 
-  <h2>Safety</h2>
-  <p class="note">This is a 96 to 110 V DC system with a 52 Ah pack behind it. The notebook records what was done and why,
-    not what is safe for you. A fully assembled pack delivers thousands of amps into a dropped tool. If that
-    sentence is new to you, read the controller manual and the cell datasheet before the wiring tables.</p>
+  <section class="wrap" id="what">
+    <div class="what">
+      <div>
+        <p class="kicker rv">What was done</p>
+        <h2 class="rv">A black box removed, not replaced.</h2>
+      </div>
+      <div class="rv">
+        <p>Zero's 2013–2016 bikes die one way: the battery ages, the BMS inside it stops cooperating with the
+          vehicle controller, and a mechanically perfect motorcycle becomes scrap because two proprietary boxes
+          no longer talk. <b>The motor, the controller and the chassis are fine.</b></p>
+        <p>OpenZero removes the dependency. The vehicle controller, Zero's BMS, the encrypted CAN between them,
+          the dash and the cloud app are gone. What remains is the industrial hardware the bike was built
+          around: a Sevcon Gen4 motor controller, a PMAC motor, a contactor, a frame. On top sits a home-built
+          96 V LiFePO4 pack with an off-the-shelf smart BMS. <b>Everything in the power path can be inspected,
+          measured and replaced with a multimeter, a wrench and a CAN adapter.</b></p>
+        <div class="chain" aria-label="Power path">
+          <span>LiFePO4 pack</span><i></i><span>ANT BMS</span><i></i><span>Contactor</span><i></i><span>Sevcon Gen4</span><i></i><span>PMAC motor</span>
+        </div>
+        <div class="chain gone" aria-label="Removed">
+          <em>Removed</em><span>Zero MBB</span><span>Zero BMS</span><span>Encrypted CAN</span><span>Dash</span><span>Cloud app</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <footer>
-    <p>OpenZero is a private project, not affiliated with or endorsed by Zero Motorcycles.
-      Text and documentation: <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.
-      Code: <a href="https://www.gnu.org/licenses/gpl-3.0.html">GPL-3.0-or-later</a>.
-      The mirrored wiki is community content reproduced with attribution.</p>
-  </footer>
+  <section class="wrap" style="padding-top:0">
+    <div class="grid3">
+      <div class="rv">
+        <span class="n">01</span>
+        <h3>No proprietary dependency in the power path</h3>
+        <p>Anything between battery and motor has a public manual or is a passive part. Static, conservative
+          limits in the controller; cell protection in the BMS; no bridge firmware between them.</p>
+      </div>
+      <div class="rv">
+        <span class="n">02</span>
+        <h3>Manufacturer documents only</h3>
+        <p>Cells, controller, BMS and gauge are specified from datasheets. Marketplace listings were wrong on
+          cell dimensions, C-rate and cycle life, and are not sources.</p>
+      </div>
+      <div class="rv">
+        <span class="n">03</span>
+        <h3>Everything written down</h3>
+        <p>Decisions with dates and reasons, measurements, wiring tables, controller objects, BMS settings,
+          so the next owner of a dead Zero can repeat it. Applies to every Zero built on a Sevcon Gen4:
+          FX, FXS, FXE, S, DS, SR, DSR from 2013 on.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" id="read" style="padding-top:0">
+    <p class="kicker rv">Read, watch, repeat</p>
+    <div class="video rv" id="video" hidden>
+      <a class="frame" id="video-frame" href="https://www.youtube.com/@ElectricSavage" rel="noopener">
+        <img id="video-thumb" alt="" loading="lazy">
+        <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3.5v17l14-8.5z"/></svg></span>
+      </a>
+      <div class="meta"><b id="video-title"></b><span><i>Latest</i> · <em id="video-date" style="font-style:normal"></em></span></div>
+    </div>
+    <div class="links rv">
+      <a href="https://github.com/dinobot/openzero">
+        <span class="arr">→</span>
+        <b>Engineering notebook</b>
+        <small>The repository: wiring, controller configuration, BMS settings, battery analysis, enclosure model, every decision with its reason.</small>
+      </a>
+      <a href="manual/">
+        <span class="arr">→</span>
+        <b>Unofficial Zero Manual</b>
+        <small>Mirror of the community wiki: service manual, error codes, torque values. Preserved after the site went offline.</small>
+      </a>
+      <a href="https://www.youtube.com/@ElectricSavage" rel="noopener">
+        <span class="arr">→</span>
+        <b>Electric Savage</b>
+        <small>The build on video: battery, fitting the pack, first ride, and whatever breaks next.</small>
+      </a>
+    </div>
+    <p class="safety">This is a 96 to 110 V DC system with a 52 Ah pack behind it. The notebook records what was done and why, not
+      what is safe for you. A fully assembled pack delivers thousands of amps into a dropped tool. If that sentence is new
+      to you, read the controller manual and the cell datasheet before the wiring tables.</p>
+  </section>
 </main>
+
+<footer class="wrap">
+  <p>OpenZero is a private project, not affiliated with or endorsed by Zero Motorcycles.<br>
+    Text: <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> ·
+    Code: <a href="https://www.gnu.org/licenses/gpl-3.0.html">GPL-3.0-or-later</a> ·
+    Mirrored wiki is community content reproduced with attribution.</p>
+  <p><a href="https://openzero.u65.info/">openzero.u65.info</a></p>
+</footer>
+
 <script>
-(async () => {
-  try {
-    const r = await fetch('odometer.json', { cache: 'no-store' });
-    const d = await r.json();
-    const mi = Number(d.miles) || 0;
-    document.getElementById('miles').textContent = mi.toLocaleString('en-US');
-    document.getElementById('km').textContent = '≈ ' + Math.round(mi * 1.609344).toLocaleString('en-US') + ' km';
-    if (d.since) document.getElementById('since').textContent = 'since ' + d.since;
-    if (d.updated) document.getElementById('updated').textContent = 'updated ' + d.updated;
-  } catch (e) {
-    document.getElementById('miles').textContent = '?';
+(() => {
+  // pack graphic: 30 cells light up one by one
+  const cells = document.getElementById('cells');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  for (let i = 0; i < 30; i++) {
+    const c = document.createElement('i');
+    cells.appendChild(c);
+    if (reduce) c.classList.add('on');
+    else setTimeout(() => c.classList.add('on'), 350 + i * 45);
   }
+
+  // reveal on scroll
+  const io = new IntersectionObserver((es) => {
+    es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.1 });
+  document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+  // latest video: thumbnail + title from latest_video.json (written by site/video/fetch_latest.py);
+  // the player is loaded only on click
+  (async () => {
+    try {
+      const r = await fetch('latest_video.json', { cache: 'no-store' });
+      const v = await r.json();
+      if (!v || !v.id) return;
+      const box = document.getElementById('video');
+      const frame = document.getElementById('video-frame');
+      const img = document.getElementById('video-thumb');
+      img.src = 'https://i.ytimg.com/vi/' + v.id + '/maxresdefault.jpg';
+      img.onload = () => { if (img.naturalWidth < 200) img.src = 'https://i.ytimg.com/vi/' + v.id + '/hqdefault.jpg'; };
+      img.onerror = () => { img.src = 'https://i.ytimg.com/vi/' + v.id + '/hqdefault.jpg'; img.onerror = null; };
+      document.getElementById('video-title').textContent = v.title || '';
+      document.getElementById('video-date').textContent = v.published || (v.channel || 'Electric Savage Garage');
+      frame.href = v.url || ('https://www.youtube.com/watch?v=' + v.id);
+      frame.addEventListener('click', (ev) => {
+        ev.preventDefault();
+        const f = document.createElement('iframe');
+        f.src = 'https://www.youtube-nocookie.com/embed/' + v.id + '?autoplay=1&rel=0';
+        f.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture';
+        f.allowFullscreen = true;
+        f.title = v.title || 'Latest video';
+        frame.replaceChildren(f);
+        frame.removeAttribute('href');
+        frame.classList.add('playing');
+      }, { once: true });
+      box.hidden = false;
+      if (box.classList.contains('rv') && box.getBoundingClientRect().top < innerHeight) box.classList.add('in');
+    } catch (e) { /* no video card */ }
+  })();
+
+  // odometer
+  (async () => {
+    try {
+      const r = await fetch('odometer.json', { cache: 'no-store' });
+      const d = await r.json();
+      const mi = Number(d.miles) || 0;
+      document.getElementById('miles').textContent = mi.toLocaleString('en-US');
+      document.getElementById('km').textContent = '≈ ' + Math.round(mi * 1.609344).toLocaleString('en-US') + ' km';
+      if (d.since) document.getElementById('since').textContent = 'since ' + d.since;
+      if (d.updated) document.getElementById('updated').textContent = 'updated ' + d.updated;
+    } catch (e) {
+      document.getElementById('miles').textContent = '?';
+    }
+  })();
 })();
 </script>
 </body>

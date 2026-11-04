@@ -113,6 +113,7 @@ firmware opens in DVT the same way the 2014 unit did.
 | `manuals/` | Manufacturer documents that count as specification. **Not in the repository** (copyrighted); see *Documents you need* below. |
 | `site/` | The public site, openzero.u65.info: landing page with the manifesto and odometer, and the web version of the mirrored wiki (MkDocs). Built by GitHub Actions. |
 | `battery_box/` | Enclosure work: `SPEC.md` (requirements), `enclosure.py` (parametric 3D-printable model, build123d), `ALU_BOX_RU.md` (the riveted aluminium box actually built), STL outputs and renders. |
+| `charging/` | Public-charging notes: `road_kit.md` — a J1772 adapter box (pilot circuit, BOM, procedure) and charger selection for the 30S LiFePO4 pack; why DC fast charging was rejected. |
 | `zeromanual/` | Offline Markdown mirror of the community "Unofficial Zero Manual" wiki, recovered from the Wayback Machine. Stock-bike mechanical, motor, belt and harness facts transfer; MBB/app behaviour does not. Start at `zeromanual/INDEX.md`. |
 
 ## Safety
@@ -147,6 +148,10 @@ redistributed here; put them in `manuals/` (git-ignored) under these names:
 | `ANT-BMS-APP-User-Manual-English.pdf` | ANT BMS app manual | antbms.vip |
 | `Ant BMS Smart Bluetooth Relay ... User Manual.pdf` | ANT relay-line manual (manuals.plus compilation), partly applicable | manuals.plus |
 | `CT-22-MANUAL.pdf` | CT-22 gauge parameter instructions | from the gauge seller |
+| `Elcon-HK-J-H132-32-verA.pdf` | Elcon HK-J series 3.3 kW sealed CAN charger specification, 2015-04-11 verA | elconchargers.com (public download) |
+| `Thunderstruck-EVCC-v3.1.3.pdf` | Thunderstruck Motors / Dilithium Design EV Charge Controller v3 manual | thunderstruck-ev.com (public download) |
+| `Delta-Q-XV3300-presentation.pdf` | Delta-Q XV3300 3.3 kW charging system product presentation | delta-q.com distributors (public download) |
+| `14fx.pdf` | Zero Motorcycles 2014 FX parts catalogue (exploded views with part numbers) | AF1 Racing parts lookup, `14FX.pdf` (public download; linked from `zeromanual/wiki/Exploded_Views.md`) |
 
 ## License
 
