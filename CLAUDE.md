@@ -726,6 +726,19 @@ Checklist and reasoning in `charging/road_kit.md` ("YILEIDE E22").
 
 ---
 
+## Street mode (started 2026-11-04; details in `street_mode/README.md`)
+
+Owner's term for an FXS-style road setup of the 2014 FX (lower seat height, road suspension). Researched so
+far: **rear shock and lowering** (2026-11-03). The FX has no linkage (shock bolts frame tube → swingarm,
+≈ 1:2 to the axle), so lowering = shorter shock only. Stock 22-06105 Fastace BFA57RC is 319 mm eye-to-eye,
+M10, 475–585 lb/in. The 2015+ Showa 22-05879 is the same length (320 mm) and came with a new frame
+(26-08080), swingarm (21-07748) and a 60 mm instead of 70 mm upper bolt — not a documented bolt-on and no
+lowering. Options in order: spacer in the Fastace (3/4 in → ~1.5 in, forum-proven on a 2013 FX), Ikon
+3610-1104 (made for the 2016 FXS, −2 in version), made-to-length shock (~300 mm), Fox Podium RC2 (Zero
+accessory for 2013–14 FX, stock height). Measure eye/lug widths and spring clearance first.
+
+---
+
 ## Drivetrain / Gearing
 
 ### Stock Configuration
@@ -932,9 +945,24 @@ The repo is public on GitHub; the site openzero.u65.info is built from `site/` b
     + proximity handling, duty-cycle current limit, CAN control of Elcon/TC and TSM2500 chargers, profiles)
   - `Delta-Q-XV3300-presentation.pdf` — Delta-Q XV3300 3-in-1 charger (60–120 V model, 40 A, built-in J1772
     interface, 500 W DC-DC); OEM-channel reference only
+  - `Anderson-DS-SB50-REV9.pdf` (2026, andersonpower.com) / `Anderson-DS-SB50-REVC4.0-2014.pdf` — SB50 connector
+    datasheet, the pack's output connector (added 2026-11-05). The connector has no own amp rating: it is rated by
+    temperature (housing −20…105 °C) with whatever wire the contact takes. Wire-to-wire with 6 AWG contact 5900
+    and 105 °C cable: UL 1977 120 A, CSA 50 A (< 30 °C rise), hot-plug 50 A / 250 cycles at 120 V DC, IEC 50 A,
+    0.2 mΩ mated. "Temperature Rise at Constant Current" curve for 6 AWG (25 °C ambient): ≈ 8 °C at 30 A, 15 at
+    40, 23 at 50, 30 at 60, 40 at 70, 55 at 80 A (≈ 0.009·I²); IEC 60512-5-2 derating: 95 A at 25 °C ambient,
+    ~87 A at 40 °C, 80 A at 50 °C. For the bike: 52 A → ~+24 °C, 78 A → ~+53 °C, both inside the 105 °C limit;
+    120 A ANT trip is a seconds-long pulse, thermally irrelevant. The "75 A" seen in listings is the NEC 90 °C
+    ampacity of 6 AWG cable (or the seller rating of the 8 AWG contact 5952), not an Anderson figure.
+    `Anderson-SB-assembly-1S1030A.pdf` — crimp/solder sheet: SB50 strip 14 mm, hand tool 1309G4, single crimp
+    ≥ 6.35 mm from the barrel end, stranded Cu only; wrong tooling voids UL/CSA
   - `14fx.pdf` — Zero FX 2014 parts catalogue (exploded views ZEV0001–ZEV0010 with Zero part numbers; AF1 Racing
     `14FX.pdf`, added 2026-11-03). Stock part numbers, frame/module mounting hardware, drivetrain. No wiring,
     connectors or electrical specs. Summary in "Stock 2014 FX parts"
+  - `15fx.pdf`, `16fxs.pdf` — the 2015 FX and 2016 FXS catalogues (same AF1 Racing source), used to compare
+    frame / swingarm / shock part numbers across the Fastace → Showa change (see "Street mode")
+- `street_mode/README.md` — FXS-style road setup of the FX: rear shock geometry 2014 vs 2015+, lowering options,
+  open measurements (added 2026-11-04)
 - `charging/road_kit.md` — public-charging design: J1772 adapter box (BOM, pilot circuit, procedure), charger
   selection (AF1200-EU, universal, Elcon HK-J, QuiQ verdict), buy-vs-build
 - `battery_box/SPEC.md` — battery box enclosure build spec (build123d, Bambu P2S)

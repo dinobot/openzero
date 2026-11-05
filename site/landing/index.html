@@ -443,14 +443,35 @@
 
 <script>
 (() => {
-  // pack graphic: 30 cells light up one by one
+  // pack graphic: 30 cells light up one by one — on load and again every time the
+  // pack scrolls back into view (it goes dark while fully off-screen)
   const cells = document.getElementById('cells');
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const cellEls = [];
   for (let i = 0; i < 30; i++) {
     const c = document.createElement('i');
     cells.appendChild(c);
+    cellEls.push(c);
     if (reduce) c.classList.add('on');
-    else setTimeout(() => c.classList.add('on'), 350 + i * 45);
+  }
+  if (!reduce) {
+    let timers = [], lit = false, first = true;
+    const light = () => {
+      lit = true;
+      const delay = first ? 350 : 120; first = false;
+      timers = cellEls.map((c, i) => setTimeout(() => c.classList.add('on'), delay + i * 45));
+    };
+    const dark = () => {
+      lit = false;
+      timers.forEach(clearTimeout); timers = [];
+      cellEls.forEach(c => c.classList.remove('on'));
+    };
+    new IntersectionObserver((es) => {
+      es.forEach(e => {
+        if (!e.isIntersecting) { if (lit) dark(); }
+        else if (e.intersectionRatio >= 0.4 && !lit) light();
+      });
+    }, { threshold: [0, 0.4] }).observe(cells);
   }
 
   // reveal on scroll

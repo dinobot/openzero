@@ -7,7 +7,7 @@ version of the mirrored Unofficial Zero Manual. Built and deployed by
 | Path | What |
 |---|---|
 | `landing/` | Static root of the site: `index.html`, `odometer.json`, `latest_video.json`, `CNAME`. Copied verbatim to the site root. The landing is a single self-contained file (inline CSS/JS, no build step); the only external dependency is Google Fonts (Space Grotesk, JetBrains Mono) with system fallbacks. Sections: hero with the 30-cell pack graphic, odometer, manifesto table, what was done, principles, links. |
-| `video/fetch_latest.py` | Writes `landing/latest_video.json` (newest upload of the YouTube channel) from the public RSS feed; runs in the workflow on every build and on a daily cron, keeps the committed snapshot on failure. |
+| `video/fetch_latest.py` | Writes `landing/latest_video.json` (newest regular upload of the YouTube channel, Shorts excluded via the `UULF…` long-form-only playlist feed; `--include-shorts` restores the old behaviour) from the public RSS feed; runs in the workflow on every build and on a daily cron, keeps the committed snapshot on failure. |
 | `manual/build_manual.py` | Turns `zeromanual/wiki/**.md` into MkDocs sources in `manual/docs/` (generated, not committed): splits the four service manuals into one page per section, rewrites MediaWiki anchors and relative links, copies only the images actually referenced, adds a source/attribution footer to every page, writes `manual/mkdocs.yml` with the nav. |
 | `manual/mkdocs.base.yml` | The hand-written part of the MkDocs config (theme, extensions). |
 | `_site/` | Build output (generated, not committed). Landing at `/`, manual at `/manual/`. |
