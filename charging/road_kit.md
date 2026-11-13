@@ -252,6 +252,9 @@ margin, the E22 does not. PFC on the input is required for that figure (confirm 
 5. Survives load dump: the ANT common-port MOSFET can open at full current.
 6. PFC input, fan, IP rating, weight, DC connector (Anderson SB50 preferred), input cord type.
 7. Current selector option and price; warranty.
+8. **Starts into a dead output.** The bike's charge port is behind a series diode (CLAUDE.md "Charging"),
+   so the charger sees 0 V until it starts; chargers with battery-detect / reverse-polarity lockout will
+   refuse. The AF1200 copes. Also expect the pack to end ~0.6 V below the charger's CV.
 
 **First charge:** verify CV and cut-off with a DMM as with the AF1200, and log charger vs ANT readings
 (the AF1200 discrepancy 97.44 V / 8.00 A vs 97.83 V / 8.90 A is still unresolved). Check cell NTCs
@@ -284,7 +287,9 @@ charger derates on its own.
 ## Not done on purpose
 
 - No proximity logic, no duty-cycle reading, no microcontroller: a switch does the job.
-- No on-bike inlet or drive interlock: the SB50 unplug is the interlock.
+- No drive interlock: the SB50 unplug at the pack is the interlock. (The bike does have an on-bike SB50
+  charge port in the stock location, behind a series diode — CLAUDE.md "Charging"; charging through it
+  leaves the Sevcon on the bus, which is how stock Zeros charge. Either point works for the E22.)
 - No 26 A charger at all (owner 2026-11-03: the E22's 18 A is enough, see "YILEIDE E22"). If a 26 A
   charger is ever bought anyway, the candidate is the **Elcon
   HK-J-H132-32** (`manuals/Elcon-HK-J-H132-32-verA.pdf`, 2015-04-11, from elconchargers.com; request a

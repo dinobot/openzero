@@ -30,8 +30,99 @@ and cycle life.
   "mixed" figure (57 Wh/km) — the ANT coulomb counter looks honest and the ~75 km mixed-range estimate holds.
   Pack left on the bike at 78 % for a week (2026-11-02 → 11-09): fine for LFP; note SOC/pack V before and
   after to get the first BMS standby-drain figure.
+- **First GPS-logged rides (2026-11-08, `rides/log.md`):** 5.65 km loop, **88–90 km/h (55 mph) GPS max** on a
+  ~2 % descent, 75–86 km/h held on the flat at full throttle. ANT log matched to the second: full throttle =
+  **78–82 A battery current, 90 A peaks** (ANT reads ~10 % high vs the charger, so ~72–80 A real) ≈ 7.5 kW — the
+  bike is riding the "78 A stage" because the 52 A limit was never written (see Blocking). The 85–90 km/h stretch
+  on the descent produced no 60 A warning, i.e. needs < 60 A there. No temperature events, no protection trips.
+- **First real commute (2026-11-10, `rides/log.md`):** home → "LT" and back, 5.72 + 5.84 km, 7.2 + 7.4 min moving,
+  48 km/h average moving, 81–87 km/h GPS max. ANT: 81–87 A sustained at 70–80 km/h on climb, flat and a −1.3 %
+  descent alike, peaks 90.6 / 87.4 A; cell 16 down to 3.038 V (morning loop) / 3.046 V at 85.7 A, spread 0.088 V.
+  Four rides that day plus a 1-hour 8.8 A top-up at 13:08 (≈ +17 % SOC). No trips, no temperature events. The ANT
+  run-time counter runs ~0.4 % fast and the log is a 200-event ring buffer: export right after each ride.
+- **Regen is weak since the 40 A limit was written (owner 2026-11-12):** the owner recalls writing the 40 A regen
+  limit into the controller (4623h sub 03h) and that coast/neutral-braking drag became much weaker afterwards; every
+  descent is on the friction brakes, and ANT saw ≈ 9 A of regen at most on Park Ave. Gen4 manual (Battery Current
+  Limit): *"regen currents flowing back to the battery are specified as negative numbers"* — a **+40** in sub 03h
+  is the likely cause (wrong sign → near-zero regen allowance), and the same text says sub 03h also carries a
+  cutback-aggressiveness / correction factor in some firmware layouts. It also means 2870h sub 01h is probably 0x01
+  already, so whatever sits in sub 02h is what caps discharge at ~81 A. **In DVT: read 4623h all sub-indices and
+  2870h, log 5100h on a descent, then write sub 03h = −40 (and sub 02h per step 7a).**
+- **Top of the World (2026-11-11, `rides/log.md`):** 18.2 km out via PCH and Laguna Beach, same way back. **Park Ave
+  is a full-throttle climb:** 2.44 km, +237 m, 9.7 % average with 12–18 % sections, ANT 78–91 A for ~3 min, 64 km/h at
+  the bottom falling to 31–45 km/h on the steep part and 17 km/h at the top. New ANT peak 97.1 A (≈ 88 A real) on the
+  way back. Regen on the descent peaked at ≈ 9 A (weak neutral braking, no paddle). No trips, no temperature events.
 
 ### Blocking / In Progress
+- **Rear brake rotor runout — FIXED 2026-11-09, CONFIRMED ON THE ROAD 2026-11-10 (Honda 43351-MBN-671).** First ride
+  on the Honda disc: pads bedded in, no pulsing at the pedal, no problems. The pad leaves a clean, even track centred on
+  the swept face and never runs off the edge — owner: it fits as if it belonged there from the factory, arguably better
+  than OEM. Before the swap the runout was genuinely dangerous: the pedal kicked, the rear wheel alternately locked and
+  released, and the rear brake had to be avoided almost entirely. **Second identical disc bought for the front
+  (2026-11-10)** — front hub is M6 (90-03477-8), so it should bolt on without drilling; do the front checks listed
+  below. Still to do on the rear: re-check the 4 rotor bolts after this first ride, note the MIN TH stamp.
+  The disc was the problem, not the hub. Honda holes are M6 (~6.5 mm) and the FX
+  rear hub is M8 (catalogue: rear rotor bolts 90-07274 = ISO 7380 button head M8×25 8.8, qty 4; front 90-03477-8 =
+  M6×15, the line with the bogus qty 6 — so the Honda disc may bolt straight onto the front hub, check with a bolt), so
+  the four holes were opened to 8.5 mm with a hand drill in 0.5 mm steps, using the old Zero disc stacked and clamped
+  on top as a drill bushing (same PCD, holes already 8.5), then chamfered 0.3–0.5 mm by hand. Torque for these bolts:
+  ~20 N·m (8.8) / 23–25 N·m (10.9) with medium threadlocker, never above 25 in the aluminium hub; no Zero figure exists
+  in OM-FX-MY14 or the zeromanual. Before the first ride: pump the pedal (disc 0.5 mm thinner, pistons must come out),
+  bed the pads gently for 10–15 km, re-check the bolts after the ride, note the MIN TH stamp on the Honda disc.
+  **Rotors (owner 2026-11-09):** front and rear FX hubs take the same disc interface — 4 bolts, same PCD, 240 mm, same
+  design (the catalogue lists different numbers, front 25-06282 → 25-08063, rear 25-07621 "with counterbore", and a
+  "qty 6" front bolt line that is a catalogue error — its own drawing shows 4 holes). **Replacement: Honda
+  43351-MBN-671** (XR650R 2000–07 rear disc, 240 × 4 mm, 4 holes) trial-fits the FX hub, apparently front or rear.
+  Rear checks done on the road 2026-11-10 (centred in the caliper, pads on the swept band, no runout felt); still worth a
+  dial-gauge reading once for the record. Buchanan's email corrected to 4 bolts.
+  OM-FX-MY14 p. 1.7 gives **both** rotors as 240 mm × 4.5 mm, wear limit 3.85 mm; the Honda disc is 4.0 mm new, so it
+  starts 0.5 mm thinner than stock on either axle — go by the min-thickness stamp on the Honda disc, not Zero's 3.85.
+  Front fitment (owner question 2026-11-09, disc bought 2026-11-10): acceptable once PCD is confirmed — same OD, 4-bolt,
+  flat, non-directional OE stainless disc, same checks as the rear plus: front pads fully on the swept band, heads clear
+  the fork-side caliper carrier, bed in gently. Use the stock M6×15 front bolts (90-03477-8) if the Honda hole is a plain
+  6.5 mm through-hole with no countersink; the Honda disc expects M6 × 17, so check thread engagement in the hub.
+  **Front bolts seized (owner 2026-11-13):** the rear recipe (40 s torch, then impact) strips the 5 mm hex on the
+  M6 front bolts instead of turning them. Next steps in order: hammered-in Torx T30/T27 + hammer-type impact driver
+  (axial force, no electric impact); Dremel slot + flat bit; MIG a nut on (heat goes into the bolt); drill the head
+  off with a 6.5–7 mm bit and spin the unloaded stub out with pliers after heat. Then tap M6, new bolts, medium
+  threadlocker, **~10 N·m for M6 in the aluminium hub** (the 20 N·m figure is for the rear M8).
+  **Solved the same day:** hammered-in Torx and the hammer-type impact driver did nothing (bit spun in the socket);
+  **Dremel slot across the head + wide flat bit + electric impact right after a 30–40 s torch** turned every bolt at
+  the first try. For any seized small-hex bolt on this bike go straight to the slot, skip Torx and the hammer driver.
+- **Sevcon battery current limit NOT enforcing (found 2026-11-08 from the ANT log):** every ride since 2026-10-31 ran
+  78–82 A at full throttle (peaks 83.5 / 89 / 90 A on 10-31 / 11-01 / 11-08); the ANT 60 A discharge warning fired
+  exactly as the diagnostic it was set up to be. The cap is suspiciously flat (80–82 A from 22 to 75 km/h), so some
+  battery limit is already in 4623h — read it. Step 7a moves to the front of the queue: either write 52 A as planned
+  or consciously keep ~78 A and do the hot-day validation. Until then: no full throttle below 20 % SOC or in the
+  cold — cell 16 under 80 A sits 0.2 V below rest, the ANT cut is 2.80 V.
+- **"Cell 16 sags" is the mid-pack jumper, not the cell (owner 2026-11-08):** 23 of 27 cell-UV warnings (3.10 V
+  threshold) are cell 16, at 3.06–3.10 V under 78–82 A, 55–68 mV below the rest. Cell 16 is the first cell of the
+  left row and joins cell 15 through the 2 × AWG8 jumper with the connector that splits the pack into two 48 V
+  halves for service. Tap 15 sits on the cell-15 side, so the jumper's I·R drop is subtracted from cell 16's
+  reading on discharge (added on charge). 55–68 mV / 78–82 A = **0.7–0.85 mΩ**, exactly 30–40 cm of doubled
+  AWG8 (~1 mΩ/m) plus a connector and four crimps. The two cell-1 warnings are the same effect on the B− lead.
+  Verify: rested cell 16 = the rest ±3 mV; at 8 A charge it reads ~6 mV *high*. **Charge side confirmed 2026-11-10:**
+  at −8.7 A (BatChgOn event) cell 16 was the *highest* cell, 3.329 V vs 3.321 V min = +8 mV ≈ 0.9 mΩ; at 0 A after
+  the charge the spread was 6 mV. Fix: ANT **Connection Resistance**
+  (Battery pack tab, currently 0.0 mΩ for all) → ~0.8–0.9 mΩ for cell 16, and cell 1 by its own under-load delta; confirm
+  on the next ride that CellVoltDiff at 80 A drops from 0.06 to ~0.01 V (that also checks the sign convention).
+  Until then ANT cuts cell 16 ~65 mV early under load — conservative, acceptable. The jumper dissipates ~5 W at
+  80 A: connector must be rated 80 A continuous; touch-check after rides. Balancing is unaffected (6 mV at 8 A,
+  2 mV in the CV tail, Start Diff is 20 mV).
+- **Pack is not top-balanced — cell 13 trips over-voltage protection on every full charge (found 2026-11-12 in the
+  ANT log):** the 11-10 overnight charge (8.8 A, 166 min) ended by CellOVPP on cell 13 at 3.652 V with a 0.221 V
+  spread (min cell 25 at 3.431 V); the first charge on 10-25/26 ended the same way on the same cell (0.224 V). The
+  "0.003 V spread" of 10-27 was read after relaxation into the flat OCV region and was never a top balance. Cell 13 is
+  ≈ 0.5–1 Ah ahead of the pack (or that much smaller). ANT balances only above 3.40 V, which the pack reaches ~15 min
+  before the trip → ~40 mAh/night, 15–25 nights to converge on its own, each night ending in a protection trip at
+  ≈ 98 % instead of the charger's taper (coulomb-counter resync doubtful). **Fix, cheapest first:** (1) at the next
+  charge, screenshot all 30 cells when the spread warning fires and confirm the balancer icon is active on cell 13;
+  (2) bleed cell 13 manually: ~3.3 Ω / 5 W resistor across its terminals ≈ 1 A, 30–60 min at a time, recharge, repeat
+  until the spread at > 3.6 V is < 30 mV — then the ANT 100 mA balancer can hold it; (3) only if (2) is not wanted:
+  leave the charger connected overnight so trip → recover → restart cycles keep bleeding (check first that the AF1200
+  restarts after the ANT charge-MOS reopens — through the diode port it will not). Also check the cell-13 balance
+  lead and tap bolt: a high reading that appears only under current would be contact resistance, but 0.094 V at 0 A
+  ten minutes after the trip says the imbalance is real.
 - **Throttle**: Magura 0–5K resistive pot confirmed bad (floating wiper, erratic readings)
   → Replacing with hall-effect throttle from 2016+ Zero FXE (see below)
 - **Throttle calibration**: Pot 1 min/max not yet set in DVT
@@ -56,13 +147,25 @@ and cycle life.
    - Inching torque limit: 20–30%
    - Inching mode: speed mode (throttle bypassed)
 5. **Wire proper killswitch** to pin 19 (FS1) on handlebar
+5a. **Regen paddle** (owner 2026-11-05, near-term): momentary button on the bar to B− → footbrake switch
+    object **2130h** mapped to a free DI, proposed **DI5 = pin 20** (wire already removed; pin 30/DI2 kept for a
+    future reverse switch). Gen4 manual 6-22: a mapped footbrake switch applies *maximum foot braking* while
+    closed; released = normal neutral braking (coast). Set in DVT: 2920h footbraking torque 20–30 % + ramp
+    (neutral braking torque stays low, 5–10 %); 2911h min speed for braking ~2–3 km/h, drive/brake priority =
+    brake, priority timeout; 290Eh brake feathering to 0 at stop. Regen stays capped by 4623h sub 03h (40 A).
+    Bonus: brake-light object 2404h on a free low-side output (pin 7 or 11) lights on footbrake → regen stop
+    lamp without the ESP32. **Before touching the connector:** confirm the DI number with the DVT raw-input tree
+    (short pin 20 to B−), and resolve the pinout discrepancy noted under "Sevcon 35-Pin Connector". Step two if
+    liked: a 0–5 V hall lever on Pot 2 (pin 23 wiper / 35 supply, object 2221h) for proportional regen.
 6. **Save all parameters to NVM** (1010h sub 01h = 0x65766173)
 7. **Wire and commission ANT BMS** — DONE 2026-10-25: pack built in an aluminium box, BMS live, all 30 cells
    read correctly, protections set (see "ANT settings as configured"), first full charge done and pack
    top-balanced to 3 mV (2026-10-27). Left: rested-spread check, SOC/52 Ah resync check, password, MOSFET toggle
    test, box isolation check, V/A calibration vs DMM, NTC channel check, fuse location, box edge trim
 7a. **Set Sevcon battery current limit** in DVT (2870h sub 01h = 0x01; 4623h sub 02h = discharge, sub 03h =
-    charge/regen). BMS does not enforce cell C-rate; the limit is static (no peak timer). **Plan (owner 2026-10-21):**
+    charge/regen). BMS does not enforce cell C-rate; the limit is static (no peak timer). **NOW FIRST IN LINE
+    (2026-11-08): the limit was never written and rides run at ~80 A** — read 4623h/2870h first to learn what caps
+    at ~81 A today, then decide 52 A per plan vs. staying at 78 A with the validation below. **Plan (owner 2026-10-21):**
     - First rides: **52 A discharge** (1C, the datasheet's continuous test condition) / **40 A regen**.
     - Validation ride on a hot day (≥30 °C ambient, ≥30 min sustained load: hills or highway) with ANT logging.
       Pass = cell NTCs < 45 °C, MOS temp < 60 °C, no ANT warnings.
@@ -74,8 +177,9 @@ and cycle life.
       Sevcon tapers before the ANT hard-cuts. (Testing whether 4623h accepts writes while Operational is optional
       now that the BMS bridge is dropped.)
 7b. **Test with 96V LiFePO4 battery pack** — DONE by 2026-11-02 (see "Working": ~20 km incl. passenger,
-    22 % used, ~55 Wh/km). Still to pull from the ANT log: max current, cell spread and temperatures under
-    two-up load, any warnings; distance was estimated, not measured — next rides use the odometer
+    22 % used, ~55 Wh/km). ANT log pulled 2026-11-08 (`rides/log.md`): max 89 A on 11-01, cell 16 to 3.059 V
+    under load, no temperature events, no trips. Distance: GPS tracks from 2026-11-08 on (Open GPX Tracker, location
+    permission "Always" or the track has gaps); odometer once the speed converter exists
 7c. **Battery box enclosure** — model done (`battery_box/enclosure.py`, README there). Print test
     coupons, measure fuse block + frame mounts, fill MEASURE_ME values, then print the full set
 8. **Disable MBB/CCU RPDOs** (objects 1400h–1403h, set bit 31 in COB-ID subindex)
@@ -135,6 +239,20 @@ All digital inputs are **active-low (to B−)**. Confirmed via DVT raw input sta
 
 **Pins confirmed removed:** 20 (DI5), 21, pin 18 future candidate after 2918h mask applied
 
+**Pinout discrepancy to resolve (2026-11-05, Gen4 manual V3.4 Table 2 vs this table):** the manual lists pin 15 =
+encoder supply − (0 V), 14/25 = encoder A/B, 26 = encoder supply +, 28 = CAN power +, 32 = DI7, 33 = motor
+thermistor, 30 = DI2 (reverse), 20 = DI5, 9 = DI6, 21 = DI8. This table says 15 = brake/regen input, 26/28 =
+encoder A/B, 32/33 = encoder supply/GND. Either the Zero loom labels differ or the rows above are wrong. Check
+with the DVT raw-input tree and the manual before adding the regen-paddle wire (step 5a) or removing anything.
+**Resolved on paper (2026-11-09) by the 2016 FX wiring diagram rev 1.1 (`zeromanual/images/2016_FX_Wiring_1-1-preview.png`,
+Sevcon block): 1 = ORN/RED, 2 = CAN TERMINATE (jumpered to 24 = CAN LOW SERVICE — that jumper is the Sevcon's
+internal 120 Ω terminator, not a B− reference), 6 = KEY SWITCH, 15 = 0 V, 16 = CAN HIGH, 18 = FORWARD, 21 = SIN
+input, 22 = THROTTLE, 23 = ANALOG INPUT 2, 26 = +10 V, 27 = CAN LOW, 28 = CAN POWER, 30 = DIGITAL IN 2, 33 = MOTOR
+THERMISTOR, 35 = COS input.** So the FX motor runs a sin/cos encoder on 21/35 with 26 = supply and 15 = 0 V; the
+table rows "15 brake/regen", "26/28 encoder A/B", "32/33 encoder supply/GND" are wrong — the wires are right (the
+bike runs), the labels are not. Pin 15 is the analogue/encoder ground: never use it for the regen paddle. Confirm
+on the bike with the raw-input tree before editing the table.
+
 ---
 
 ## Critical DVT Object Reference
@@ -148,6 +266,11 @@ All digital inputs are **active-low (to B−)**. Confirmed via DVT raw input sta
 | 100Ch, 100Dh | Node guarding | Set both to 0 |
 | 2905h | Inching configuration | Speed 5–10%, timeout 1–2s, torque 20–30% |
 | 2914h | FS1 configuration | Set to None to bypass, or assign pin 19 |
+| 2130h | Footbrake switch (regen paddle) | Map to DI5 (pin 20); closed = max footbraking per 2920h, open = neutral braking (step 5a) |
+| 2911h | Footbrake characteristics | min speed for braking, drive/brake priority + timeout (step 5a) |
+| 290Eh | Brake feathering | neutral/foot braking torque → 0 near standstill, no roll-back |
+| 2404h | Brake-light output | map to a free low-side output; on during footbrake and direction-change braking |
+| 2221h | Footbrake analogue voltage | Pot 2 (pins 35/23) for a proportional regen lever, later |
 | 2918h | Sequence fault masking | Mask forward direction requirement to remove pin 18 |
 | 3300h | VPDO digital input mapping | DI4 (pin 31) → inch forward |
 | 4680h | Digital input polarity | Active-low (default, likely no change needed) |
@@ -168,6 +291,14 @@ All digital inputs are **active-low (to B−)**. Confirmed via DVT raw input sta
 | 2C30h sub 06h | BDI cell count | 0 = BDI disabled (manual caution; SOC comes from ANT) |
 | 5820h / 5821h | Precharge level (% of battery V, 50–90) / min capacitor V to close contactor | 90 %; the earlier "~86 V" note was this percentage, not an absolute |
 | 4624h | Trip speed (overspeed fault) | leave stock |
+| 5000h sub 01h/02h/03h | Access level / password / user ID | Login without DVT: write password to sub 02h, user ID to sub 03h, read level from sub 01h (need ≥ 4; checked against OEM key 5001h). The DVT sends it in clear on CAN: capture once |
+| 2800h | Request pre-operational | 1 = pre-op (needed for PDO COB-IDs and other protected objects), 0 = operational. Refused while driving |
+| 5110h | NMT state readout | 05 = operational, 7F = pre-operational |
+| 5610h | Fault text | write fault ID to sub 01h, read description from sub 02h |
+
+All of the above is plain CANopen SDO: any CAN adapter on any OS (or the speed-converter ESP32 over Wi-Fi) replaces
+IXXAT + DVT + Windows for configuration; only firmware upload and the motor wizards stay DVT-only. Sequence and
+caveats in `ideas/README.md` ("ESP32 bridge: web interface to Sevcon settings").
 
 ---
 
@@ -206,9 +337,10 @@ below ~2 km/h; then 12 V power, log 5100h/temps/EMCY, regen brake light, odomete
 - Sevcon TPDO1 ID: 0x180 + node ID (check node ID in DVT)
 - Velocity object: 606Ch (actual velocity, 4 bytes, signed int32, RPM)
 - Gear ratio: **5.28:1** (132T/25T belt, OM-FX-MY14 p. 1.7 and parts catalogue `manuals/14fx.pdf` ZEV0009; the
-  earlier ~8.9 figure was wrong). Rear tyre 110/90-18 (catalogue: IRC GP-110 4.10-18 59S, the inch equivalent,
-  Ø ≈ 665 mm, +1.5 %) → Ø ≈ 655 mm, circumference ≈ 2.06 m → **km/h ≈ motor RPM × 0.0234**; with the CT-22 default
-  7.0 Hz per km/h: **f_out ≈ RPM × 0.164 Hz** (60 km/h = 2560 RPM = 420 Hz). Calibrate against GPS
+  earlier ~8.9 figure was wrong). **Rear tyre on the bike: 120/80-18 on a 2.15 × 18 rim** (owner, read off the
+  wheel 2026-11-08; the catalogue tyre is IRC GP-110 4.10-18, Ø ≈ 665 mm, and the 14MY kit rim is listed as 2.50 —
+  this bike has 2.15). Ø = 457.2 + 2 × 96 = **649 mm**, circumference ≈ 2.04 m → **km/h ≈ motor RPM × 0.0232**; with
+  the CT-22 default 7.0 Hz per km/h: **f_out ≈ RPM × 0.162 Hz** (60 km/h = 2590 RPM = 420 Hz). Calibrate against GPS
 - CAN baud: match Sevcon setting (configure 5900h first)
 - Output pin: D9 (timer-driven square wave, NPN open-collector to speedometer)
 
@@ -620,19 +752,29 @@ clamp (first charge showed charger 97.44 V / 8.00 A vs app 97.83 V / 8.90 A — 
 System tab), NTC placement between cells. `DV/CV/DSV 12.9/12.5/0.0 V` on the home screen is undocumented
 (probably gate-driver voltages).
 
+**App will not connect after the pack sat idle (2026-11-08, after a week at 78 %):** the BMS shows in the app's
+device list, "connecting" runs, then the app drops back to the list with no error. Phone reboot did not help. What
+did: force-quit the ANT app, Bluetooth off/on in the phone settings, reopen the app and scan afresh — connected
+at once. Most likely two things stacked: the board was asleep (NoCurautoSleepTime 1800 s; wakes on charge or
+discharge current, e.g. key on / charger) and the phone held a stale BLE state. Recipe in order: key on or charger
+in for 10–20 s → quit app → BT off/on → fresh scan. Only then consider reseating the Bluetooth module or pulling the
+balance harness for 30 s (the ANT power cycle). Both manuals in `manuals/` say nothing about wake-up.
+
 **Charger:** AFU AF1200, 30S LiFePO4 version, Mode: Lithium, Vfull 109.5 V, CC 8 A (0.15C, below the 10 A
 balance gate so balancing can run the whole top end). First charge 2026-10-25 from 8 %: ~5 h; charge only with
 the Sevcon disconnected (Gen4 manual: isolate from charger).
 
-**Balance status 2026-10-27:** after the first full charge, with the pack sitting on the bench, the passive
-balancer brought the cell spread to **0.003 V** (End Diff is 0.005, so it will now idle until the spread
-reaches Start Diff 0.020). Cell 13, the high cell at first connection, now sits with the rest; the "highest
+**Balance status 2026-10-27 — superseded 2026-11-12, see Blocking "Pack is not top-balanced":** after the first full
+charge, with the pack sitting on the bench, the app showed a cell spread of **0.003 V** — but that was read after the
+cells had relaxed into the flat OCV region (≈ 3.33–3.37 V), where 3 mV carries no SOC information; at the top of the
+next full charge (11-10) the spread was 0.221 V and cell 13 tripped OV protection again, exactly as on 10-25/26. Cell 13, the high cell at first connection, now sits with the rest; the "highest
 cell" marker moved to cell 23 — at a 3 mV spread that marker is ADC noise (1 mV resolution), do not chase it.
 Still to do: (1) disconnect the charger, rest 1–2 h, re-read the spread — under charge the highest reader is
 the highest-resistance cell, not the most charged one; a rested spread ≤ 5 mV confirms the balance; (2) check
 ANT shows SOC 100 % and Remaining Capacity 52 Ah after the full charge (coulomb-counter resync); (3) the real
 capacity-match test is the bottom: on the first ride to ~20 % app SOC watch which cell sags first (3.1 V
-warning). Do not leave the pack full on the bench for weeks — storage is 30–50 % SOC (halogen load below). Bench discharge load for storage (~50 %, 26 Ah out):
+warning) — **2026-11-08: cell 16 reads lowest under load, but that is the mid-pack jumper's I·R, not the cell**
+(see Blocking); after the Connection Resistance fix the question is open again. Do not leave the pack full on the bench for weeks — storage is 30–50 % SOC (halogen load below). Bench discharge load for storage (~50 %, 26 Ah out):
 one 500 W / 120 V halogen T3 work light ≈ 3.5 A at 100 V DC, switched only via OnDisCHG/OffDisCHG in the app
 (the lamp's own switch is AC-rated), 5 A fuse in the lead.
 
@@ -657,6 +799,38 @@ gate so every night is a full top-balance; 0.15C is the kindest rate for the cel
 resyncs the ANT coulomb counter. Only charge above 10 °C. Do not leave the bike at 100 % for weeks (storage
 30–50 %). Fast / public charging matters only on days > ~75 km mixed or for a second ride the same day —
 the odometer will show after a season whether such days exist.
+
+**On-bike charge port with a series diode (owner 2026-11-05).** An Anderson SB50 sits in the stock charge-port
+location; its positive lead runs through a rectifier module **MD 110A-16** (110 A / 1600 V, isolated baseplate),
+so the port is dead when unmated and the charger's input capacitors never spark on the contacts. Unmated, an SB50
+is only IP10 (not finger-safe; IP20 is mated only, `manuals/Anderson-DS-SB50-REV9.pdf`), so the diode is physics
+where a cap is procedure. **Decision: keep the diode, add the Anderson Environmental Boot with cover** (3-6054P2
+Load / 3-6055P2 Source, IP64 mated and unmated; the plain dust cover 134G1 is dust-only, "not a hermetic seal").
+Consequences:
+- Forward drop ≈ 0.8 V under current: ~6 W at 8 A (AF1200), ~15 W at 18 A (E22) for the whole CC phase. Bolt
+  the module to the aluminium pack box with thermal paste (base is isolated — verify with a DMM first). Bare, it
+  would run > 100 °C over ambient.
+- The pack ends ~0.6 V below the charger's CV: ~108.9 V = 3.63 V/cell instead of 3.65. Harmless, slightly kinder
+  to the cells; balancing (starts 3.40 V) is unaffected. **Do not raise the charger CV to compensate** — ANT pack
+  over-voltage protection is 110.0 V, there is no room.
+- The charger sees 0 V before it starts. **The AF1200 does NOT start into the dead port (owner 2026-11-08)** — the
+  earlier "charges through it" note was an assumption. Battery-detect needs to see pack voltage, not current, so the
+  fix under consideration is a sense path across the diode, not its removal: (1) a high-value resistor anode→cathode
+  (start at 100 kΩ = 1.1 mA touch current, within the IEC 61010 2 mA DC limit; go down to 47 / 22 / 10 kΩ only if the
+  charger's detect divider needs it — test by feeding the charger output from the pack through the resistor with
+  clips before soldering; two 1 W 250 V resistors in series on the module terminals); (2) a 200 V DC reed relay +
+  1 kΩ across the diode, reed at the socket, magnet in the charger plug — port stays dead unless the charger is
+  mated; (3) a momentary "start" button + 100 Ω — works but forgetting it means no overnight charge. Until one is
+  fitted, charge at the pack SB50 (road-kit procedure). Same requirement for the **E22: must start into a dead
+  output** or get the same sense path — YILEIDE checklist in `charging/road_kit.md`.
+- The AF1200-vs-ANT discrepancy (97.44 V / 8.00 A vs 97.83 V / 8.90 A) is not explained by the diode but made
+  worse: with it the pack should read ~1 V *below* the charger, the app read 0.4 V above, so one meter is ~1.2 V
+  off. Calibrate both against a DMM.
+- The port is input-only. Load / V2L use goes through the pack's SB50 or a DC-rated bypass, see
+  `backup_power/README.md`.
+- Charging through this port leaves the Sevcon on the bus (the stock Zero arrangement, charged to 116 V), unlike
+  the road-kit procedure that unplugs the bike's SB50 at the pack. Port negative must be on P− through the ANT so
+  the BMS can stop the charge.
 
 **What a charger must do for 30S LFP** (all of "smart" that the pack needs): CC ≤ 26 A (0.5C, Gotion
 table A.1.2) → CV 109.5 V (3.65 V/cell) → **stop** at ≈ 2.6 A (0.05C). No float, no lead-acid stages, no
@@ -726,6 +900,18 @@ Checklist and reasoning in `charging/road_kit.md` ("YILEIDE E22").
 
 ---
 
+## Backup power (researched 2026-11-05; details in `backup_power/README.md`)
+
+The pack as a household / camping energy source. Power is not the limit (52 A × 96 V = 5 kW, more than a
+household circuit); range is: **every 1 kWh spent at camp = 18 km less ride home**. Three ways out: a 96 V-input
+pure-sine inverter (a standard off-grid tier, 1–5 kW, ≤ 3 kW chosen, LV cut-off 88–90 V above the ANT 84 V
+cut), an isolated 72–120 V → 12 V buck for 12 V camping gear, or the garage trick of DC into "100–240 V"
+switch-mode bricks. Fridge + Starlink + gadgets + cooking ≈ 3 kWh/day; resistive space heating is out. Connection
+is the pack's SB50 with the bike unplugged (no Sevcon isolation needed for a load; own DC fuse per load;
+precharge for big inverter capacitors). The on-bike charge port is input-only because of the diode; a bypass,
+if ever wanted, is a rotary PV DC isolator (32 A / 1000 V DC) across the diode, or a contactor keyed by a magnet
+in the load plug — never remove the diode. Nothing bought (owner 2026-11-05).
+
 ## Street mode (started 2026-11-04; details in `street_mode/README.md`)
 
 Owner's term for an FXS-style road setup of the 2014 FX (lower seat height, road suspension). Researched so
@@ -736,6 +922,30 @@ M10, 475–585 lb/in. The 2015+ Showa 22-05879 is the same length (320 mm) and c
 lowering. Options in order: spacer in the Fastace (3/4 in → ~1.5 in, forum-proven on a 2013 FX), Ikon
 3610-1104 (made for the 2016 FXS, −2 in version), made-to-length shock (~300 mm), Fox Podium RC2 (Zero
 accessory for 2013–14 FX, stock height). Measure eye/lug widths and spring clearance first.
+**Front wheel 21 → 19/18 (2026-11-07):** a used Zero XU 2011–13 front wheel is 19 × 1.85 (no Zero wheel is 18 × 1.85;
+220 mm rotor, same end-bolt axle family as the FX); hub interchange with the 2014 FX is likely but unproven — check
+bearing bore (6904 = 20 mm), hub width and rotor PCD vs the FX 240 mm rotor before buying. Documented alternative:
+2014 DS 2.15 × 19 wheel 23-07213 (same axle/spacer/bearings/rotor bolts in the catalogues). Tyres: BT46 100/90-19 57H
+(H, not V, on a 1.85 rim) + 120/80-18 rear; front drops only 10 mm, stance stays stock. Details in `street_mode/README.md`.
+**Owner 2026-11-07: no fussing with 18/19 — wait for a 2013–14 S/SR/DS 17 in cast pair.** Rear 23-04859-1 is the
+wheel Zero used on the 2016 FXS (both ends), same axle/pulley/rotor as the FX, right spacer 20-07324; front S cast with
+the FX 240 mm rotor (not the FXS front: hollow axle, 320 mm). Front −50 mm, rear −18 mm → level with ~30–40 mm at the
+shock = seat −45 mm. Keep the 21/18 set for Catalina dirt. Open: 140/70-17 vs belt/2014 swingarm, front rotor PCD. **Front rotor on the S
+cast wheel (2026-11-10, 2014 S catalogue `14s.pdf` ZEV0002, not in `manuals/` yet):** the 2013–14 S/DS front is a **313 mm
+floating rotor 25-03541 on 6 × M6 bolts 90-07290** (supersedes 90-03477 — the same bolt family as the FX front), caliper
+Nissin 272-C00-363 25-04164, so the S front hub is 6-hole and the FX 4-bolt 240 mm disc will NOT bolt to it — either run
+the S 313 mm rotor + S caliper on that wheel, or re-check the FX front hole count. The zeromanual "matches KTM 450SMR"
+note for this rotor is plausible but unverified: KTM 450 SMR 2004–14 (and SX/EXC 2011–19) front disc 25009260000 is
+310 mm floating, KTM hubs are 6 × 6.5 mm holes on ~143–144 mm PCD; Zero's PCD, offset and thickness (313 × 4 mm per
+press specs) are not documented anywhere found — measure before buying.
+**Forks (2026-11-07):** FX/S/DS 2014 are three different Fastace sets on different clamps (shared: axle, spacer, Nissin
+caliper, M8×40 bolts). S 2012–13 and XU 2011–13 share the **Fastace ALX07RC** (38 mm, 135–140 mm travel) with different
+brake-side legs (313 vs 221 mm lugs); the 2013 XU ran it in the FX frame (48 mm clamps) → the XU fork is Zero's own short
+road fork for the XMX clamps, the S fork the same with 313 lugs for the S 17 in wheel. Details in `street_mode/README.md`.
+**Rear shocks (2026-11-07):** XU and S shocks are different parts (S = BDA58RC 260 mm, 11/16 in bottom bushing, not
+for the FX clevis). The 2013 XU sits on the 2013 FX frame 20-06390 and "FX/XU swingarm" 21-05493-1, so its **"XU 16/19"
+shock 22-05487** (+ fork set 22-05488) is Zero's own lowered pair for this chassis, special order via Koup's; same BFA57RC
+mount family as the 2014 FX shock 22-06105. Length unknown (est. 40–55 mm shorter), full XU stance, matched with the fork.
 
 ---
 
@@ -748,6 +958,32 @@ accessory for 2013–14 FX, stock height). Measure eye/lug widths and spring cle
   rear 132T 8 mm pitch 17 mm wide 30-04051, belt 220T × 8 mm × 14 mm wide 30-08084 (≈ 1760 mm), motor "75-5"
   replacement kit 12-08033. The same catalogue lists a 520-chain option (12T 30-04890 / 65T 30-05090 on the 132 mm
   bolt circle) — the chain route if a re-gear is ever wanted
+
+### Drive belt — replace by condition, carry a spare; Gates 8MGT-1760-12 is acceptable (2026-11-10)
+
+- **Zero's own rule (OM-FX-MY14 p. 5-2 / 5-13):** check slack and condition at every service; replace a worn/damaged
+  belt; "check for cracking and/or replace the belt every 25K mi (40K km)". Replace at once on: cuts, damage to the
+  belt centre, exposed tensile cords on the tooth side (= worn pulley teeth), cracks at the tooth base, stone punctures
+  on the ribbed back, or after any ratcheting (teeth skipping — damages the carbon cords). Edge bevelling = misalignment.
+  Tension 20–30 kg on the Krikit gauge, or 96–124 Hz plucked (Gates Carbon Drive app, zeromanual Belt Tension Check).
+- **Decision for this bike:** no mileage-based replacement (mileage is unknown anyway, ~10–15 thousand km estimated);
+  inspect the tooth side with a light every few hundred km, keep alignment, and **buy the spare now** — a belt failure
+  strands the bike. The 2014 belt is PU + carbon cord, not rubber; age alone is not a reason, cracks are.
+- **Belt:** Zero 30-08084 (= 30-03673) is a Gates Poly Chain GT Carbon 8MGT, 220 T, 1760 mm, **14 mm** — a custom width
+  Gates makes only for Zero. The standard catalogue width is **12 mm: 8MGT-1760-12** (same pitch, profile, cord, PU).
+  Pulleys are 15 mm (front 25T) / 17 mm (rear 132T) wide, so a 12 mm belt has 3–5 mm of lateral room: alignment and
+  flanges matter more than with 14 mm. 21 mm does not fit the pulleys.
+- **Rating (Gates design manual, 12 mm, 25-groove small sprocket, × 1.17 length factor for 8MGT-1760,
+  `manuals/Gates-Poly-Chain-GT-Carbon-Drive-Design-Manual.pdf` p. 46):** ~8 hp / 6 kW at 1000 rpm, ~15 hp / 11 kW at
+  2000 rpm, ~22 hp / 16 kW at 3000 rpm, i.e. ~59 N·m rated at the motor pulley (industrial continuous rating before
+  the 1.3–2.0 service factor). The 14 mm OEM belt is ~17 % stronger. Stock FX ran 44 hp / 95 N·m on the 14 mm belt for
+  the 25K-mile schedule, so vehicles run these belts well above the industrial design point on short peaks.
+- **This build vs the belt:** 7.5 kW at 78 A is half the 12 mm continuous rating above 60 km/h (2590 rpm) and a quarter
+  of stock peak; the only place the 12 mm belt is *more* stressed than OEM-on-stock is launch, where torque is
+  phase-current limited (stock-level, ~17 % more belt stress than OEM). Mitigate in 2920h (max torque / ramp, already
+  planned) and never land a jump on the throttle. **Verdict: 12 mm Gates is fine as the working belt**; keep the
+  Zero 14 mm as the preferred spare if one comes up cheap. Tension a 12 mm belt at the low end of Zero's range
+  (~20–22 kg; or compute with the Gates app for 12 mm × 1760) — Zero's 20–30 kg was set for 14 mm.
 
 ### Gearing Decision — keep stock (2026-10-20)
 
@@ -893,8 +1129,113 @@ Electrical part numbers worth knowing (ZEV0010 unless noted):
   cylinders (not sold separately), dash LCD 40-08030 (14–16MY)
 - Lighting/horn for the 12 V budget (ZEV0001): headlight low beam 65-06401, high beam 65-06400, tail light
   65-00600, turn signals 65-03462/-03463, horn K70/H12 45-06774
-- Wheels (ZEV0003): front 1.60×21 (IRC GP-110 3.00-21), rear 18 in (IRC GP-110 4.10-18) with the 14MY upgrade
+- Wheels (ZEV0003): front 1.60×21 (IRC GP-110 3.00-21), rear 18 in (IRC GP-110 4.10-18; this bike: 2.15 rim,
+  120/80-18, see Speed Converter) with the 14MY upgrade
   wheel kit 12-08076; bearings 6904 2RS, seals 25×37×7
+
+## Chassis mileage and the stock MBB / dash (2026-11-09)
+
+**Mileage is unknown.** The Sevcon stores none; the stock odometer lives in two places (zeromanual Gen2 dash
+"Indications" table and the app's "Odometer" row): the dash keeps its own figure in its memory, the MBB keeps
+another and reports it to the app and in its log ("may not always agree"). **Both the MBB (label "MY 2014" +
+serial) and the dash were found (owner 2026-11-09)**, with the cut harness and its MBB connectors — reading
+the odometer is a bench job, not a reverse-engineering project.
+
+**Wear-based estimate, as a cross-check only.** DOT date codes read 2026-11-10: **front IRC GP-110 3.00-21 = 2616**
+(week 26 of 2016, so NOT the original tyre — the bike is a 2014 MY), **rear Bridgestone BT46 120/80-18 = 3223** (week 32
+of 2023). Both tyres are replacements, so neither counts the whole life of the bike:
+- Front, fitted ≈ 2016–17, centre tread ~10 % left = about one full front life since then, ~10–15 thousand km.
+- Rear, fitted ≈ late 2023, well worn = ~5–10 thousand km in the last two years. That pace (several thousand km a year) does
+  not match the front's ~1.5 thousand km/year average, so use was uneven: the bike probably sat for years and then commuted
+  daily — or the front simply has more life left than it looks.
+- The original front (2014 → 2016/17) is unaccounted for: a front normally outlasts a rear, so if it wore out it adds
+  another ~10 thousand km; if it was replaced for damage or age, less.
+Net: **~15–25 thousand km, most likely ~20**, up from the earlier 10–15 estimate. Rotors agree with "a lot": front has a
+wear lip, rear was warped. Firm it up with tread depth in mm vs new on both, and the front rotor wear lip measured with
+a micrometer in four places (lip height = wear directly; stock 4.5 mm, limit 3.85 mm; ~0.1 mm = a few thousand km,
+0.2–0.3 mm ≈ 10–20 thousand, ≥ 0.4 mm = 20+) — now the only wear witness that has been on the bike since 2014.
+Other sources: Zero dealer/support by VIN (service and app-upload records), VIN history (NMVTIS, CycleVIN).
+
+**How the MBB is powered (2016 FX wiring diagram rev 1.1, `zeromanual/images/2016_FX_Wiring_1-1-preview.png`,
+1650 px, readable when cropped; the 2013 trace is the wiki's "Main Bike Board Connections" + DC-DC table):**
+the MBB runs **directly from the traction battery** through its own "MBB FUSE 4A", upstream of the contactor
+(that is why it is partly alive with the key off and why it can enable the DC-DC). The 12 V side is a separate,
+isolated pair fed back from the DC-DC output. Pin numbers differ between the 2013 trace and the 2016 drawing
+(the wiki itself notes the DC-DC enable moved 21 → 20 between 2013 and 2015); the 2014 FX is electrically a
+2013-type bike (CCU + Meanwell), but identify pins by wire, not by year:
+
+| MBB 1 (34-pin, harness side) | 2013 trace (Burton, S) | 2016 FX drawing |
+|---|---|---|
+| Battery + (~100 V, via 4 A) | 7, Orange/Blue **16 AWG** | 18, ORN/BRN |
+| Battery − | 5, Orange/Black | 7, ORN/BLK |
+| Key-on signal (= battery + through the key) | 4, Orange/White | 15, YEL/GRN |
+| +12 V from DC-DC output | ? | 4, BLUE |
+| 12 V common | ? | 29, BLK/BLU |
+| DC-DC enable (not needed on the bench) | 21 | 1 or 20, ORN/RED |
+
+**Verified on the 2016 drawing 2026-11-10 (legend colours):** MBB 1 pin 18 ORN/BRN is drawn red = "BATTERY + DIRECT",
+fed from "MBB FUSE ABC 4A" off battery-module connector pin 1 ORANGE; pin 7 ORN/BLK is drawn violet = "BATTERY −";
+pin 4 BLUE is drawn blue = "+12V ISOLATED" (DC-DC OUTPUT+ pin 4 BLUE); pin 29 BLK/BLU is drawn brown = "12V COMMON"
+(DC-DC OUTPUT− pin 5 BLACK). Key switch (4-pin, two used): harness YEL/GRN (pin 1) ↔ YEL/GRY (pin 2); YEL/GRN runs
+to MBB 1 pin 15, YEL/GRY runs to battery-module connector pin 4 (front and rear modules in parallel) — so in 2016
+the key joins a BMS-side line to the MBB key input; in the 2013 trace it is battery + through the key. Bench: battery +
+(via the 1 A fuse) onto MBB 1 pin 15 YEL/GRN. CAN on MBB 2 (40-pin): 21 BLU/GRY + 22 WHT/GRY = Sevcon (matches Sevcon
+pins 27/16 — never connect on the bench); WHITE/BLUE pairs 6/7, 23/24, 25/26 are the other CAN taps (dash, OBD-II,
+charger/BMS — which is which not traced). Dash CAN = dash pins 11 WHITE (H) / 12 BLUE (L), same colour convention as
+OBD-II pin 6 WHITE CAN HIGH / 14 BLUE CAN LOW; ring the dash pair to find its MBB 2 pair, or use OBD-II 6/14 if that
+connector is still on the cut harness. 120 Ω across H/L.
+
+Verification on the cut harness: battery + is the only 16 AWG orange wire on MBB 1 and rings to the 4 A fuse
+holder near the pack connector; battery − has the same colour as DC-DC INPUT− (5-pin DC-DC connector pin 3,
+ORN/BLK) and rings to it; the key wire runs to the Zadi switch, whose other contact sits on battery +. On the
+MBB itself battery − must ring to OBD-II CAN GND and UART GND, and diode-test between − and + must show a
+junction, not 0 Ω (polarity check before power).
+
+**Bench recipe:** ~100 V DC at a few watts — the weak DC adapter used for Sevcon logic tests is ideal — with a
+1 A fuse in the + lead (or the pack via the SB50 with the same fuse); key-on = battery + to the key pin; 12 V to
+the 12 V pins from any adapter or the bike's rail. **Never connect this MBB's CAN to the Sevcon bus**: RPDOs
+1400h–1403h are still enabled in the Sevcon and the MBB will command it. Bench only, Sevcon unpowered.
+
+**Reading the odometer, cheapest first:**
+1. **Dash alone on 12 V.** 16-pin connector, 2016 drawing: +12 V pin 16 BROWN (fuse 6 "RUN LT 5A"), ground
+   pin 9 BLACK, CAN probably 11 WHITE / 12 BLUE. The dash stores its own odometer, so it may show ODO with no
+   MBB at all. Zeros or dashes = the figure comes over CAN; then join dash CAN to MBB CAN (120 Ω termination)
+   and read it on the dash, no terminal needed.
+   **What is documented (2026-11-09, zeromanual Gen2 dash "Indications" + OM-FX-MY14 p. 3-6/3-7):** the dash is
+   on the 12 V rail (backlight fault-finding = check the running-lights fuse); the clock is internal with its own
+   non-replaceable battery; the **odometer is "stored in the unit's memory"** (the MBB only pushes updates, a
+   frozen ODO = misconfigured MBB model data); speed, SOC, charge time, mode, meters, Bluetooth symbol and the
+   error-code display come from the MBB over CAN; SEL/ADJ are the dash's own buttons; the other 16-pin wires are
+   discrete 12 V tell-tales (turn signals, high beam …). Nobody has written down what the LCD shows on 12 V alone,
+   so it is a 2-minute test, not a fact: expect backlight + clock, probably ODO, and blanks or dashes in the CAN
+   fields. The dash never had a Mode button — Mode is on the right handlebar and goes to the MBB.
+   **Result 2026-11-10 (owner, bench, 12 V on pin 16 BROWN / pin 9 BLACK, pins verified on the 2016 drawing):
+   backlight comes on, the LCD shows nothing at all — no clock, no ODO, no segments.** The dash renders only
+   when the MBB talks to it over CAN; "stored in the unit's memory" does not mean "displayed without the MBB".
+   So option 1 is closed and option 2/3 (MBB powered from ~100 V, dash CAN joined to MBB CAN with 120 Ω) is the
+   path to the odometer. Easiest CAN tap on the cut harness: OBD-II pin 6 (CAN H, WHITE) / 14 (CAN L, BLUE) →
+   dash pins 11 / 12.
+2. **Zero app over Bluetooth.** With the MBB powered, pair and read Performance → Odometer. Risk: the legacy app
+   may be gone from the stores or need an account.
+   **Pairing needs the Mode button (OM-FX-MY14 p. 3-13 "Bluetooth Pairing", same text in zeromanual for 2014+;
+   2013 bikes toggled the SPORT/ECO switch 12×):** bike keyed ON and *not armed* (kickstand down, run switch in
+   Stop), then **hold Mode ≥ 5 s** until the Bluetooth symbol on the dash blinks → discoverable as
+   `ZeroMotorcyclesXXXXX` (last 5 of the VIN). iOS pairs in **Settings → Bluetooth with a six-digit code** (so it is
+   classic Bluetooth, not BLE — a BLE scanner app will not see it); Android pairs from the Zero app's Settings tab.
+   Solid symbol = paired. Pairing is per phone, so a new phone always needs the button; without a dash on the bench
+   the phone's scan list is the only indication. **On the bench the button is a jumper:** the right-bar pod
+   (kill/mode/start switch 40-06054) is a 4-pin connector, 2016 drawing: pins 1–2 = RUN toggle (harness RED and
+   RED/BLK, RED/BLK lands on MBB 1 pin 24 — the 2013 table's "white, pin 24"), pins 3–4 = MODE momentary (harness
+   BLU/BLK and RED). 2014 colours may differ: ring the pod connector's MODE pair back to MBB 1 pins and short those
+   two pins for 5 s after key-on. Leaving the RUN pair open *is* "Stop" and an unplugged kickstand sensor reads
+   as down / faulted — both are the not-armed state the procedure asks for, and nothing can arm on the bench anyway
+   (no BMS, no contactor). Give the MBB its 12 V pair as well; a stock bus without the Sevcon has lost the
+   Sevcon's own terminator (pins 2–24, see the pinout note), so put 120 Ω across CAN H/L if the dash is joined.
+3. **OBD-II serial console** (2016 pins: 4 = 12 V common BLK/BLU, 5 = UART GND, 6 = CAN H WHITE, 8 = UART RX
+   RED/BLK, 9 = UART TX GRY/BLK, 11 = CAN GND, 12 = UART "RED", 14 = CAN L BLUE). USB-TTL on 5/8/9, try 115200
+   then 57600; commands `help`, `status`, `bbhist`. The wiki warns the port's own supply is weak: short cable.
+   Logs parse with `zero-log-parser` (GitHub); "Riding" entries carry the odometer. Gen2/MBB Console and Log
+   Extraction pages are not in the mirror (web.archive.org links in `zeromanual/wiki/Interfacing.md`).
 
 ## Unofficial Zero Manual (zeromanual.com) — offline mirror
 
@@ -961,8 +1302,23 @@ The repo is public on GitHub; the site openzero.u65.info is built from `site/` b
     connectors or electrical specs. Summary in "Stock 2014 FX parts"
   - `15fx.pdf`, `16fxs.pdf` — the 2015 FX and 2016 FXS catalogues (same AF1 Racing source), used to compare
     frame / swingarm / shock part numbers across the Fastace → Showa change (see "Street mode")
+  - `Gates-Poly-Chain-GT-Carbon-Drive-Design-Manual.pdf` — Gates design manual (gates.com, added 2026-11-10): 8MGT
+    horsepower rating tables (12 mm table p. 46 = the Zero belt family), length correction factors, tensioning
+  - `14s.pdf` — the 2014 Zero S catalogue (repuestoszero.es print version of the AF1 Racing `14s.pdf`, added 2026-11-10):
+    S/DS front brake (313 mm floating rotor 25-03541, 6 × M6 bolts 90-07290, Nissin caliper 25-04164), 17 in S cast wheel
+    23-03929-1 — the donor side of the street-mode wheel swap
+- `rides/log.md` — ride log: GPS distance/speed per ride + ANT log extremes (current, weakest cell, warnings),
+  started 2026-11-08; `rides/episode3.md` — ride plans and the energy model
 - `street_mode/README.md` — FXS-style road setup of the FX: rear shock geometry 2014 vs 2015+, lowering options,
   open measurements (added 2026-11-04)
+- `backup_power/README.md` — the pack as a backup / camping power source: converters, load table with range
+  cost, connection point, charge-port bypass options (added 2026-11-05)
+- `ideas/README.md` — parking lot of engineering ideas beyond the plan (reverse gear, regen paddle, range
+  extender string, ESP32 features, PTO…), none decided (added 2026-11-05); includes "ESP32 bridge: web
+  interface to Sevcon settings over Wi-Fi" — DVT-free configuration by SDO (login 5000h, pre-op 2800h, the
+  MBB-removal sequence as a python-canopen script, caveats)
+- `charging/solar.md` — solar charging PoC sizing (300 W for daily use, ~1.2 kW for a full pack per SoCal day), 96 V MPPT
+  controller question, PV string voltages (added 2026-11-07)
 - `charging/road_kit.md` — public-charging design: J1772 adapter box (BOM, pilot circuit, procedure), charger
   selection (AF1200-EU, universal, Elcon HK-J, QuiQ verdict), buy-vs-build
 - `battery_box/SPEC.md` — battery box enclosure build spec (build123d, Bambu P2S)

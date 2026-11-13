@@ -14,6 +14,16 @@ This repository is the engineering notebook of that conversion: decisions, measu
 configuration, the battery enclosure model, and an offline mirror of the community Zero wiki. It is written
 so that the next owner of a dead Zero can repeat it.
 
+**What you get if you follow this recipe: street-legal, two-up, 5 kWh — Light Bee performance with a licence
+plate.** In one line: it launches like a motorcycle and rides like a 125 cc scooter. Measured on 2026-11-08
+(GPS + BMS log): off the line it is still the stock 44 hp FX, 0.65 g and wheelie-capable, because launch torque
+is set by the controller's phase current, not by the battery. Above ~60 km/h the 7.5 kW the 1C LiFePO4 cells
+can deliver takes over: overtaking pull like a 125 scooter, 80 km/h reached in about half a minute, top speed
+88 km/h (55 mph) on the flat. Against a Sur-Ron Light Bee X that is 13 km/h more top speed, twice the range,
+a passenger seat, lights and registration, on 130 kg instead of 50; an Ultra Bee out-accelerates it at the same
+top speed. Not a moped, not a highway bike; a 125-class (EU A1) dual-sport with a big bike's start. The ceiling
+is the cell choice, not the platform (see *Numbers*).
+
 ---
 
 ## Why
@@ -25,7 +35,7 @@ instead of replacing one black box with another.
 
 The result is a slower motorcycle than stock (see *Numbers* below), owned and understood completely.
 
-## Status (late October 2026)
+## Status (early November 2026)
 
 Done:
 
@@ -37,10 +47,13 @@ Done:
   to 3 mV, first full charge done.
 - Battery current limit strategy, voltage cutbacks and BMS protection thresholds derived from the cell
   datasheet, not from the BMS defaults.
+- Riding on the pack: ~120 km so far (37 km GPS-confirmed), solo and two-up, first commutes and a 36 km round trip
+  to Top of the World with a 2.4 km / 10 % climb at full throttle; ~55 Wh/km; ride log in `rides/log.md`.
 
 In progress / next:
 
-- Riding on the pack and the thermal validation that decides whether the current limit goes from 52 A to 78 A.
+- Writing the battery current limit into the Sevcon. The BMS log shows full throttle currently draws ~80 A
+  (the "78 A stage" without its thermal validation); the plan was 52 A first. Decision pending.
 - Speed signal for the gauge (ESP32 reading motor RPM from the Sevcon CAN bus).
 - Saving all controller parameters to NVM, disabling the RPDOs that used to come from the removed modules,
   NMT auto-start.
@@ -81,8 +94,9 @@ Three principles drove every choice:
 | Pack | 28s NMC, ~102 V, 5.7 kWh | 30s1p LiFePO4 (Gotion 52 Ah prismatic), 96 V, 5.0 kWh |
 | Battery current, continuous | ~125 A | 52 A (1C), 78 A ceiling after hot-weather validation |
 | Continuous power | ~12.7 kW | ~5 kW (7.5 kW at 78 A) |
-| Launch torque | phase-current limited | same: unaffected by the battery limit |
-| Realistic cruise | highway | ~80 km/h at 52 A, ~95 km/h at 78 A |
+| Launch torque | phase-current limited | same: unaffected by the battery limit (0 → 23 km/h in the first second, GPS) |
+| Realistic cruise | highway | ~80 km/h at 52 A, ~95 km/h at 78 A (estimates) |
+| Measured 2026-11-08 at ~80 A | 137 km/h (85 mph) | **88 km/h (55 mph) GPS max**; 75–86 km/h held on the flat; 0–50 km/h ≈ 6 s, 0–80 ≈ 20–30 s |
 | Pack mass | ~33 kg | ~32 kg |
 
 The power ceiling is a cell choice, not a platform limit: the controller and motor are untouched, and a 2p
